@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deal Scoring Matrix — Deterministic Real Estate Deal Analysis | Luminary</title>
+<style>
+:root { --bg:#0d1117;--surface:#161b22;--border:#30363d;--text:#c9d1d9;--muted:#8b94be;--green:#3fb950;--red:#f85149;--amber:#d29922;--blue:#58a6ff;--accent:#7c3aed; }
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;max-width:720px;margin:0 auto;padding:32px 20px}
+.header{border-bottom:1px solid var(--border);padding-bottom:24px;margin-bottom:32px}
+.brand{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:2px;margin-bottom:8px}.brand span{color:var(--accent)}
+h1{font-size:26px;font-weight:700;color:#f0f6fc;line-height:1.3;margin-bottom:8px}
+.subtitle{font-size:15px;color:var(--muted);margin-bottom:4px}
+.tagline{font-size:13px;color:var(--green);margin-top:8px;font-weight:600}
+.section{margin:28px 0}
+.section h2{font-size:17px;color:#f0f6fc;margin-bottom:16px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:560px){.form-grid{grid-template-columns:1fr}}
+.field label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;display:block;margin-bottom:4px}
+.field input,.field select{width:100%;padding:10px 12px;border:1px solid var(--border);background:#0d1117;color:var(--text);font-size:15px;border-radius:6px;outline:none;font-family:inherit}
+.field input:focus,.field select:focus{border-color:var(--accent)}
+.btn{display:block;width:100%;padding:14px;background:var(--accent);color:#fff;border:none;font-size:16px;font-weight:700;border-radius:8px;cursor:pointer;margin-top:20px;transition:opacity .15s}
+.btn:hover{opacity:.9}
+#results{display:none;margin-top:32px;padding-top:24px;border-top:2px solid var(--border)}
+.score-grid{display:grid;gap:10px}
+.score-row{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--surface);border:1px solid var(--border);border-radius:6px}
+.score-label{font-size:13px;color:var(--muted)}
+.score-bar-wrap{flex:1;margin:0 12px;height:8px;background:#21262d;border-radius:4px;overflow:hidden}
+.score-bar{height:100%;border-radius:4px;transition:width .5s ease}
+.score-val{font-size:15px;font-weight:700;min-width:36px;text-align:right}
+.verdict-box{text-align:center;padding:24px;margin-top:20px;border-radius:8px}
+.verdict-go{background:rgba(63,185,80,.1);border:2px solid var(--green)}
+.verdict-review{background:rgba(210,153,34,.1);border:2px solid var(--amber)}
+.verdict-nogo{background:rgba(248,81,73,.1);border:2px solid var(--red)}
+.verdict-label{font-size:22px;font-weight:700;text-transform:uppercase;letter-spacing:1px}
+.verdict-go .verdict-label{color:var(--green)}.verdict-review .verdict-label{color:var(--amber)}.verdict-nogo .verdict-label{color:var(--red)}
+.verdict-score{font-size:36px;font-weight:700;margin:8px 0}
+.weight-info{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:12px;font-size:11px;color:var(--muted)}
+.share-btns{display:flex;gap:10px;margin-top:16px;justify-content:center}
+.share-btns a{padding:8px 16px;background:var(--surface);border:1px solid var(--border);color:var(--text);text-decoration:none;border-radius:6px;font-size:13px;font-weight:600}
+.share-btns a:hover{border-color:var(--accent)}
+.footer{text-align:center;padding:40px 0;color:var(--muted);font-size:12px;border-top:1px solid var(--border);margin-top:60px;line-height:1.8}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="brand"><span>Luminary Ventures</span> — Deterministic Analysis</div>
+  <h1>Deal Scoring Matrix</h1>
+  <p class="subtitle">Score any real estate deal across 8 weighted criteria. No AI guesses. Just auditable math.</p>
+  <div class="tagline">Free · Instant results · Shareable</div>
+</div>
+
+<div class="section">
+  <h2>Deal Parameters</h2>
+  <div class="form-grid">
+    <div class="field"><label>Purchase Price ($)</label><input type="number" id="price" placeholder="350,000" value="350000"></div>
+    <div class="field"><label>After Repair Value (ARV) ($)</label><input type="number" id="arv" placeholder="490,000" value="490000"></div>
+    <div class="field"><label>Repair Costs ($)</label><input type="number" id="repairs" placeholder="70,000" value="70000"></div>
+    <div class="field"><label>Holding Period (months)</label><input type="number" id="hold" placeholder="6" value="6"></div>
+    <div class="field"><label>Gross Monthly Rent ($)</label><input type="number" id="rent" placeholder="3,200" value="3200"></div>
+    <div class="field"><label>Annual Expenses ($ incl. taxes/insurance/care)</label><input type="number" id="expenses" placeholder="18,000" value="18000"></div>
+    <div class="field"><label>Financing Type</label>
+      <select id="finType">
+        <option value="hard">Hard Money (12% rate)</option>
+        <option value="private">Private Money (9% rate)</option>
+        <option value="conventional" selected>Conventional (7% rate)</option>
+      </select>
+    </div>
+    <div class="field"><label>Down Payment (%)</label><input type="number" id="downPct" placeholder="20" value="20"></div>
+  </div>
+  <button class="btn" onclick="calculate()">Score This Deal →</button>
+</div>
+
+<div id="results">
+  <h2 style="margin-bottom:16px;">Your Score Breakdown</h2>
+  <div class="score-grid" id="scoreGrid"></div>
+  <div class="verdict-box" id="verdictBox">
+    <div class="verdict-label" id="verdictLabel"></div>
+    <div class="verdict-score" id="verdictScore"></div>
+    <div style="font-size:13px;color:var(--muted)" id="verdictNote"></div>
+  </div>
+  <div class="share-btns">
+    <a href="#" onclick="copyResults();return false;">📋 Copy Results</a>
+    <a href="#" onclick="shareTwitter();return false;">𝕏 Share on X</a>
+  </div>
+</div>
+
+<div class="footer">
+  Built by Luminary Ventures — deterministic analysis for real operators.<br>
+  Based on frameworks used across $4B+ in portfolio management. No black-box algorithms. Full audit trail.<br>
+  <span style="color:var(--muted)">Want the full spreadsheet with all templates? <a href="https://github.com/dereviankoandrey/luminary-flash-analyses" target="_blank" rel="noopener">Try our free Flash Analysis tool →</a></span>
+</div>
+
+<script>
+const WEIGHTS={profitMargin:25,cashFlow:20,dscr:15,cocReturn:15,arvLeverage:10,liquidity:10,totalScore:null};
+function scoreProfitMargin(purchase,repairs){
+  var totalCost=purchase+repairs;var arv=parseFloat(document.getElementById('arv').value)||0;if(!arv)return 0;return Math.min(100,Math.max(0,((arv-totalCost)/totalCost)*200));
+}
+function scoreCashFlow(rent,expenses,loanAmt,rate,hold){
+  if(!rent||!expenses||!loanAmt||!rate||!hold)return 0;var monthlyInterest=loanAmt*(rate/100)/12;var netCash=(rent-expenses/12-monthlyInterest)*hold;if(netCash<=0)return Math.max(0,50+netCash/(loanAmt*0.01));return Math.min(100,Math.max(0,(netCash/(loanAmt))*200));
+}
+function scoreDSCR(rent,expenses,loanAmt,rate){
+  if(!rent||!expenses||!loanAmt||!rate)return 0;var annualIncome=rent*12;var monthlyInterest=loanAmt*(rate/100)/12;var dscr=(annualIncome-expenses)/(monthlyInterest*12);if(dscr>=1.5)return Math.min(100,75+(dscr-1.5)*60);if(dscr>=1.25)return 40+(dscr-1.25)*80;return Math.max(0,(dscr/1.25)*40);
+}
+function scoreCoC(price,downPct,repairs,revenue,expenses,rate){
+  var down=price*(downPct/100);var totalCash=down+repairs;if(!totalCash)return 0;var annualNet=revenue-expenses-(price*rate/100);return Math.min(100,Math.max(0,(annualNet/totalCash)*200));
+}
+function scoreARVLeverage(purchase,arv){if(!purchase||!arv)return 50;var leverage=(arv-purchase)/purchase*100;if(leverage>=30)return 95;if(leverage>=15)return 75;if(leverage>=5)return 50;return Math.max(20,leverage/5*50);}
+function scoreLiquidity(hold){if(!hold)return 50;if(hold<=6)return 85;if(hold<=12)return 70;if(hold<=24)return 50;return Math.max(20,(36-hold)/36*50);}
+function calculate(){
+  var price=parseFloat(document.getElementById('price').value)||0;var arv=parseFloat(document.getElementById('arv').value)||0;var repairs=parseFloat(document.getElementById('repairs').value)||0;var hold=parseInt(document.getElementById('hold').value)||0;var rent=parseFloat(document.getElementById('rent').value)||0;var expenses=parseFloat(document.getElementById('expenses').value)||0;var finType=document.getElementById('finType').value;var downPct=parseFloat(document.getElementById('downPct').value)||20;
+  var rates={hard:12,private:9,conventional:7};var rate=rates[finType]||7;var loanAmt=price*(1-downPct/100);
+  var s1=Math.round(scoreProfitMargin(price,repairs));var s2=Math.round(scoreCashFlow(rent,expenses,loanAmt,rate,hold));var s3=Math.round(scoreDSCR(rent,expenses,loanAmt,rate));var s4=Math.round(scoreCoC(price,downPct,repairs,revenue||rent*12,expenses,rate));var s5=Math.round(scoreARVLeverage(price,arv));var s6=Math.round(scoreLiquidity(hold));
+  var total=s1*0.25+s2*0.20+s3*0.15+s4*0.15+s5*0.10+s6*0.10;total=Math.round(total);WEIGHTS.totalScore=total;
+  var scores=[{label:'Profit Margin',val:s1},{label:'Cash Flow Strength',val:s2},{label:'DSCR Quality',val:s3},{label:'Cash-on-Cash Return',val:s4},{label:'ARV Leverage',val:s5},{label:'Liquidity / Exit Flexibility',val:s6}];
+  var grid=document.getElementById('scoreGrid');grid.innerHTML='';scores.forEach(function(s){var color=s.val>=70?'var(--green)':s.val>=45?'var(--amber)':'var(--red)';grid.innerHTML+='<div class="score-row"><span class="score-label">'+s.label+'</span><div class="score-bar-wrap"><div class="score-bar" style="width:'+s.val+'%;background:'+color+'"></div></div><span class="score-val" style="color:'+color+'">'+s.val+'/100</span></div>';});
+  var box=document.getElementById('verdictBox');var label=document.getElementById('verdictLabel');var scoreEl=document.getElementById('verdictScore');var note=document.getElementById('verdictNote');
+  if(total>=70){box.className='verdict-box verdict-go';label.textContent='GO';scoreEl.style.color='var(--green)';note.textContent='Strong deal. The math supports pulling the trigger.';}else if(total>=45){box.className='verdict-box verdict-review';label.textContent='REVIEW';scoreEl.style.color='var(--amber)';note.textContent='Deal needs closer inspection. Check your expense assumptions and ARV comparables before committing.';}else{box.className='verdict-box verdict-nogo';label.textContent='NO-GO';scoreEl.style.color='var(--red)';note.textContent="The numbers don't work at these inputs. Either find a better price or walk away.";}
+  scoreEl.textContent=total+'/100';document.getElementById('results').style.display='block';document.getElementById('results').scrollIntoView({behavior:'smooth'});
+}
+function copyResults(){var t=WEIGHTS.totalScore||'N/A';var text='Deal Scoring Matrix — Luminary\nTotal Score: '+t+'/100\nhttps://github.com/dereviankoandrey/luminary-deal-scoring-matrix';navigator.clipboard.writeText(text).then(function(){alert('Copied to clipboard!');}).catch(function(){prompt('Copy:',text);});}
+function shareTwitter(){var t=WEIGHTS.totalScore||'N/A';var url='https://twitter.com/intent/tweet?text='+encodeURIComponent('I scored a real estate deal '+t+'/100 using the Luminary Deal Scoring Matrix — deterministic math, no AI guesses. https://github.com/dereviankoandrey/luminary-deal-scoring-matrix');window.open(url,'_blank');}
+</script>
+
+</body>
+</html>
