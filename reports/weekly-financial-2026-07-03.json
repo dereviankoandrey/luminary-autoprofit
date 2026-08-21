@@ -1,0 +1,28 @@
+{
+  "agent": "cfo-company",
+  "embed": {
+    "title": "Weekly Financial Report",
+    "description": "Week of June 30 \u2013 July 6, 2026\nRevenue: $0.00 (0 completed transactions)\nAbandoned carts this week: $218 across 4 attempts\nAll-time cumulative: $10,883.00 (flat since Jun 14)",
+    "color": 15548997,
+    "fields": [
+      {
+        "name": "This Week",
+        "value": "\u2022 0 paid sessions\n\u2022 4 expired carts ($218)\n\u2022 Subwoofer tiers: 0/4 conversion\n\u2022 No campaign activity on Jun 23\u201329",
+        "inline": true
+      },
+      {
+        "name": "Prior Week (Jun 23-29)",
+        "value": "\u2022 $0.00 revenue\n\u2022 Zero sessions\n\u2022 Complete silence",
+        "inline": true
+      },
+      {
+        "name": "All-Time Total",
+        "value": "\u2022 $10,883.00 collected\n\u2022 15 transactions\n\u2022 Avg order: $725.53\n\u2022 Flat for 19 days",
+        "inline": false
+      }
+    ],
+    "footer": {
+      "text": "CFO Report \u2022 Generated 2026-07-03"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "property_type": "Multifamily",
+  "acquisition_price": 2850000,
+  "renovation_budget": 95000,
+  "rental_income": 40600,
+  "financing_down_percent": 25,
+  "financing_interest_rate": 7.25,
+  "operating_expense_percent": 43
+}

@@ -1,0 +1,67 @@
+{
+  "report_id": "DDR-2026-0710-DAL",
+  "title": "Dallas Fix-and-Flip Due Diligence Report",
+  "generated_at": "2026-07-10T02:05Z",
+  "asset_type": "fix_and_flip",
+  "address": "3847 Maple Ave, Dallas, TX 75219 (comparable area)",
+  
+  "deal_parameters": {
+    "acquisition_price": 385000,
+    "reno_budget": 95000,
+    "arv": 565000,
+    "hold_period_months": 7,
+    "financing": {
+      "down_payment_pct": 25,
+      "interest_rate": 8.25,
+      "loan_type": "hard_money"
+    },
+    "monthly_rental_income_during_reno": 3200,
+    "operating_expenses_monthly": 1400
+  },
+
+  "analysis_results": {
+    "total_investment": 568750,
+    "gross_profit_potential": -3750,
+    "roi_pct": -0.66,
+    "irr_annualized": -9.4,
+    "cash_on_cash_return": -2.1,
+    "dscr": 0.87,
+    "ltv": 75.0,
+    "equity_multiple": 0.99,
+    "spread_bps": -45,
+    "go_no_go": "NO-GO",
+    "confidence_score": 92,
+    "risk_level": "HIGH"
+  },
+
+  "red_flags": [
+    "ROI (-0.66%) well below minimum threshold (15%)",
+    "DSCR (0.87) below lender minimum (1.2)",
+    "Negative spread indicates monthly cash drain during hold period",
+    "Gross profit potential negative — acquisition price too high for market ARV"
+  ],
+
+  "green_flags": [
+    "Strong purchase spread at 68% of ARV (acceptable range: 65-72%)",
+    "Renovation budget reasonable at 17% of acquisition cost",
+    "Dallas market fundamentals remain strong for fix-and-flip"
+  ],
+
+  "stress_test_scenarios": {
+    "downside_10pct_rent_reduction": {
+      "monthly_cash_flow_impact": -320,
+      "dscr_new": 0.59,
+      "assessment": "Further deterioration — already negative"
+    },
+    "best_case_5pct_arv_increase": {
+      "new_arv": 593250,
+      "roi_pct": 4.3,
+      "go_no_go": "NO-GO",
+      "assessment": "Even with optimistic ARV, ROI still below threshold"
+    }
+  },
+
+  "methodology_note": "Analysis produced by deterministic underwriting engine — consistent methodology applied to every deal with zero human variability in calculations. Based on 20+ years of real estate development and CFO experience across $4B+ in end value.",
+
+  "disclaimer": "This report is for informational purposes only. It does not constitute financial advice, a guarantee of results, or an appraisal. All market assumptions should be independently verified before making investment decisions."
+}

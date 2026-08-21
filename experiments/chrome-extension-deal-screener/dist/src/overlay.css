@@ -1,0 +1,210 @@
+/* Deal Screener — Overlay Styles */
+
+#deal-screener-panel {
+  position: fixed;
+  top: 100px;
+  right: 24px;
+  width: 300px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.06);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  z-index: 999999;
+  overflow: hidden;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+#deal-screener-panel.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(20px);
+}
+
+#deal-screener-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid #f0f0f0;
+  cursor: move;
+  user-select: none;
+}
+
+#deal-screener-header .brand {
+  font-size: 13px;
+  font-weight: 700;
+  color: #22c55e;
+  letter-spacing: -0.01em;
+}
+
+#deal-screener-close {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #999;
+  padding: 2px 6px;
+  line-height: 1;
+  border-radius: 4px;
+}
+
+#deal-screener-close:hover {
+  background: #f5f5f5;
+  color: #333;
+}
+
+#deal-screener-body {
+  padding: 16px;
+}
+
+#ds-score-ring {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 12px;
+  position: relative;
+}
+
+#ds-score-ring svg {
+  transform: rotate(-90deg);
+}
+
+#ds-score-value {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+#ds-score-label {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+#ds-recommendation {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.ds-reco-go { background: #dcfce7; color: #166534; }
+.ds-reco-review { background: #fef3c7; color: #92400e; }
+.ds-reco-nogo { background: #fee2e2; color: #991b1b; }
+
+#ds-metrics {
+  margin-top: 12px;
+}
+
+.ds-metric-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px solid #f8f8f8;
+  font-size: 12.5px;
+}
+
+.ds-metric-row:last-child {
+  border-bottom: none;
+}
+
+.ds-metric-label {
+  color: #666;
+}
+
+.ds-metric-value {
+  font-weight: 600;
+  color: #333;
+}
+
+.ds-metric-good { color: #16a34a; }
+.ds-metric-bad { color: #dc2626; }
+.ds-metric-warn { color: #d97706; }
+
+#ds-flags {
+  margin-top: 12px;
+}
+
+.ds-flag {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 4px 0;
+  font-size: 11.5px;
+  line-height: 1.4;
+}
+
+.ds-flag-red::before { content: "⚠"; color: #dc2626; flex-shrink: 0; }
+.ds-flag-green::before { content: "✓"; color: #16a34a; flex-shrink: 0; }
+
+#ds-footer {
+  padding: 8px 16px 12px;
+  text-align: center;
+  font-size: 10px;
+  color: #aaa;
+  border-top: 1px solid #f0f0f0;
+}
+
+/* Loading state */
+#deal-screener-panel.loading #ds-score-value {
+  opacity: 0.3;
+}
+
+/* Badge overlay on listing cards */
+.ds-listing-badge {
+  position: absolute !important;
+  top: 8px !important;
+  right: 8px !important;
+  z-index: 9999 !important;
+  padding: 4px 10px !important;
+  border-radius: 6px !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.03em !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15) !important;
+  pointer-events: auto !important;
+}
+
+.ds-badge-go { background: #dcfce7; color: #166534; }
+.ds-badge-review { background: #fef3c7; color: #92400e; }
+.ds-badge-nogo { background: #fee2e2; color: #991b1b; }
+
+/* Tooltip hint */
+#ds-hint {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(34, 197, 94, 0.95);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  z-index: 999998;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  animation: ds-fade-out 4s ease forwards;
+}
+
+@keyframes ds-fade-out {
+  0%, 70% { opacity: 1; }
+  100% { opacity: 0; pointer-events: none; }
+}
+
+/* Pulse animation for GO deals */
+@keyframes ds-pulse-green {
+  0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
+  70% { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+}
+
+.ds-pulse-go {
+  animation: ds-pulse-green 2s ease-in-out infinite;
+}

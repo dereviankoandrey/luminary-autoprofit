@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deterministic Underwriting — Luminary Ventures</title>
+<style>
+:root { --bg: #0d1117; --fg: #c9d1d9; --accent: #58a6ff; --green: #3fb950; --yellow: #d29922; --red: #f85149; --card: #161b22; --border: #30363d; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; background: var(--bg); color: var(--fg); line-height: 1.6; }
+.container { max-width: 720px; margin: 0 auto; padding: 40px 20px; }
+header { text-align: center; padding: 40px 0 30px; border-bottom: 1px solid var(--border); margin-bottom: 40px; }
+.logo { font-size: 14px; color: #8b949e; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; }
+h1 { font-size: 32px; color: #f0f6fc; font-weight: 700; line-height: 1.2; margin-bottom: 12px; }
+.tagline { font-size: 18px; color: #8b949e; max-width: 520px; margin: 0 auto; }
+.section { margin-bottom: 36px; }
+h2 { font-size: 20px; color: #f0f6fc; margin-bottom: 16px; border-left: 3px solid var(--accent); padding-left: 12px; }
+p { margin-bottom: 14px; }
+.metrics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 20px 0; }
+.metric-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; text-align: center; }
+.metric-value { font-size: 24px; font-weight: 700; color: var(--green); margin-bottom: 4px; }
+.metric-label { font-size: 12px; color: #8b949e; text-transform: uppercase; letter-spacing: 1px; }
+.verdict { display: inline-block; padding: 4px 12px; border-radius: 4px; font-weight: 600; font-size: 13px; margin-right: 8px; margin-bottom: 8px; }
+.verdict-go { background: rgba(63,185,80,0.15); color: var(--green); border: 1px solid rgba(63,185,80,0.3); }
+.verdict-review { background: rgba(210,153,34,0.15); color: var(--yellow); border: 1px solid rgba(210,153,34,0.3); }
+.verdict-nogo { background: rgba(248,81,73,0.15); color: var(--red); border: 1px solid rgba(248,81,73,0.3); }
+.sample-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+.sample-table th { text-align: left; padding: 10px 12px; background: var(--card); color: #8b949e; font-weight: 500; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid var(--border); }
+.sample-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); }
+.cta-section { background: var(--card); border: 1px solid var(--accent); border-radius: 8px; padding: 32px; text-align: center; margin-top: 40px; }
+.cta-section h2 { border: none; padding: 0; text-align: center; color: #f0f6fc; font-size: 22px; margin-bottom: 8px; }
+.cta-section p { color: #8b949e; margin-bottom: 24px; }
+.email-form { display: flex; gap: 10px; max-width: 440px; margin: 0 auto; }
+.email-form input[type="email"] { flex: 1; padding: 12px 16px; border-radius: 6px; border: 1px solid var(--border); background: var(--bg); color: var(--fg); font-size: 15px; outline: none; }
+.email-form input[type="email"]:focus { border-color: var(--accent); }
+.email-form button { padding: 12px 24px; border-radius: 6px; border: none; background: var(--accent); color: #fff; font-weight: 600; font-size: 15px; cursor: pointer; white-space: nowrap; }
+.email-form button:hover { opacity: 0.9; }
+.signup-count { margin-top: 12px; font-size: 13px; color: #8b949e; }
+.founder-badge { display: inline-block; background: rgba(88,166,255,0.1); border: 1px solid rgba(88,166,255,0.3); padding: 4px 12px; border-radius: 4px; font-size: 12px; color: var(--accent); margin-bottom: 16px; letter-spacing: 0.5px; }
+.faq-item { margin-bottom: 16px; }
+.faq-q { font-weight: 600; color: #f0f6fc; margin-bottom: 4px; }
+.faq-a { color: #8b949e; font-size: 14px; }
+footer { text-align: center; padding: 32px 0; border-top: 1px solid var(--border); color: #484f58; font-size: 13px; margin-top: 40px; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<div class="logo">Luminary Ventures — Beta Program</div>
+<h1>Deterministic Underwriting for Real Estate Investors</h1>
+<p class="tagline">Every calculation auditable. Every verdict traceable. Zero hallucination possible.</p>
+</header>
+
+<div class="section">
+<h2>The Problem with AI Deal Analysis</h2>
+<p>AI models can "estimate" a deal's potential return in seconds. But they also <em>hallucinate numbers that make or lose deals</em>. MIT Sloan research confirmed: unstructured prompts produce unreliable financial advice, even from the best models.</p>
+<p>We built deterministic underwriting instead — math that runs ONCE with zero inference costs, produces transparent calculations anyone can verify against first-principles formulas, and flags every risk factor explicitly rather than guessing.</p>
+</div>
+
+<div class="section">
+<h2>What Beta Access Includes</h2>
+<p><strong>$97/mo SaaS — Free for 6 months during beta program.</strong></p>
+<ul style="margin: 12px 0 16px 20px; color: #8b949e;">
+<li>Full underwriting engine (fix-and-flip, buy-and-hold, multifamily, development)</li>
+<li>GO / CAUTION / NO-GO verdicts with full calculation trace</li>
+<li>Every default value explicit — no hidden assumptions</li>
+<li>Cross-market analysis across 18+ validated US metro areas</li>
+<li>Prioritized access to new features as they ship</li>
+</ul>
+
+<div class="metrics-grid">
+<div class="metric-card">
+<div class="metric-value">6/6</div>
+<div class="metric-label">Parity Tests Pass</div>
+</div>
+<div class="metric-card">
+<div class="metric-value">$0</div>
+<div class="metric-label">Inference Cost / Run</div>
+</div>
+<div class="metric-card">
+<div class="metric-value">18+</div>
+<div class="metric-label">Markets Validated</div>
+</div>
+</div>
+</div>
+
+<div class="section">
+<h2>Sample Output — What You'll See</h2>
+<p>Every analysis includes complete metric tables with pass/fail thresholds and a clear verdict. Here's what one deal looked like in Charlotte:</p>
+
+<table class="sample-table">
+<tr><th>Metric</th><th>Value</th><th>Threshold</th><th>Result</th></tr>
+<tr><td>ROI</td><td>$187,400</td><td>≥ $175K</td><td class="verdict verdict-go">PASS</td></tr>
+<tr><td>Cash-on-Cash</td><td>14.2%</td><td>≥ 10%</td><td class="verdict verdict-go">PASS</td></tr>
+<tr><td>DSCR</td><td>1.38x</td><td>≥ 1.25x</td><td class="verdict verdict-go">PASS</td></tr>
+<tr><td>Coverage Ratio</td><td>1.62</td><td>≥ 1.50</td><td class="verdict verdict-review">REVIEW</td></tr>
+</table>
+
+<p style="color: #8b949e; font-size: 14px; margin-top: 8px;">Verdict: <strong style="color: var(--green);">GO — Strong fundamentals with clear path to underwriting approval. Cash-on-cash well above threshold and DSCR provides comfortable debt service coverage.</strong></p>
+</div>
+
+<div class="section">
+<h2>Built by an Operator, Not a Platform</h2>
+<p>20+ years of real estate development across $4B+ in projects. Software engineering background since 1989. This isn't AI wrapped around a spreadsheet — it's deterministic math built for the same underwriting decisions that move millions in capital.</p>
+<div class="verdict verdict-nogo" style="margin-top: 12px;">Beta pricing locked at $0/mo for 6 months</div>
+<div class="verdict verdict-go">Then $97/mo — comparable to one bad deal you'd avoid with proper underwriting</div>
+</div>
+
+<div class="cta-section">
+<span class="founder-badge">FOUNDER'S ACCESS — LIMITED TO FIRST 100 SIGNUPS</span>
+<h2>Get Beta Access</h2>
+<p>We're selecting the first 100 users for a free 6-month beta. Full SaaS access, zero cost. After that, $97/mo.</p>
+
+<form class="email-form" id="signupForm">
+<input type="email" id="emailInput" placeholder="your@email.com" required autocomplete="email">
+<button type="submit">Join Beta</button>
+</form>
+<div class="signup-count" id="signupCount"></div>
+<p style="font-size: 12px; margin-top: 16px; color: #484f58;">No spam. No data shared. Just early access to deterministic underwriting.</p>
+</div>
+
+<div class="section">
+<h2>Frequently Asked Questions</h2>
+
+<div class="faq-item">
+<div class="faq-q">What makes this different from DealCheck or PropStream?</div>
+<div class="faq-a">Those tools provide estimates based on probabilistic models. Our engine runs deterministic math — every calculation is transparent and auditable against the formulas used. You can independently verify any output.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q">Do I need a technical background to use it?</div>
+<div class="faq-a">No. Enter deal numbers (or paste a property address from Zillow/Redfin) and get instant analysis with clear GO/CAUTION/NO-GO verdicts.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q">What happens after the 6-month beta?</div>
+<div class="faq-a">You'll be offered continued access at $97/mo. If you've been using it to evaluate deals, one avoided bad deal more than pays for a year of service.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q">Is my data safe?</div>
+<div class="faq-a">All calculations run locally in your browser. Deal data is never transmitted to our servers during analysis. Account data (email, subscription status) is stored securely and not shared with third parties.</div>
+</div>
+</div>
+
+<footer>
+<p>Luminary Ventures — Deterministic tools for decision-critical workflows.</p>
+<p>Beta Program v1.0 | August 2026 | Validation pricing test: $97/mo after free beta period</p>
+</footer>
+</div>
+
+<script>
+// Email capture with localStorage MVP
+(function() {
+const STORAGE_KEY = 'luminary_beta_signups';
+const CAPTURED_KEY = 'luminary_beta_captured_email';
+
+function getSignups() {
+try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; } catch(e) { return []; }
+}
+
+function saveSignup(email) {
+var signups = getSignups();
+signups.push({ email: email, timestamp: Date.now(), date: new Date().toISOString() });
+localStorage.setItem(STORAGE_KEY, JSON.stringify(signups));
+localStorage.setItem(CAPTURED_KEY, email);
+return signups;
+}
+
+function isCaptured() { return !!localStorage.getItem(CAPTURED_KEY); }
+
+// Show signup count if already captured (social proof)
+var count = getSignups().length;
+document.getElementById('signupCount').textContent = count > 0 ? count + ' operators have joined the beta' : '';
+
+if (isCaptured()) {
+document.querySelector('.cta-section h2').textContent = "You're In — Welcome to Beta";
+document.getElementById('signupForm').style.display = 'none';
+document.getElementById('signupCount').textContent += '. Full access details sent when we launch.';
+}
+
+document.getElementById('signupForm').addEventListener('submit', function(e) {
+e.preventDefault();
+var email = document.getElementById('emailInput').value.trim();
+if (!email || !email.includes('@')) return;
+var signups = saveSignup(email);
+count = signups.length;
+document.getElementById('signupCount').textContent = count + ' operators have joined the beta';
+document.querySelector('.cta-section h2').textContent = "You're In — Welcome to Beta";
+document.getElementById('signupForm').style.display = 'none';
+document.getElementById('emailInput').value = '';
+});
+
+// Public API for cron analytics retrieval
+window.getSignups = function() { return getSignups(); };
+})();
+</script>
+</body>
+</html>

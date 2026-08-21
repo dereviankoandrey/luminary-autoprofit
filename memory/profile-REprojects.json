@@ -1,0 +1,168 @@
+{
+  "profile": {
+    "name": "Andrey Derevianko",
+    "roles": ["Real Estate Developer", "CEO", "CFO", "Business Development"],
+    "licenses": [
+      "TX Real Estate Agent (2013–Present)",
+      "NC Real Estate Agent (2022–Present)",
+      "AZ Real Estate Agent (2011–2015)",
+      "Victoria Australia Real Estate Agent Representative (2002)"
+    ],
+    "locations": ["Austin, TX", "Melbourne, Australia"],
+    "experience_years": 20
+  },
+  "projects": {
+    "current": [
+      {
+        "name": "Laguna Marble Falls at Hwy 281",
+        "location": "Marble Falls, TX",
+        "type": "Mixed-use",
+        "size_acres": 463,
+        "units": 3293,
+        "townhomes": 321,
+        "homes": 745,
+        "hotels": 2,
+        "retail_sf": 100000,
+        "end_value_usd": ">2B"
+      },
+      {
+        "name": "Emeral Ranch at RM 150 and IH35",
+        "location": "Kyle, TX",
+        "type": "Mixed-use",
+        "size_acres": 32,
+        "units": 897,
+        "retail_sf": 70000,
+        "end_value_usd": ">250M"
+      },
+      {
+        "name": "ZFB at Anderson Mill",
+        "location": "North Austin, TX",
+        "type": "Multifamily",
+        "units": "up to 280",
+        "end_value_usd": "$90M"
+      },
+      {
+        "name": "Leander Springs",
+        "location": "Leander, TX",
+        "type": "Mixed-use",
+        "size_acres": 79,
+        "units": 1600,
+        "hotels": 2,
+        "end_value_usd": ">1.5B"
+      },
+      {
+        "name": "Twilight Estate",
+        "location": "Austin, TX",
+        "type": "Subdivision",
+        "size_acres": 18,
+        "homes_new": 48,
+        "end_value_usd": "$78M"
+      },
+      {
+        "name": "Manor Townhomes",
+        "location": "Austin, TX",
+        "type": "Residential",
+        "units": "12 new + 31 condo conversion",
+        "end_value_usd": "$12M"
+      }
+    ],
+    "completed": [
+      {
+        "name": "Creekside Townhomes",
+        "location": "North Austin, TX",
+        "units": 9,
+        "end_value_usd": "$5M",
+        "status": "Completed Jan 2023"
+      },
+      {
+        "name": "Mueller Crossing",
+        "location": "Austin, TX",
+        "units": "62 MF rehab",
+        "end_value_usd": "$18M",
+        "status": "Leased Sep 2021; sold Aug 2022"
+      },
+      {
+        "name": "Westminster Homes",
+        "location": "East Austin, TX",
+        "units": "6 units (3 duplexes)",
+        "end_value_usd": "$3.4M",
+        "status": "Completed Jan 2022"
+      },
+      {
+        "name": "Paragon at 113 S Bell Blvd",
+        "location": "Cedar Park, TX",
+        "type": "Vertical mixed-use",
+        "units": 434,
+        "retail_sf": 60000,
+        "end_value_usd": "$120M",
+        "status": "Sold 2021"
+      },
+      {
+        "name": "Jackie Robinson Brownstones",
+        "location": "East Austin, TX",
+        "units": 62,
+        "end_value_usd": "$28M",
+        "status": "Built by another developer"
+      },
+      {
+        "name": "Calmar Cove",
+        "location": "Austin, TX",
+        "units": 2,
+        "end_value_usd": "$1,078,500",
+        "status": "Completed Dec 2021"
+      },
+      {
+        "name": "Cherrylawn Cir",
+        "location": "Austin, TX",
+        "units": 2,
+        "end_value_usd": "$1M",
+        "status": "Completed Nov 2021"
+      },
+      {
+        "name": "Lakeway Estates",
+        "location": "Lakeway, TX",
+        "size_acres": 46,
+        "end_value_usd": "$5M",
+        "status": "Being built by another developer"
+      },
+      {
+        "name": "Mullen Townhomes",
+        "location": "Austin, TX",
+        "units": 10,
+        "end_value_usd": "$4M",
+        "status": "Being built by another developer"
+      },
+      {
+        "name": "Tarrytown Townhomes",
+        "location": "Austin, TX",
+        "units": 24,
+        "end_value_usd": "$18M",
+        "status": "Being built by another developer"
+      },
+      {
+        "name": ">20 single family homes",
+        "location": "Various",
+        "end_value_usd": "varies"
+      }
+    ],
+    "regional": [
+      {
+        "region": "Phoenix, AZ",
+        "years": "2010-2013",
+        "production": "300+ single-family houses and various multifamily projects"
+      },
+      {
+        "region": "Melbourne, Australia",
+        "projects": [
+          {"name": "8 St Ninians Court", "type": "Luxury remodel", "end_value_usd": "$12M"},
+          {"name": "9 Morton Avenue", "type": "Condos + retail", "end_value_usd": "$24M"},
+          {"name": "601 Victoria Street", "type": "Mixed-use"},
+          {"name": "108-124 Union Street", "type": "Condos + retail", "end_value_usd": "$61M"},
+          {"name": "Sayers Road", "type": "Subdivision", "end_value_usd": "$32M"},
+          {"name": "499 Victoria Street", "type": "Condos", "end_value_usd": "$21M"},
+          {"name": "4 Wests Road", "type": "Condos + townhouses", "end_value_usd": "$18M"}
+        ]
+      }
+    ]
+  }
+}

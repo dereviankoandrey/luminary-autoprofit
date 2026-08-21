@@ -1,0 +1,53 @@
+---
+name: git-ops
+description: Pull, check status, commit, and push changes to the LBV site repo (~/luminary-build/site, branch master). Use for shipping code fixes through Coding Loops.
+metadata: {"openclaw":{"requires":{"bins":["node","git"]}}}
+---
+
+# git-ops
+
+Git operations on the LBV site repository (`~/luminary-build/site`, branch `master`).
+Always uses the existing SSH key at `~/.ssh/id_ed25519`. Never adds new keys.
+
+**Hard limit:** refuses to push if more than 50 files are changed in the working tree (sanity check against runaway edits).
+
+## Usage
+
+```bash
+node ~/.openclaw/tools/git-ops.js '<json>'
+```
+
+## Operations
+
+### Pull latest from master
+
+```bash
+node ~/.openclaw/tools/git-ops.js '{"op":"pull"}'
+```
+
+Returns: `{"ok":true,"output":"Already up to date."}`
+
+### Check status
+
+```bash
+node ~/.openclaw/tools/git-ops.js '{"op":"status"}'
+```
+
+Returns: `{"ok":true,"branch":"master","changed_files":2,"files":["M src/foo.ts","?? new.ts"],"commits_ahead":0}`
+
+### Commit and push specific files
+
+```bash
+node ~/.openclaw/tools/git-ops.js '{"op":"commit_and_push","files":["src/app/api/route.ts"],"message":"fix: correct email validation"}'
+```
+
+Returns: `{"ok":true,"sha":"abc1234","message":"...","files":[...]}`
+
+## Rules
+
+- Always run `status` before `commit_and_push` to confirm what you're about to commit
+- Never push more than 50 files — the tool will refuse and you should escalate to Apex
+- Never commit `.env` files, credentials, or API keys
+- `message` must follow conventional commits: `fix:`, `feat:`, `chore:`, etc.
+- If push fails, the tool automatically resets the local commit and reports the error
+- Only push to `master` — no other branches

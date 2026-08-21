@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Deal Screener — Deterministic Underwriting Engine</title>
+<style>
+:root {
+  --bg: #0f1117;
+  --surface: #1a1d2e;
+  --border: #2a2d3e;
+  --text: #e4e6f0;
+  --muted: #8b8fa3;
+  --green: #22c55e;
+  --red: #ef4444;
+  --amber: #f59e0b;
+  --blue: #3b82f6;
+  --radius: 10px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+.container { max-width: 960px; margin: 0 auto; padding: 24px 20px; }
+header { text-align: center; padding: 32px 0 24px; border-bottom: 1px solid var(--border); margin-bottom: 32px; }
+header h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.5px; }
+header p { color: var(--muted); margin-top: 8px; font-size: 0.95rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+.badge { display: inline-block; background: rgba(59,130,246,0.15); color: var(--blue); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; margin-bottom: 12px; }
+.section { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin-bottom: 20px; }
+.section h3 { font-size: 1.05rem; margin-bottom: 16px; color: #fff; display: flex; align-items: center; gap: 8px; }
+.form-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+.field label { display: block; font-size: 0.82rem; color: var(--muted); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+.field input, .field select { width: 100%; padding: 10px 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 6px; color: var(--text); font-size: 0.95rem; outline: none; transition: border-color 0.2s; }
+.field input:focus, .field select:focus { border-color: var(--blue); }
+.btn-row { display: flex; gap: 12px; margin-top: 8px; flex-wrap: wrap; }
+button { padding: 12px 24px; border-radius: 8px; font-size: 0.95rem; font-weight: 600; cursor: pointer; border: none; transition: all 0.2s; }
+.btn-primary { background: var(--blue); color: #fff; }
+.btn-primary:hover { background: #2563eb; transform: translateY(-1px); }
+.btn-secondary { background: transparent; color: var(--muted); border: 1px solid var(--border); }
+.btn-secondary:hover { border-color: var(--blue); color: var(--text); }
+.result-card { display: none; margin-top: 20px; }
+.result-card.visible { display: block; animation: fadeIn 0.4s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.recommendation-bar { padding: 20px; border-radius: var(--radius); text-align: center; margin-bottom: 20px; font-size: 1.3rem; font-weight: 700; letter-spacing: -0.3px; }
+.rec-go { background: rgba(34,197,94,0.15); color: var(--green); border: 2px solid var(--green); }
+.rec-review { background: rgba(245,158,11,0.15); color: var(--amber); border: 2px solid var(--amber); }
+.rec-nogo { background: rgba(239,68,68,0.15); color: var(--red); border: 2px solid var(--red); }
+.metrics-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; margin-bottom: 20px; }
+.metric-card { background: var(--bg); border-radius: 8px; padding: 14px; text-align: center; }
+.metric-card .value { font-size: 1.5rem; font-weight: 700; color: #fff; }
+.metric-card .label { font-size: 0.78rem; color: var(--muted); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+.flags-section h4 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
+.flag-item { padding: 8px 12px; border-radius: 6px; margin-bottom: 6px; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; }
+.flag-green { background: rgba(34,197,94,0.1); color: var(--green); }
+.flag-red { background: rgba(239,68,68,0.1); color: var(--red); }
+.summary-box { background: var(--bg); border-left: 3px solid var(--blue); padding: 14px 16px; border-radius: 0 8px 8px 0; margin-top: 16px; font-size: 0.92rem; color: var(--muted); line-height: 1.7; }
+.sample-selector { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+.sample-btn { padding: 8px 16px; border-radius: 20px; font-size: 0.85rem; background: var(--bg); color: var(--muted); border: 1px solid var(--border); cursor: pointer; transition: all 0.2s; }
+.sample-btn:hover { border-color: var(--blue); color: var(--text); }
+.sample-btn.active { background: rgba(59,130,246,0.2); border-color: var(--blue); color: var(--blue); }
+.cta-section { text-align: center; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; color: var(--muted); font-size: 0.9rem; }
+.cta-section a { color: var(--blue); text-decoration: none; }
+.hidden { display: none !important; }
+@media (max-width: 600px) { .form-grid, .metrics-grid { grid-template-columns: 1fr; } header h1 { font-size: 1.3rem; } }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<span class="badge">Luminary Ventures · Deterministic Underwriting Engine</span>
+<h1>Deal Screener — Real-Time Analysis</h1>
+<p>Analyze any real estate deal against proven underwriting thresholds. No sign-up, no wait — just load a sample or enter your own numbers.</p>
+</header>
+
+<!-- Sample Deals -->
+<div class="section">
+<h3>📊 Quick Load: Pre-Built Sample Deals</h3>
+<div class="sample-selector" id="sampleSelector"></div>
+</div>
+
+<!-- Input Section -->
+<div class="section">
+<h3>🔢 Deal Parameters</h3>
+<div id="propertyTypeSection">
+<div class="field" style="margin-bottom:16px;">
+<label>Property Type</label>
+<select id="propertyType" onchange="onTypeChange()">
+<option value="Fix-and-Flip">Fix-and-Flip</option>
+<option value="Multifamily">Multifamily / Income</option>
+<option value="Development">Development</option>
+</select>
+</div>
+<div class="form-grid" id="inputFields"></div>
+</div>
+</div>
+
+<!-- Action -->
+<div class="btn-row">
+<button class="btn-primary" onclick="analyzeDeal()">Analyze Deal →</button>
+<button class="btn-secondary" onclick="resetForm()">Reset</button>
+</div>
+
+<!-- Results -->
+<div class="result-card" id="results">
+<div class="section" style="margin-top:20px;">
+<h3>📋 Analysis Result</h3>
+<div class="recommendation-bar" id="recBar"></div>
+<div class="metrics-grid" id="metricsGrid"></div>
+<div class="flags-section">
+<h4 style="color:var(--green);margin-bottom:12px;">✓ Green Flags</h4>
+<div id="greenFlags"></div>
+<h4 style="color:var(--red);margin:20px 0 12px;">✗ Red Flags</h4>
+<div id="redFlags"></div>
+</div>
+<div class="summary-box" id="summaryBox"></div>
+</div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+<p>Built by Andrey Derevianko — 20-year real estate developer & CFO, $4B+ portfolio.</p>
+<p style="margin-top:8px;">Want a custom analysis of your deal? <a href="#">Send us the numbers</a>.</p>
+<p style="margin-top:16px;font-size:0.75rem;color:#555;">This tool provides analytical screening only. Not investment, legal, or lending advice.</p>
+</div>
+</div>
+
+<script>
+// ====== UNDERWRITING ENGINE (Ported from Python) ======
+const THRESHOLDS = {
+  fix_and_flip: { max_purchase_to_arv: 0.85, min_roi: 0.20, max_hold_months: 12, max_hold_months_risky: 18, min_roi_warning: 0.15 },
+  multifamily: { min_cap_rate: 0.05, min_cash_on_cash: 0.08, min_dscr: 1.25, min_dscr_warning: 1.10, min_cap_rate_warning: 0.04 },
+  development: { min_irr: 0.18, min_equity_multiple: 2.0, min_irr_warning: 0.15, min_equity_multiple_warning: 1.5, max_hold_months: 36 }
+};
+
+function calcFixAndFlip(d) {
+  const acq = d.acquisition_price || 0;
+  const reno = d.renovation_budget || 0;
+  const arv = d.arv || 0;
+  const hold = d.holding_period_months || 0;
+  const downPct = (d.financing_down_percent || 25) / 100;
+  const rate = (d.financing_interest_rate || 8.5) / 100;
+  const other = d.other_costs || 0;
+  const loanAmt = acq * (1 - downPct);
+  const monthlyInt = loanAmt * rate / 12;
+  const holdCosts = monthlyInt * hold;
+  const totalCost = acq + reno + other + holdCosts;
+  const profit = arv - totalCost;
+  const roi = totalCost > 0 ? profit / totalCost : 0;
+  return { total_project_cost: Math.round(totalCost), profit: Math.round(profit), roi_percent: Math.round(roi * 10000) / 100, holding_cost: Math.round(holdCosts), purchase_to_arv_ratio: arv > 0 ? Math.round(acq / arv * 10000) / 10000 : 0 };
+}
+
+function calcMultifamily(d) {
+  const acq = d.acquisition_price || 0;
+  const reno = d.renovation_budget || 0;
+  const rent = d.monthly_rental_income || 0;
+  const downPct = (d.financing_down_percent || 25) / 100;
+  const rate = (d.financing_interest_rate || 7.0) / 100;
+  const opPct = (d.operating_expense_percent || 40) / 100;
+  const annualGross = rent * 12;
+  const opex = annualGross * opPct;
+  const noi = annualGross - opex;
+  const capRate = acq > 0 ? noi / acq : 0;
+  const loanAmt = acq * (1 - downPct);
+  const monthlyPmt = rate > 0 ? loanAmt * (rate/12) / (1 - Math.pow(1 + rate/12, -360)) : 0;
+  const annualDS = monthlyPmt * 12;
+  const cashFlow = noi - annualDS;
+  const cashInvested = acq * downPct;
+  const coc = cashInvested > 0 ? cashFlow / cashInvested : 0;
+  const dscr = annualDS > 0 ? noi / annualDS : 0;
+  return { annual_gross_income: Math.round(annualGross), operating_expenses: Math.round(opex), noi: Math.round(noi), cap_rate_percent: Math.round(capRate * 10000) / 100, annual_debt_service: Math.round(annualDS), annual_cash_flow: Math.round(cashFlow), cash_on_cash_return: Math.round(coc * 10000) / 100, dscr: Math.round(dscr * 100) / 100 };
+}
+
+function calcDevelopment(d) {
+  const land = d.land_cost || d.acquisition_price || 0;
+  const hard = d.hard_construction_costs || d.construction_budget || 0;
+  const softPct = 0.15;
+  const soft = d.soft_costs || hard * softPct;
+  const hold = d.holding_period_months || 12;
+  const endVal = d.end_value || d.total_revenue || (d.units && d.avg_unit_price ? d.units * d.avg_unit_price : 0);
+  const units = d.units || 0;
+  const debtPct = (d.debt_percent || 70) / 100;
+  const rate = (d.interest_rate || 8.5) / 100;
+  let finCosts = d.financing_costs || (land + hard + soft) * debtPct * rate * (hold/12);
+  const salesComm = endVal * (d.sales_commission_percent || 6) / 100;
+  const totalCost = land + hard + soft + finCosts + salesComm;
+  const profit = endVal - totalCost;
+  const roi = totalCost > 0 ? profit / totalCost : 0;
+  let eqInvested, eqMult, roe;
+  if (d.equity_invested && d.equity_invested > 0) {
+    eqInvested = d.equity_invested;
+    eqMult = endVal / (totalCost * (1 - debtPct));
+    roe = profit / eqInvested;
+  } else {
+    eqInvested = totalCost * (1 - debtPct);
+    eqMult = endVal / eqInvested;
+    roe = profit / eqInvested;
+  }
+  const holdYr = hold > 0 ? hold/12 : 1;
+  const irr = Math.round(roe / holdYr * 10000) / 100;
+  return { total_project_cost: Math.round(totalCost), end_value: Math.round(endVal), profit: Math.round(profit), roi_percent: Math.round(roi * 10000) / 100, equity_invested: Math.round(eqInvested), equity_multiple: Math.round(eqMult * 100) / 100, return_on_equity_percent: Math.round(roe * 10000) / 100, simplified_irr_percent: irr, holding_months: hold };
+}
+
+function analyzeDealData(data) {
+  const pt = data.property_type.toLowerCase();
+  let metrics, redFlags = [], greenFlags = [];
+
+  if (pt.includes('flip')) {
+    metrics = calcFixAndFlip(data);
+    const t = THRESHOLDS.fix_and_flip;
+    const pr = metrics.purchase_to_arv_ratio;
+    if (pr > 0.90) redFlags.push(`Purchase price (${(pr*100).toFixed(0)}% of ARV) exceeds 90% threshold`);
+    else if (pr <= t.max_purchase_to_arv) greenFlags.push(`Strong purchase spread (${(pr*100).toFixed(0)}% of ARV)`);
+    if (metrics.roi_percent < t.min_roi_warning * 100) redFlags.push(`ROI (${metrics.roi_percent.toFixed(1)}%) below minimum threshold (${t.min_roi_warning*100}%)`);
+    else if (metrics.roi_percent >= t.min_roi * 100) greenFlags.push(`Strong ROI (${metrics.roi_percent.toFixed(1)}%)`);
+    if (metrics.holding_cost / metrics.total_project_cost > 0.40) redFlags.push("Financing/holding costs exceed 40% of total project");
+    const renoRatio = data.renovation_budget && data.acquisition_price ? data.renovation_budget / data.acquisition_price : 0;
+    if (renoRatio < 0.15 && data.renovation_budget > 0) redFlags.push(`Renovation budget (${(renoRatio*100).toFixed(0)}%) may be underestimated`);
+    else if (renoRatio > 0.60) redFlags.push(`Renovation budget (${(renoRatio*100).toFixed(0)}%) unusually high - risk of cost overruns`);
+    else if (data.renovation_budget > 0 && renoRatio >= 0.15 && renoRatio <= 0.60) greenFlags.push(`Renovation budget at reasonable ${(renoRatio*100).toFixed(0)}% of acquisition`);
+  } else if (pt.includes('multi') || pt.includes('income') || pt.includes('apartment')) {
+    metrics = calcMultifamily(data);
+    const t = THRESHOLDS.multifamily;
+    if (metrics.cap_rate_percent < t.min_cap_rate_warning * 100) redFlags.push(`Cap rate (${metrics.cap_rate_percent.toFixed(2)}%) below minimum threshold (${t.min_cap_rate_warning*100}%)`);
+    else if (metrics.cap_rate_percent >= t.min_cap_rate * 100) greenFlags.push(`Solid cap rate (${metrics.cap_rate_percent.toFixed(2)}%)`);
+    if (metrics.dscr < t.min_dscr_warning) redFlags.push(`DSCR (${metrics.dscr.toFixed(2)}) below minimum threshold (${t.min_dscr_warning})`);
+    else if (metrics.dscr >= t.min_dscr) greenFlags.push(`Strong DSCR (${metrics.dscr.toFixed(2)})`);
+    if (metrics.cash_on_cash_return < 0) redFlags.push("Negative cash flow in Year 1");
+    else if (metrics.cash_on_cash_return >= t.min_cash_on_cash * 100) greenFlags.push(`Positive cash-on-cash return (${metrics.cash_on_cash_return.toFixed(2)}%)`);
+  } else if (pt.includes('development') || pt.includes('mixed')) {
+    metrics = calcDevelopment(data);
+    const t = THRESHOLDS.development;
+    if (metrics.simplified_irr_percent < t.min_irr_warning * 100) redFlags.push(`Simplified IRR (${metrics.simplified_irr_percent.toFixed(1)}%) below minimum threshold (${t.min_irr_warning*100}%)`);
+    else if (metrics.simplified_irr_percent >= t.min_irr * 100) greenFlags.push(`Strong IRR (${metrics.simplified_irr_percent.toFixed(1)}%)`);
+    if (metrics.equity_multiple < t.min_equity_multiple_warning) redFlags.push(`Equity multiple (${metrics.equity_multiple.toFixed(2)}x) below minimum threshold (${t.min_equity_multiple_warning}x)`);
+    else if (metrics.equity_multiple >= t.min_equity_multiple) greenFlags.push(`Strong equity multiple (${metrics.equity_multiple.toFixed(2)}x)`);
+    if (metrics.roi_percent < 0) redFlags.push(`Negative project ROI (${metrics.roi_percent.toFixed(1)}%)`);
+    else if (metrics.roi_percent >= 15) greenFlags.push(`Positive project ROI (${metrics.roi_percent.toFixed(1)}%)`);
+    if (metrics.holding_months > t.max_hold_months) redFlags.push(`Extended holding period (${metrics.holding_months} months)`);
+  } else {
+    metrics = {}; redFlags.push("Unknown property type - manual review recommended");
+  }
+
+  const criticalRed = redFlags.filter(f => /below minimum|negative|exceeds 90/i.test(f));
+  let recommendation, riskLevel;
+  if (criticalRed.length >= 1) { recommendation = "NO-GO"; riskLevel = "High"; }
+  else if (redFlags.length >= 2) { recommendation = "REVIEW"; riskLevel = "Medium"; }
+  else if (redFlags.length >= 1) { recommendation = "REVIEW"; riskLevel = "Medium"; }
+  else { recommendation = "GO"; riskLevel = "Low"; }
+
+  const summary = `Deal analysis for ${data.property_type || 'unknown'}. ${recommendation === 'GO' ? 'Metrics meet or exceed established thresholds. ' + greenFlags.length + ' positive indicators identified.' : recommendation === 'REVIEW' ? 'Deal has some concerns requiring manual review. ' + redFlags.length + ' red flags identified.' : 'Deal fails established thresholds. ' + redFlags.length + ' red flags identified.'}`;
+  const confidence = Math.max(0, 100 - redFlags.length * 15 + greenFlags.length * 5);
+
+  return { property_type: data.property_type || "Unknown", metrics, recommendation, risk_level: riskLevel, red_flags: redFlags, green_flags: greenFlags, summary, confidence_score: confidence };
+}
+
+// ====== SAMPLE DEALS ======
+const SAMPLE_DEALS = [
+  { name: "Fix-and-Flip / Strong", type: "Fix-and-Flip", data: { property_type: "Fix-and-Flip", acquisition_price: 200000, renovation_budget: 50000, arv: 350000, holding_period_months: 6, financing_down_percent: 25, financing_interest_rate: 8.5, other_costs: 15000 } },
+  { name: "Fix-and-Flip / Weak", type: "Fix-and-Flip", data: { property_type: "Fix-and-Flip", acquisition_price: 300000, renovation_budget: 50000, arv: 350000, holding_period_months: 12, financing_down_percent: 25, financing_interest_rate: 8.5, other_costs: 15000 } },
+  { name: "Multifamily / Strong", type: "Multifamily", data: { property_type: "Multifamily", acquisition_price: 2000000, renovation_budget: 200000, monthly_rental_income: 40000, financing_down_percent: 30, financing_interest_rate: 7.0, operating_expense_percent: 40 } },
+  { name: "Multifamily / Marginal", type: "Multifamily", data: { property_type: "Multifamily", acquisition_price: 1500000, renovation_budget: 150000, monthly_rental_income: 12000, financing_down_percent: 25, financing_interest_rate: 7.5, operating_expense_percent: 45 } },
+  { name: "Development / Mixed-Use", type: "Development", data: { property_type: "Development", land_cost: 5000000, hard_construction_costs: 35000000, end_value: 65000000, units: 280, holding_period_months: 24, debt_percent: 70, interest_rate: 8.5 } },
+  { name: "Custom Deal", type: "Fix-and-Flip", data: null }
+];
+
+// ====== UI RENDERING ======
+let currentSample = -1;
+
+function renderSamples() {
+  const sel = document.getElementById('sampleSelector');
+  sel.innerHTML = SAMPLE_DEALS.map((s, i) => `<button class="sample-btn ${i===0?'active':''}" onclick="loadSample(${i})">${s.name}</button>`).join('');
+}
+
+function loadSample(idx) {
+  currentSample = idx;
+  document.querySelectorAll('.sample-btn').forEach((b,i) => b.classList.toggle('active', i === idx));
+  const s = SAMPLE_DEALS[idx];
+  if (idx >= SAMPLE_DEALS.length - 1) return; // Custom — no auto-fill
+  document.getElementById('propertyType').value = s.type;
+  onTypeChange();
+  populateFields(s.data);
+}
+
+function populateFields(d) {
+  Object.keys(d).forEach(k => {
+    const el = document.getElementById(k);
+    if (el && d[k] !== undefined) el.value = d[k];
+  });
+}
+
+const FIELD_DEFS = {
+  'Fix-and-Flip': [
+    { id: 'acquisition_price', label: 'Acquisition Price ($)', type: 'number', step: 10000, def: 200000 },
+    { id: 'renovation_budget', label: 'Renovation Budget ($)', type: 'number', step: 5000, def: 50000 },
+    { id: 'arv', label: 'After Repair Value (ARV) ($)', type: 'number', step: 10000, def: 350000 },
+    { id: 'holding_period_months', label: 'Holding Period (Months)', type: 'number', step: 1, def: 6 },
+    { id: 'financing_down_percent', label: 'Down Payment (%)', type: 'number', step: 5, def: 25 },
+    { id: 'financing_interest_rate', label: 'Interest Rate (%)', type: 'number', step: 0.25, def: 8.5 },
+    { id: 'other_costs', label: 'Other Costs ($)', type: 'number', step: 1000, def: 15000 }
+  ],
+  'Multifamily': [
+    { id: 'acquisition_price', label: 'Acquisition Price ($)', type: 'number', step: 10000, def: 2000000 },
+    { id: 'renovation_budget', label: 'Renovation Budget ($)', type: 'number', step: 5000, def: 200000 },
+    { id: 'monthly_rental_income', label: 'Monthly Rental Income ($)', type: 'number', step: 1000, def: 40000 },
+    { id: 'financing_down_percent', label: 'Down Payment (%)', type: 'number', step: 5, def: 30 },
+    { id: 'financing_interest_rate', label: 'Interest Rate (%)', type: 'number', step: 0.25, def: 7.0 },
+    { id: 'operating_expense_percent', label: 'Operating Expenses (%)', type: 'number', step: 5, def: 40 }
+  ],
+  'Development': [
+    { id: 'land_cost', label: 'Land Cost ($)', type: 'number', step: 100000, def: 5000000 },
+    { id: 'hard_construction_costs', label: 'Hard Construction Costs ($)', type: 'number', step: 100000, def: 35000000 },
+    { id: 'end_value', label: 'Expected End Value / Sales Revenue ($)', type: 'number', step: 100000, def: 65000000 },
+    { id: 'units', label: 'Number of Units', type: 'number', step: 10, def: 280 },
+    { id: 'holding_period_months', label: 'Holding Period (Months)', type: 'number', step: 6, def: 24 },
+    { id: 'debt_percent', label: 'Debt Financing (%)', type: 'number', step: 5, def: 70 },
+    { id: 'interest_rate', label: 'Interest Rate (%)', type: 'number', step: 0.25, def: 8.5 }
+  ]
+};
+
+function onTypeChange() {
+  const pt = document.getElementById('propertyType').value;
+  const container = document.getElementById('inputFields');
+  const fields = FIELD_DEFS[pt] || [];
+  container.innerHTML = fields.map(f => `
+    <div class="field">
+      <label>${f.label}</label>
+      <input type="${f.type}" id="${f.id}" step="${f.step}" value="${f.def}">
+    </div>`).join('');
+}
+
+function getFormData() {
+  const pt = document.getElementById('propertyType').value;
+  const data = { property_type: pt };
+  const fields = FIELD_DEFS[pt] || [];
+  fields.forEach(f => {
+    const el = document.getElementById(f.id);
+    if (el) data[f.id] = parseFloat(el.value) || 0;
+  });
+  return data;
+}
+
+function analyzeDeal() {
+  const data = getFormData();
+  const result = analyzeDealData(data);
+  showResults(result);
+}
+
+function showResults(r) {
+  document.getElementById('results').classList.add('visible');
+
+  // Recommendation bar
+  const recBar = document.getElementById('recBar');
+  recBar.className = 'recommendation-bar';
+  if (r.recommendation === 'GO') { recBar.classList.add('rec-go'); }
+  else if (r.recommendation === 'REVIEW') { recBar.classList.add('rec-review'); }
+  else { recBar.classList.add('rec-nogo'); }
+  recBar.textContent = `${r.recommendation} — ${r.risk_level} Risk`;
+
+  // Metrics grid
+  const mg = document.getElementById('metricsGrid');
+  let metricHTML = '';
+  if (r.metrics) {
+    Object.entries(r.metrics).forEach(([key, val]) => {
+      if (typeof val !== 'number') return;
+      let label = key.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+      // Format based on known metric names
+      if (/percent|roi|cap_rate/i.test(key)) label = key.includes('rate') || key.includes('return') ? '%' : '%';
+      let displayVal;
+      if (key.includes('_percent') || key.includes('irr_percent')) displayVal = `${val}%`;
+      else if (key === 'dscr') displayVal = val.toFixed(2);
+      else if (key === 'equity_multiple') displayVal = `${val}x`;
+      else displayVal = '$' + Math.round(val).toLocaleString();
+      metricHTML += `<div class="metric-card"><div class="value">${displayVal}</div><div class="label">${label.replace(/%/g,'')}</div></div>`;
+    });
+  }
+  mg.innerHTML = metricHTML;
+
+  // Flags
+  document.getElementById('greenFlags').innerHTML = r.green_flags.length ? r.green_flags.map(f => `<div class="flag-item flag-green">✓ ${f}</div>`).join('') : '<p style="color:var(--muted);font-size:0.85rem;">None</p>';
+  document.getElementById('redFlags').innerHTML = r.red_flags.length ? r.red_flags.map(f => `<div class="flag-item flag-red">✗ ${f}</div>`).join('') : '<p style="color:var(--muted);font-size:0.85rem;">None — all metrics within threshold</p>';
+
+  // Summary
+  document.getElementById('summaryBox').textContent = r.summary;
+
+  // Scroll to results
+  document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function resetForm() {
+  currentSample = -1;
+  document.querySelectorAll('.sample-btn').forEach(b => b.classList.remove('active'));
+  onTypeChange();
+  document.getElementById('results').classList.remove('visible');
+}
+
+// ====== INIT ======
+renderSamples();
+onTypeChange();
+</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+I took over from that point and did the read only inspection.
+
+Findings:
+First, your structural decision is right. Subwoofer belongs inside LBV on N1, not as a separate brand or separate agent stack.
+
+Second, the subwoofer page still contains the deposit framing Claude flagged. Tier two says twenty seven dollar deposit, tier three says forty seven dollar deposit, and the pricing copy still says start with the guide and your purchase credits forward. So the page still markets upgrades as deposit style progression.
+
+Third, the bigger issue is backend consistency. The create sub checkout route exists and the questionnaire plus token gated download flow exist. But the main Stripe webhook only maps T0 through T5 LBV products. It does not include subwoofer product IDs. That means a subwoofer Stripe payment hitting the shared webhook can resolve as unknown, and the generic payment status logic can classify low dollar purchases as deposit only. So this is not just copy cleanup. It is also webhook cleanup.
+
+So the real pending work is:
+1. remove deposit language from the subwoofer page and related upgrade copy
+2. add explicit subwoofer product handling to the shared Stripe webhook, or intentionally exclude it and rely only on the subwoofer post payment flow
+3. verify production env has the subwoofer Stripe price IDs and files wired correctly
+
+My recommendation is to treat this as an N1 commercialization fix, not a new product build. If you want, I will move next to a concrete patch plan for the subwoofer page, checkout handling, and webhook logic.

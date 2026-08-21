@@ -1,0 +1,52 @@
+---
+name: vercel-deploy
+description: Deploy the LBV site to Vercel production and retrieve runtime logs. Use after a successful git push to ship a fix live.
+metadata: {"openclaw":{"requires":{"bins":["node","vercel"]}}}
+---
+
+# vercel-deploy
+
+Deploy `~/luminary-build/site` to Vercel production and tail runtime logs.
+
+## Usage
+
+```bash
+node ~/.openclaw/tools/vercel-deploy.js '<json>'
+```
+
+## Operations
+
+### Deploy to production
+
+```bash
+node ~/.openclaw/tools/vercel-deploy.js '{"op":"deploy_prod"}'
+```
+
+Returns: `{"ok":true,"deploy_url":"https://xxx.vercel.app","ready":true,"output":"..."}`
+
+**Pre-condition:** working tree must be clean (all changes committed and pushed). The tool checks this and refuses if uncommitted files exist.
+
+### Fetch recent runtime logs
+
+```bash
+node ~/.openclaw/tools/vercel-deploy.js '{"op":"logs","lines":100}'
+```
+
+Returns: `{"ok":true,"lines":["...","..."]}`
+
+## Workflow
+
+Always follow this sequence for a code fix:
+1. `git-ops` → `pull` (get latest)
+2. Make changes
+3. `git-ops` → `status` (verify only intended files changed)
+4. `git-ops` → `commit_and_push`
+5. `vercel-deploy` → `deploy_prod`
+6. `vercel-deploy` → `logs` (confirm no runtime errors)
+
+## Rules
+
+- Never deploy with uncommitted local changes — the tool will refuse
+- A deploy takes 1–3 minutes; wait for `ready: true` before reporting success
+- If deploy fails, retrieve logs immediately and report the full error to Apex
+- Never deploy at the same time another deploy is in progress

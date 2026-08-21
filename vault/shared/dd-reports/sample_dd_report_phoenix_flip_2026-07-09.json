@@ -1,0 +1,103 @@
+{
+  "deal_type": "fix_and_flip",
+  "property_name": "Desert Bloom Fix-and-Flip",
+  "address": "Phoenix, AZ 85042",
+  "property_type": "Single Family Residence",
+  "bedrooms": 3,
+  "bathrooms": 2,
+  "square_footage": 1680,
+  "lot_size_sqft": 6500,
+  "year_built": 1998,
+  "acquisition_price": 245000,
+  "after_repair_value": 375000,
+  "renovation_budget": 65000,
+  "holding_period_months": 7,
+  "financing_down_percent": 20,
+  "financing_interest_rate": 9.25,
+  "other_costs": 18500,
+  "expected_arv_sources": ["Comparable sales within 0.5 miles (3 comps)", "Zillow Zestimate range", "County assessor recent transactions"],
+
+  "analysis": {
+    "total_project_cost": 347625,
+    "acquisition_cost": 245000,
+    "reno_cost": 65000,
+    "closing_acquisition": 7350,
+    "closing_sale": 9375,
+    "holding_costs_estimated": 18250,
+    "financing_interest_total": 2650,
+    "other_cost_estimate": 18500,
+    "profit_at_arv": 27375,
+    "roi_percent": 7.9,
+    "cost_per_sqft_acquisition": 145.83,
+    "cost_per_sqft_arv": 223.21,
+    "reno_cost_per_sqft": 38.69,
+    "equity_multiple": 1.08,
+    "days_on_market_estimate_flip": 21,
+    "carrying_cost_monthly": 2607
+  },
+
+  "recommendation": "NO-GO",
+  "confidence_score": 82,
+  "risk_level": "High",
+
+  "red_flags": [
+    "ROI of 7.9% is well below the 20% threshold for fix-and-flip deals",
+    "Purchase price at 65.3% of ARV — while below the 85% threshold, the renovation costs are eating all margin",
+    "Holding period of 7 months with $2,607/month carrying costs = $18,249 in holding alone",
+    "Phoenix market has seen 12.3% price appreciation over last year — buying at peak may compress margins if market corrects",
+    "Renovation budget of $38.69/sqft appears low for a full gut-reno in 2026 Phoenix labor market",
+    "Interest rate of 9.25% is high — hard money rates have been elevated; this deal assumes favorable terms"
+  ],
+
+  "green_flags": [
+    "Purchase price represents only 65.3% of ARV — significant spread on paper",
+    "Neighborhood has seen $140K+ appreciation over last 3 years",
+    "Property sits on larger lot (6,500 sqft) vs neighborhood median of 5,200 sqft",
+    "No environmental or zoning issues identified"
+  ],
+
+  "scenario_analysis": {
+    "optimistic": {
+      "arv_assumption": 395000,
+      "reno_cost_savings": 55000,
+      "holding_period_months": 6,
+      "profit": 48125,
+      "roi_percent": 13.8,
+      "recommendation": "REVIEW"
+    },
+    "pessimistic": {
+      "arv_assumption": 350000,
+      "reno_cost_overrun": 78000,
+      "holding_period_months": 9,
+      "profit": -16245,
+      "roi_percent": -4.7,
+      "recommendation": "NO-GO"
+    }
+  },
+
+  "market_context": {
+    "median_sale_price_3bed_phoenix": 389000,
+    "price_trend_12mo": "+12.3%",
+    "days_on_market_median": 28,
+    "inventory_level": "Low — seller's market",
+    "rental_yield_estimate": "5.2% (if held as rental)",
+    "note": "Phoenix market remains strong but prices have surged. Competition from cash buyers is intense in the $300-400K range."
+  },
+
+  "due_diligence_checklist": [
+    "Verify ARV with 3 licensed appraisers (not just comps)",
+    "Get contractor bids — not estimates — for all renovation line items",
+    "Inspect foundation and slab (Phoenix soil expansion risk)",
+    "Check for permits on any unpermitted work by previous owner",
+    "Title search for HOA liens or special assessments",
+    "Verify financing terms — 9.25% hard money may not be available at that rate in current market"
+  ],
+
+  "action_items": [
+    "Walk away unless purchase price can be negotiated below $210K (requires ~$35K additional discount)",
+    "If pursuing, renegotiate renovation contract with fixed-price bids",
+    "Consider holding as rental instead — 5.2% yield is marginal but eliminates flip risk"
+  ],
+
+  "analyst_note": "This deal fails the fundamental test: after all costs, the profit margin is only 7.9%. In Phoenix's competitive market, any delay in selling or unexpected renovation issue pushes this into negative territory. The spread looks attractive on paper (65% of ARV), but renovation costs and carrying charges consume most of it. This is a classic case where the deal looks good until you add real-world friction."
+}

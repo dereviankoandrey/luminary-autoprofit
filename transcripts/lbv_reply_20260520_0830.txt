@@ -1,0 +1,21 @@
+Yes. Email is configured through the LBV M365 SMTP path. Discord webhooks are also configured. I have not sent a live test email or Discord post in this turn because that would be an external action, but the configuration is present.
+
+You do not need Discord as your communication channel with the agents. The cleaner model is: all business communication with you goes through me. Discord can exist as an internal backchannel for milestones, alerts, and agent telemetry if we decide to use it later.
+
+I already started the first execution worker for `mission-t0-01` with the corrected priority stack: `T0` first, marketing strategy second, customer follow-up third, payment processor research fourth, Paperclip only if it blocks revenue work.
+
+What `main` is going to do:
+`main` should handle system integrity, session continuity, memory hygiene, schedules, infrastructure checks, and exception handling. It is not the commercial owner. It keeps the machine stable while I run revenue and operating decisions.
+
+How I will communicate with clients:
+I will not pretend to be a human individual. Customer communication should be role-based and truthful.
+- Sales and founder-style outreach can come from Luminary voice or `hello@` when appropriate.
+- Onboarding emails should come from `onboarding@`.
+- Support, follow-up, and satisfaction checks should come from `clientsuccess@`.
+
+How the operating split works:
+- I own business direction, revenue priorities, segmentation, and what gets sent.
+- Onboarding and Client Success handle operational customer communication once the process and copy are approved.
+- You receive regular updates through me.
+
+My recommendation is to keep the external face consistent: Luminary for commercial positioning, role aliases for operational delivery. That gives us clarity without pretending a fake human exists behind the messages.
