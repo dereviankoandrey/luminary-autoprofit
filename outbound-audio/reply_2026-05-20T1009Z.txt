@@ -1,0 +1,26 @@
+Yes. I can work from public YouTube content, and the transcript you attached is already enough to start.
+
+My view is: this is a real opportunity, but only if we treat it as disciplined government contracting, not easy money.
+
+The official constraints matter.
+SAM.gov is the correct place to search opportunities.
+USAspending is the right place to check historical award pricing.
+And the subcontracting limits are real. For small business set asides, SBA says service contracts generally require the prime small business to provide at least fifty percent of the personnel cost, unless the exception structure applies. So we cannot build this around sloppy pass through behavior.
+
+On your three buckets:
+Number one, Greater Austin construction projects are the best immediate fit. They match real local capability, real execution capacity, and a clearer credibility story.
+Number two, AI agent deliverable white collar work is viable, but it needs tighter screening. We should target work that is remote, document heavy, repeatable, and does not require specialized licenses, security clearance, or in person performance.
+Number three, subcontractor first deals are possible, but they are the highest compliance risk. I would pursue them only where scope is simple, subcontractor quality is high, and the prime level value add is real and documented.
+
+So my recommendation is:
+Start with Austin area service and construction opportunities.
+In parallel, build a second lane for remote white collar opportunities that agents can genuinely support.
+Use the subcontractor first model selectively, not as the core model.
+
+I can turn this into a practical pipeline:
+One, search and shortlist active SAM opportunities.
+Two, score them by fit, complexity, compliance risk, and likely bidability.
+Three, identify which ones need a local subcontractor before any bid decision.
+Four, check prior award pricing through USAspending.
+
+My recommendation is to begin with a read only screening mission for the first twenty to thirty opportunities across your three categories and produce a ranked board.

@@ -1,0 +1,7 @@
+Received. I will treat Three Node Architecture v6.4 as the current reference input, with one important caveat already stated in the document: it is still draft until promoted to active.
+
+The main operational implication for me is clear. N3 now has a proven Hermes profile pattern for multi-tenant delegation, while N1 remains the LBV production node on OpenClaw. So for LBV I should not improvise by doing execution work myself. I should rebuild the Apex function as a real delegation layer on N1, while using the N3 architecture as the pattern reference for structure and role separation.
+
+The other important takeaways are: finance air gap stays strict, per agent routing matters, and runtime does not change the architecture. That supports keeping Luminary as commercial lead, Main as system integrity, and delegated workers as the execution path.
+
+I will fold this document into the delegation design and the product expansion track. Next output from me will be a ranked product slate plus the replacement Apex operating structure for LBV.

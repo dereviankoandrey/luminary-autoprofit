@@ -1,0 +1,2575 @@
+{
+  "version": 1,
+  "updatedAt": "2026-05-19T10:00:51.769Z",
+  "entries": {
+    "memory:memory/2026-04-01.md:1:42": {
+      "key": "memory:memory/2026-04-01.md:1:42",
+      "path": "memory/2026-04-01.md",
+      "startLine": 1,
+      "endLine": 42,
+      "source": "memory",
+      "snippet": "# 2026-04-01 - AutoProfit Daily Run **Time:** 02:00 UTC, Wednesday April 1st, 2026 **Trigger:** Cron job [16ce1a58-d11b-4eb0-a20c-44b5c122f734] - AutoProfit Daily for Luminary **Agent:** Jedai --- ## Context Review ### Current Pipeline Status (from autoprofit-pipeline.md) Three active opportunities in flight: 1. **AI Underwriting SaaS** - Experiment Phase, MVP build in progress 2. **Developer's Playbook Course+Community** - Research stage 3. **Austin Market Intel Reports** - Research stage ### Key Constraints - Startup capital target: < $1,000 - Agent autonomy target: 70%+ AI-executable - Must prioritize recurring revenue - Fast validation (days/weeks, not months) ### Market Signal",
+      "recallCount": 23,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 12.671000894904134,
+      "maxScore": 0.5734857767820358,
+      "firstRecalledAt": "2026-04-09T22:54:14.749Z",
+      "lastRecalledAt": "2026-04-25T02:00:09.738Z",
+      "queryHashes": [
+        "f429ea7c7eb3",
+        "a0de3fddacf9",
+        "20fbab258d5a",
+        "99daaf52f456",
+        "879110cc5c99",
+        "40438e012dff",
+        "8189d362cfee",
+        "24fdcfc0b780",
+        "b68c21c40e57",
+        "7f06bf16e340",
+        "207904137ed3",
+        "b13c29db9832",
+        "fa89a13501b4",
+        "4ca10faeebed",
+        "43673e03cf0a",
+        "ae4c54710355",
+        "eae4732a1bdc",
+        "7633b4070411",
+        "bc24a69b8900",
+        "3033dc1ec3fc",
+        "58b6bc93278f",
+        "56d51e394a2f",
+        "fa0b4fc1feef"
+      ],
+      "recallDays": [
+        "2026-04-09",
+        "2026-04-13",
+        "2026-04-14",
+        "2026-04-15",
+        "2026-04-16",
+        "2026-04-17",
+        "2026-04-18",
+        "2026-04-19",
+        "2026-04-20",
+        "2026-04-22",
+        "2026-04-23",
+        "2026-04-25"
+      ],
+      "conceptTags": [
+        "autoprofit-pipeline.md",
+        "ai-executable",
+        "days/weeks",
+        "autoprofit",
+        "run",
+        "time",
+        "utc",
+        "wednesday"
+      ]
+    },
+    "memory:memory/2026-03-29.md:1:48": {
+      "key": "memory:memory/2026-03-29.md:1:48",
+      "path": "memory/2026-03-29.md",
+      "startLine": 1,
+      "endLine": 48,
+      "source": "memory",
+      "snippet": "# 2026-03-29 - AutoProfit Daily **Run time:** Sunday, March 29th, 2026 — 2:00 AM UTC **Status:** Day 2 of AutoProfit Daily review --- ## Context Summary Luminary (Andrey Derevianko): - Real estate developer + finance executive (20+ years) - Expertise: underwriting, capital deployment, investor reporting, project execution - Tech leadership background (systems, automation) - Active in Austin, TX market - Current projects: $4B+ in development pipeline **Constraints for this run:** - Minimal capital deployment - High agent autonomy (AI can execute 80%+) - Recurring revenue priority - Information asymmetry advantage - Operational leverage - Fast validation (days/weeks, not months) **Yest",
+      "recallCount": 14,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 7.589741656184197,
+      "maxScore": 0.5612941697239875,
+      "firstRecalledAt": "2026-04-09T22:54:14.749Z",
+      "lastRecalledAt": "2026-04-18T02:00:20.194Z",
+      "queryHashes": [
+        "f429ea7c7eb3",
+        "a0de3fddacf9",
+        "20fbab258d5a",
+        "99daaf52f456",
+        "879110cc5c99",
+        "40438e012dff",
+        "8189d362cfee",
+        "24fdcfc0b780",
+        "b68c21c40e57",
+        "207904137ed3",
+        "b13c29db9832",
+        "fa89a13501b4",
+        "4ca10faeebed",
+        "43673e03cf0a"
+      ],
+      "recallDays": [
+        "2026-04-09",
+        "2026-04-13",
+        "2026-04-14",
+        "2026-04-15",
+        "2026-04-16",
+        "2026-04-17",
+        "2026-04-18"
+      ],
+      "conceptTags": [
+        "days/weeks",
+        "autoprofit",
+        "run",
+        "time",
+        "sunday",
+        "march",
+        "29th",
+        "utc"
+      ]
+    },
+    "memory:memory/2026-04-01.md:128:168": {
+      "key": "memory:memory/2026-04-01.md:128:168",
+      "path": "memory/2026-04-01.md",
+      "startLine": 128,
+      "endLine": 168,
+      "source": "memory",
+      "snippet": "## Comparative Analysis | Metric | AI Underwriting SaaS | Market Intel Briefings | Developer Community | |--------|---------------------|----------------------|-------------------| | Startup Cost | $300-500 | $200-400 | $150-300 | | 30-day Rev | $0-1,500 | $1,500-4,500 | $2,000-5,000 | | 90-day Rev | $5K-15K | $10K-25K | $10K-30K | | Human Time | 2-3 hrs/wk | 3-5 hrs/wk | 5-8 hrs/wk | | Autonomy | 80% | 70% | 65% | | Validation Speed | Fastest (MVP exists) | Medium (needs data pipelines) | Medium (needs community build) | | Recurring Revenue | High (SaaS) | High (subscription) | High (membership) | | Moat Strength | Strong (proprietary logic) | Medium (hyper-local) | Medium (network effects",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.4543672293424606,
+      "maxScore": 0.4543672293424606,
+      "firstRecalledAt": "2026-04-09T22:54:14.749Z",
+      "lastRecalledAt": "2026-04-09T22:54:14.749Z",
+      "queryHashes": [
+        "f429ea7c7eb3"
+      ],
+      "recallDays": [
+        "2026-04-09"
+      ],
+      "conceptTags": [
+        "network",
+        "300-500",
+        "200-400",
+        "150-300",
+        "30-day",
+        "0-1",
+        "500-4",
+        "000-5"
+      ]
+    },
+    "memory:memory/2026-03-30.md:1:49": {
+      "key": "memory:memory/2026-03-30.md:1:49",
+      "path": "memory/2026-03-30.md",
+      "startLine": 1,
+      "endLine": 49,
+      "source": "memory",
+      "snippet": "# 2026-03-30 — Monday Morning AutoProfit Review **Time:** 2:00 AM UTC (Mon Mar 30, 2026) **Context:** AutoProfit Daily cron job for Luminary (Andrey) **Current Status:** Day 2 of discovery, framework already captured and validated --- ## Critical Discovery The underwriting SaaS framework was **already captured on Mar 28** (not blocked as pipeline suggested): - ✅ `autoprofit-framework-v1.md` exists with complete prompt template - ✅ `underwriting_mvp.py` exists and **passes all 4 test cases (100% validation)** - ✅ Framework logic is production-ready for MVP deployment **Immediate Action:** Pipeline needs update. SaaS is NOT blocked—it's ready for: 1. MVP deployment (Softr + Airtable +",
+      "recallCount": 30,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 16.34568153470755,
+      "maxScore": 0.5715594246983527,
+      "firstRecalledAt": "2026-04-09T22:54:14.749Z",
+      "lastRecalledAt": "2026-05-19T02:47:36.288Z",
+      "queryHashes": [
+        "f429ea7c7eb3",
+        "a0de3fddacf9",
+        "20fbab258d5a",
+        "99daaf52f456",
+        "879110cc5c99",
+        "40438e012dff",
+        "8189d362cfee",
+        "58bb68c179b2",
+        "c5c4493d28b2",
+        "24fdcfc0b780",
+        "b68c21c40e57",
+        "7f06bf16e340",
+        "207904137ed3",
+        "b13c29db9832",
+        "fa89a13501b4",
+        "4ca10faeebed",
+        "43673e03cf0a",
+        "ae4c54710355",
+        "eae4732a1bdc",
+        "7633b4070411",
+        "bc24a69b8900",
+        "b044f1be9996",
+        "a4affb7fc68f",
+        "3959d53c6418",
+        "58b6bc93278f",
+        "56d51e394a2f",
+        "d6461914c976",
+        "217d3487bc70",
+        "aa50e4f8785e",
+        "36977879481c"
+      ],
+      "recallDays": [
+        "2026-04-09",
+        "2026-04-13",
+        "2026-04-14",
+        "2026-04-15",
+        "2026-04-16",
+        "2026-04-17",
+        "2026-04-18",
+        "2026-04-19",
+        "2026-04-20",
+        "2026-04-21",
+        "2026-04-22",
+        "2026-04-23",
+        "2026-04-24",
+        "2026-04-26",
+        "2026-05-19"
+      ],
+      "conceptTags": [
+        "autoprofit-framework-v1.md",
+        "underwriting-mvp.py",
+        "production-ready",
+        "monday",
+        "morning",
+        "autoprofit",
+        "review",
+        "time"
+      ]
+    },
+    "memory:memory/2026-03-28.md:1:42": {
+      "key": "memory:memory/2026-03-28.md:1:42",
+      "path": "memory/2026-03-28.md",
+      "startLine": 1,
+      "endLine": 42,
+      "source": "memory",
+      "snippet": "# 2026-03-28 - AutoProfit Daily **Run time:** Saturday, March 28th, 2026 — 2:00 AM UTC **Status:** First Autoprofit Daily run (no prior pipeline) --- ## Context Summary Luminary (Andrey Derevianko): - Real estate developer + finance executive (20+ years) - Expertise: underwriting, capital deployment, investor reporting, project execution - Tech leadership background (systems, automation) - Active in Austin, TX market - Current projects: $4B+ in development pipeline **Constraints for this run:** - Minimal capital deployment - High agent autonomy (AI can execute 80%+) - Recurring revenue priority - Information asymmetry advantage - Operational leverage - Fast validation (days/weeks, not m",
+      "recallCount": 16,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 8.735670410096644,
+      "maxScore": 0.56252331584692,
+      "firstRecalledAt": "2026-04-13T02:00:21.908Z",
+      "lastRecalledAt": "2026-05-19T02:02:03.510Z",
+      "queryHashes": [
+        "a0de3fddacf9",
+        "20fbab258d5a",
+        "99daaf52f456",
+        "879110cc5c99",
+        "40438e012dff",
+        "8189d362cfee",
+        "24fdcfc0b780",
+        "b68c21c40e57",
+        "207904137ed3",
+        "b13c29db9832",
+        "fa89a13501b4",
+        "4ca10faeebed",
+        "ae4c54710355",
+        "56d51e394a2f",
+        "c62bac134366",
+        "aa50e4f8785e"
+      ],
+      "recallDays": [
+        "2026-04-13",
+        "2026-04-14",
+        "2026-04-15",
+        "2026-04-16",
+        "2026-04-17",
+        "2026-04-18",
+        "2026-04-23",
+        "2026-04-25",
+        "2026-05-19"
+      ],
+      "conceptTags": [
+        "days/weeks",
+        "autoprofit",
+        "run",
+        "time",
+        "saturday",
+        "march",
+        "28th",
+        "utc"
+      ]
+    },
+    "memory:memory/2026-04-01.md:187:237": {
+      "key": "memory:memory/2026-04-01.md:187:237",
+      "path": "memory/2026-04-01.md",
+      "startLine": 187,
+      "endLine": 237,
+      "source": "memory",
+      "snippet": "- Document any framework gaps ### Step 5: Cost Tracking - Platform fees: $50 (Softr pro + Airtable) - GPT API credits: $100 (estimated for testing) - Domain + hosting: $50 - **Total:** ~$200-300 **Time Invested:** ~2.5-3 hours (fully autonomous) **Success Criteria:** - MVP generates reasonable underwriting analysis in < 60 seconds - Output matches Andrey's manual underwriting within 10% margin - At least 3/5 mock properties generate actionable \"go/no-go\" recommendations **Next Steps (Post-Validation):** - If successful: Recruit 3-5 beta users from Andrey's network for real-world testing - If unsuccessful: Iterate on framework or pivot to next opportunity --- ## Update autoprofit-pipeli",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.5042909979820251,
+      "maxScore": 0.5042909979820251,
+      "firstRecalledAt": "2026-04-13T02:00:21.908Z",
+      "lastRecalledAt": "2026-04-13T02:00:21.908Z",
+      "queryHashes": [
+        "a0de3fddacf9"
+      ],
+      "recallDays": [
+        "2026-04-13"
+      ],
+      "conceptTags": [
+        "gpt",
+        "network",
+        "200-300",
+        "2.5-3",
+        "3/5",
+        "go/no-go",
+        "post-validation",
+        "3-5"
+      ]
+    },
+    "memory:memory/2026-03-29.md:164:215": {
+      "key": "memory:memory/2026-03-29.md:164:215",
+      "path": "memory/2026-03-29.md",
+      "startLine": 164,
+      "endLine": 215,
+      "source": "memory",
+      "snippet": "- Leverages Andrey's expertise (the real moat) - Fast turnaround (can complete tonight) - Validates whether the framework is even codifiable - If successful, unlocks the entire SaaS path --- ## Alternative If Andrey Cannot Provide Framework Tonight **Fallback experiment:** Course \"single lesson\" or Market Intel \"sample brief\" **Reasoning:** - Both can proceed without Andrey's direct input - Still validate the core value prop - Can revisit SaaS idea once framework is available **Recommendation:** Ask Andrey directly: \"Can you provide 10-15 underwriting criteria/rules in 30 minutes? This unlocks the SaaS MVP.\" --- ## What to Research Next (If This Experiment Fails) 1. **Framework codif",
+      "recallCount": 3,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1.5172591507434845,
+      "maxScore": 0.5127060770988464,
+      "firstRecalledAt": "2026-04-13T02:00:21.908Z",
+      "lastRecalledAt": "2026-04-15T02:02:47.540Z",
+      "queryHashes": [
+        "a0de3fddacf9",
+        "99daaf52f456",
+        "b68c21c40e57"
+      ],
+      "recallDays": [
+        "2026-04-13",
+        "2026-04-14",
+        "2026-04-15"
+      ],
+      "conceptTags": [
+        "10-15",
+        "criteria/rules",
+        "leverages",
+        "andrey's",
+        "expertise",
+        "the",
+        "real",
+        "moat"
+      ]
+    },
+    "memory:memory/2026-04-01.md:36:71": {
+      "key": "memory:memory/2026-04-01.md:36:71",
+      "path": "memory/2026-04-01.md",
+      "startLine": 36,
+      "endLine": 71,
+      "source": "memory",
+      "snippet": "- MVP already in progress (AI Underwriting SaaS in pipeline) - Information asymmetry: Andrey's 20+ years of proprietary logic - Recurring revenue: $299-999/mo B2B SaaS model - Operational leverage: AI handles 80%+ of analysis generation - Validation path: Test with 3-5 beta users from Andrey's existing network **Estimated Startup Capital:** $300-500 - No-code platform (Softr/Bubble): $50-100/mo - GPT API credits: $100-200 initial - Domain + hosting: $50 - Legal/terms template: $100 **Revenue Projections:** - 30 days: $0-1,500 (beta testing, 0-5 paid users at early-bird pricing) - 90 days: $5,000-15,000/mo (10-20 paying customers at $299-599/mo) **Key Risks:** - Competition from generic re",
+      "recallCount": 3,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1.5080151349306106,
+      "maxScore": 0.5238615185022354,
+      "firstRecalledAt": "2026-04-13T02:03:23.399Z",
+      "lastRecalledAt": "2026-04-16T02:00:18.418Z",
+      "queryHashes": [
+        "20fbab258d5a",
+        "40438e012dff",
+        "207904137ed3"
+      ],
+      "recallDays": [
+        "2026-04-13",
+        "2026-04-14",
+        "2026-04-16"
+      ],
+      "conceptTags": [
+        "gpt",
+        "network",
+        "299-999/mo",
+        "3-5",
+        "300-500",
+        "no-code",
+        "softr/bubble",
+        "50-100/mo"
+      ]
+    },
+    "memory:memory/2026-03-30.md:77:121": {
+      "key": "memory:memory/2026-03-30.md:77:121",
+      "path": "memory/2026-03-30.md",
+      "startLine": 77,
+      "endLine": 121,
+      "source": "memory",
+      "snippet": "- Highest revenue ceiling ($10K-30K/mo) - Andrey's track record is unique credibility asset - Can pre-sell before full creation - Builds community/authority beyond transactional revenue **30-day revenue:** $2,000-5,000 (pre-sell to network) **90-day revenue:** $10K-30K/mo (20-50 members @ $197-297/mo) **Human time required:** - Week 1: 4-6 hrs (outline, record test lesson, landing page) - Ongoing: 2-4 hrs/week (content creation, community management) **Key risks:** - Content creation burden (time-intensive) - Course market saturation - Delivery/platform friction **Next experiment:** Create course outline (10-15 modules), record single test lesson (15-20 min), build landing page for pre",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1.0209588438272474,
+      "maxScore": 0.5139060378074646,
+      "firstRecalledAt": "2026-04-13T05:00:15.407Z",
+      "lastRecalledAt": "2026-05-19T05:00:48.834Z",
+      "queryHashes": [
+        "d4b956a1b89d",
+        "cde6f0278771"
+      ],
+      "recallDays": [
+        "2026-04-13",
+        "2026-05-19"
+      ],
+      "conceptTags": [
+        "network",
+        "10k-30k/mo",
+        "pre-sell",
+        "community/authority",
+        "30-day",
+        "000-5",
+        "90-day",
+        "20-50"
+      ]
+    },
+    "memory:memory/2026-03-30.md:38:85": {
+      "key": "memory:memory/2026-03-30.md:38:85",
+      "path": "memory/2026-03-30.md",
+      "startLine": 38,
+      "endLine": 85,
+      "source": "memory",
+      "snippet": "- Week 1: 2-3 hrs (deploy MVP, setup billing) - Ongoing: 1-2 hrs/week (support, iteration) **Key risks:** - Beta user acquisition (need 3-5 from Andrey's network) - Pricing validation - Feature creep before product-market fit **Next experiment:** Deploy MVP to test environment, recruit 3 beta users from Andrey's developer contacts --- ### 2. Austin Market Intelligence Reports (Fastest to Revenue) **Why #2:** - Can generate sample brief in 2-3 hrs - No framework capture needed - 95%+ agent autonomy - Direct B2B sales to developers, syndicators, investors **30-day revenue:** $1,500-4,500 (3-5 pilot clients @ $497-997/mo) **90-day revenue:** $10K-25K/mo (10-25 clients) **Human time req",
+      "recallCount": 4,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1.9708571702241895,
+      "maxScore": 0.5141819328069687,
+      "firstRecalledAt": "2026-04-13T05:00:15.407Z",
+      "lastRecalledAt": "2026-05-19T05:00:48.834Z",
+      "queryHashes": [
+        "d4b956a1b89d",
+        "a2e80b13f5c6",
+        "29ed08645609",
+        "cde6f0278771"
+      ],
+      "recallDays": [
+        "2026-04-13",
+        "2026-04-14",
+        "2026-05-19"
+      ],
+      "conceptTags": [
+        "network",
+        "2-3",
+        "1-2",
+        "hrs/week",
+        "3-5",
+        "product-market",
+        "30-day",
+        "500-4"
+      ]
+    },
+    "memory:memory/2026-03-28.md:86:111": {
+      "key": "memory:memory/2026-03-28.md:86:111",
+      "path": "memory/2026-03-28.md",
+      "startLine": 86,
+      "endLine": 111,
+      "source": "memory",
+      "snippet": "- Market saturation of \"real estate courses\" (pro: Andrey's credibility + actual project track record differentiates) - Content creation burden (mitigation: AI assists with outlines, transcripts, Q&A; Andrey provides raw material via voice/video) - Delivery friction (pro: pre-sell model validates demand before full build) **Human Time Required:** - **Week 1:** 4-6 hours (record 3-5 core modules, set up platforms, launch pre-sell) - **Week 2-4:** 3-5 hours/week (engage community, answer questions, record 1-2 more modules) - **Ongoing:** 2-4 hours/week (community management, new content, coaching calls if included) --- ### 3. Automated Market Intelligence Reports for Austin Developers (B2B",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.5027828693389892,
+      "maxScore": 0.5027828693389892,
+      "firstRecalledAt": "2026-04-13T05:00:15.407Z",
+      "lastRecalledAt": "2026-04-13T05:00:15.407Z",
+      "queryHashes": [
+        "d4b956a1b89d"
+      ],
+      "recallDays": [
+        "2026-04-13"
+      ],
+      "conceptTags": [
+        "voice/video",
+        "pre-sell",
+        "4-6",
+        "3-5",
+        "2-4",
+        "hours/week",
+        "1-2",
+        "market"
+      ]
+    },
+    "memory:memory/2026-03-28.md:61:90": {
+      "key": "memory:memory/2026-03-28.md:61:90",
+      "path": "memory/2026-03-28.md",
+      "startLine": 61,
+      "endLine": 90,
+      "source": "memory",
+      "snippet": "--- ### 2. \"Developer's Playbook\" Digital Course + Community (Recurring Membership) **Concept:** Premium course + private community teaching real estate development fundamentals from Andrey's 20+ years. Tiered pricing: self-paced course ($497) + community access ($97/mo) + 1:1 consulting (premium). **Why it fits:** - **Recurring revenue:** Community membership + cohort-based course renewals - **Information asymmetry:** Real project underwritings, capital raises, zoning strategies from actual $4B+ pipeline - **Operational leverage:** Course recorded once, sold infinitely; AI can handle Q&A, grading, community moderation - **Fast validation:** Pre-sell to 10 people before full build ($5K+ v",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.5021925061941147,
+      "maxScore": 0.5021925061941147,
+      "firstRecalledAt": "2026-04-13T05:00:15.407Z",
+      "lastRecalledAt": "2026-04-13T05:00:15.407Z",
+      "queryHashes": [
+        "d4b956a1b89d"
+      ],
+      "recallDays": [
+        "2026-04-13"
+      ],
+      "conceptTags": [
+        "self-paced",
+        "97/mo",
+        "cohort-based",
+        "pre-sell",
+        "developer's",
+        "playbook",
+        "digital",
+        "course"
+      ]
+    },
+    "memory:memory/2026-03-28.md:212:235": {
+      "key": "memory:memory/2026-03-28.md:212:235",
+      "path": "memory/2026-03-28.md",
+      "startLine": 212,
+      "endLine": 235,
+      "source": "memory",
+      "snippet": "## What to Research Next (If This Experiment Fails) 1. **Alternative B2B SaaS opportunities** leveraging Andrey's other expertise: - Capital raise automation for syndicators - Investor reporting SaaS for multifamily syndications - Zoning/compliance automation for Austin developers 2. **Service-based models with AI augmentation:** - Fractional CFO services for small developers (AI does 70% of analysis) - Due diligence automation for acquirers 3. **Market research on demand:** - Survey 10-20 developers in Andrey's network: \"What underwriting/pain points do you have?\" - Validate demand before building --- **Next Review:** 2026-03-29 (24 hours) or upon experiment comple",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.9975528508424758,
+      "maxScore": 0.5044661313295364,
+      "firstRecalledAt": "2026-04-14T02:00:10.372Z",
+      "lastRecalledAt": "2026-04-14T02:02:13.940Z",
+      "queryHashes": [
+        "99daaf52f456",
+        "879110cc5c99"
+      ],
+      "recallDays": [
+        "2026-04-14"
+      ],
+      "conceptTags": [
+        "network",
+        "zoning/compliance",
+        "service-based",
+        "10-20",
+        "underwriting/pain",
+        "what",
+        "research",
+        "experiment"
+      ]
+    },
+    "memory:memory/2026-04-13.md:1:51": {
+      "key": "memory:memory/2026-04-13.md:1:51",
+      "path": "memory/2026-04-13.md",
+      "startLine": 1,
+      "endLine": 51,
+      "source": "memory",
+      "snippet": "# 2026-04-13 - AutoProfit Daily Run **Time:** 02:00 UTC, Monday April 13th, 2026 **Trigger:** Cron job [16ce1a58-d11b-4eb0-a20c-44b5c122f734] - AutoProfit Daily for Luminary **Agent:** Jedai --- ## Context Reviewed - `autoprofit-pipeline.md` - `memory/autoprofit-pipeline.md` - `memory/2026-04-01.md` - `memory/2026-03-30.md` - `memory/autoprofit-framework-v1.md` - `memory/underwriting_mvp.py` - `memory/autoprofit-deployment-plan.md` - Luminary working context and shared vault files ## Findings The strongest verified opportunity remains **AI Underwriting SaaS**. Reason: - real artifact exists (`underwriting_mvp.py`) - framework exists (`autoprofit-framework-v1.md`) - validation histo",
+      "recallCount": 31,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 17.223200805485252,
+      "maxScore": 0.5766725987195969,
+      "firstRecalledAt": "2026-04-14T02:02:13.940Z",
+      "lastRecalledAt": "2026-05-19T02:47:36.288Z",
+      "queryHashes": [
+        "879110cc5c99",
+        "40438e012dff",
+        "8189d362cfee",
+        "58bb68c179b2",
+        "24fdcfc0b780",
+        "b68c21c40e57",
+        "207904137ed3",
+        "b13c29db9832",
+        "fa89a13501b4",
+        "4ca10faeebed",
+        "43673e03cf0a",
+        "ae4c54710355",
+        "eae4732a1bdc",
+        "7633b4070411",
+        "bc24a69b8900",
+        "b044f1be9996",
+        "a4affb7fc68f",
+        "3959d53c6418",
+        "3033dc1ec3fc",
+        "58b6bc93278f",
+        "56d51e394a2f",
+        "636a5ddf6cbd",
+        "d6461914c976",
+        "70a82d27e971",
+        "fa0b4fc1feef",
+        "82b61d7063dd",
+        "c62bac134366",
+        "217d3487bc70",
+        "8b024422cb96",
+        "aa50e4f8785e",
+        "36977879481c"
+      ],
+      "recallDays": [
+        "2026-04-14",
+        "2026-04-15",
+        "2026-04-16",
+        "2026-04-17",
+        "2026-04-18",
+        "2026-04-19",
+        "2026-04-20",
+        "2026-04-21",
+        "2026-04-22",
+        "2026-04-23",
+        "2026-04-24",
+        "2026-04-25",
+        "2026-04-26",
+        "2026-05-19"
+      ],
+      "conceptTags": [
+        "autoprofit-pipeline.md",
+        "memory/autoprofit-pipeline.md",
+        "memory/2026-04-01.md",
+        "memory/2026-03-30.md",
+        "memory/underwriting-mvp.py",
+        "underwriting-mvp.py",
+        "autoprofit-framework-v1.md",
+        "autoprofit"
+      ]
+    },
+    "memory:memory/2026-03-30.md:145:171": {
+      "key": "memory:memory/2026-03-30.md:145:171",
+      "path": "memory/2026-03-30.md",
+      "startLine": 145,
+      "endLine": 171,
+      "source": "memory",
+      "snippet": "- Prepare beta user recruitment script (for Andrey to send) - Generate 3 sample property analyses for demo purposes **Blocked items requiring Andrey input:** - API keys (Stripe, hosting) - Beta user list (his developer network) - Pricing finalization (needs his judgment on value prop) **Next step:** Present options to Andrey, ask for: 1. Go/no-go on MVP deployment tonight 2. List of 3-5 developer contacts for beta testing 3. Pricing preference: $49/report vs $197/mo vs $497/mo tiered --- ## Research Needed Next 1. **Competitor pricing survey:** What do similar underwriting tools charge? 2. **Austin developer network map:** Who are the top 20 developers/syndicators in Austin? 3. **SaaS d",
+      "recallCount": 3,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1.4781098067760468,
+      "maxScore": 0.49745080471038816,
+      "firstRecalledAt": "2026-04-14T02:02:13.940Z",
+      "lastRecalledAt": "2026-04-14T10:00:50.334Z",
+      "queryHashes": [
+        "879110cc5c99",
+        "a2e80b13f5c6",
+        "c5c4493d28b2"
+      ],
+      "recallDays": [
+        "2026-04-14"
+      ],
+      "conceptTags": [
+        "network",
+        "go/no-go",
+        "3-5",
+        "49/report",
+        "197/mo",
+        "497/mo",
+        "developers/syndicators",
+        "prepare"
+      ]
+    },
+    "memory:memory/2026-04-14.md:1:49": {
+      "key": "memory:memory/2026-04-14.md:1:49",
+      "path": "memory/2026-04-14.md",
+      "startLine": 1,
+      "endLine": 49,
+      "source": "memory",
+      "snippet": "# 2026-04-14 - AutoProfit Daily Run **Time:** 02:00 UTC, Tuesday April 14th, 2026 **Trigger:** Cron job [16ce1a58-d11b-4eb0-a20c-44b5c122f734] - AutoProfit Daily for Luminary **Agent:** Jedai --- ## Context Reviewed - `autoprofit-pipeline.md` - `memory/autoprofit-pipeline.md` - `memory/2026-04-13.md` - `memory/2026-04-01.md` - `memory/2026-03-30.md` - `memory/autoprofit-framework-v1.md` - `memory/underwriting_mvp.py` - `underwriting_streamlit_app.py` ## Current Read No stronger verified opportunity has displaced **AI Underwriting SaaS**. Why it still leads: - real working artifact exists - framework exists - recurring revenue is strongest - human time is lowest - autonomy is highest",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.5629897817969322,
+      "maxScore": 0.5629897817969322,
+      "firstRecalledAt": "2026-04-14T02:04:03.936Z",
+      "lastRecalledAt": "2026-04-14T02:04:03.936Z",
+      "queryHashes": [
+        "40438e012dff"
+      ],
+      "recallDays": [
+        "2026-04-14"
+      ],
+      "conceptTags": [
+        "autoprofit-pipeline.md",
+        "memory/autoprofit-pipeline.md",
+        "memory/2026-04-13.md",
+        "memory/2026-04-01.md",
+        "memory/2026-03-30.md",
+        "memory/underwriting-mvp.py",
+        "underwriting-streamlit-app.py",
+        "autoprofit"
+      ]
+    },
+    "memory:memory/2026-04-14.md:1:39": {
+      "key": "memory:memory/2026-04-14.md:1:39",
+      "path": "memory/2026-04-14.md",
+      "startLine": 1,
+      "endLine": 39,
+      "source": "memory",
+      "snippet": "# 2026-04-14 - AutoProfit Daily Run **Time:** 02:01 UTC, Tuesday April 14th, 2026 **Trigger:** Cron job [16ce1a58-d11b-4eb0-a20c-44b5c122f734] - AutoProfit Daily for Luminary **Agent:** Jedai --- ## Context Reviewed - `autoprofit-pipeline.md` - `memory/autoprofit-pipeline.md` - `memory/2026-04-13.md` - `memory/2026-04-01.md` - `memory/2026-03-30.md` - `memory/autoprofit-framework-v1.md` - `memory/autoprofit-deployment-plan.md` - `memory/underwriting_mvp.py` - `underwriting_streamlit_app.py` - `README.md` - `requirements.txt` ## Tonight's Top 3 ### 1. AI Underwriting SaaS - **Why it stays #1:** real code exists, recurring SaaS economics are strongest, Andrey-specific logic is the moa",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1.038515257835388,
+      "maxScore": 0.5610617816448211,
+      "firstRecalledAt": "2026-04-14T02:05:04.959Z",
+      "lastRecalledAt": "2026-04-14T05:00:16.524Z",
+      "queryHashes": [
+        "8189d362cfee",
+        "58bb68c179b2"
+      ],
+      "recallDays": [
+        "2026-04-14"
+      ],
+      "conceptTags": [
+        "autoprofit-pipeline.md",
+        "memory/autoprofit-pipeline.md",
+        "memory/2026-04-13.md",
+        "memory/2026-04-01.md",
+        "memory/2026-03-30.md",
+        "memory/underwriting-mvp.py",
+        "underwriting-streamlit-app.py",
+        "readme.md"
+      ]
+    },
+    "memory:memory/2026-04-01.md:66:102": {
+      "key": "memory:memory/2026-04-01.md:66:102",
+      "path": "memory/2026-04-01.md",
+      "startLine": 66,
+      "endLine": 102,
+      "source": "memory",
+      "snippet": "**Core Concept:** Automated weekly Austin real estate digest delivered to developers/investors. AI scrapes 20+ data sources, Andrey's logic interprets signals. **Why This Now:** - Pipeline already has \"Austin Market Intel Reports\" in research stage - Hyper-local focus creates defensibility - Recurring revenue: $497-1,497/mo subscription - Can be validated without cold outreach (leverage Andrey's network) **Estimated Startup Capital:** $200-400 - Data scraping tools (Apify/ScrapingBee): $50-100/mo - Newsletter platform (Substack/Beehiiv): $0-50/mo - Hosting/automation: $50 - Sample report design: $100 **Revenue Projections:** - 30 days: $1,500-4,500 (3-5 pilot clients at discounted $497/mo",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.5021977216005326,
+      "maxScore": 0.5021977216005326,
+      "firstRecalledAt": "2026-04-14T02:05:04.959Z",
+      "lastRecalledAt": "2026-04-14T02:05:04.959Z",
+      "queryHashes": [
+        "8189d362cfee"
+      ],
+      "recallDays": [
+        "2026-04-14"
+      ],
+      "conceptTags": [
+        "network",
+        "developers/investors",
+        "hyper-local",
+        "497-1",
+        "497/mo",
+        "200-400",
+        "apify/scrapingbee",
+        "50-100/mo"
+      ]
+    },
+    "memory:memory/2026-03-29.md:66:109": {
+      "key": "memory:memory/2026-03-29.md:66:109",
+      "path": "memory/2026-03-29.md",
+      "startLine": 66,
+      "endLine": 109,
+      "source": "memory",
+      "snippet": "**Human time:** 30 min (framework input) + 2-3 hours (build) = **3-3.5 hours total** --- ### 2. \"Developer's Playbook\" Digital Course + Community — **BACKUP** **Status:** Can proceed independently of underwriting framework **What changed since yesterday:** - No new insights - Still viable if SaaS idea stalls **Startup Capital:** $200-400 **30-day revenue:** $2,000-5,000 (unchanged) **90-day revenue:** $10K-30K/mo (unchanged) **Key risks:** Content creation burden, market saturation **Human time:** 4-6 hours (record 3-5 core modules) + 3-5 hours/week (engagement) **Smaller experiment for tonight:** - Record ONE 10-minute \"lesson\" on a specific underwriting concept or deal breakd",
+      "recallCount": 3,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1.4347556561231611,
+      "maxScore": 0.4992571085691452,
+      "firstRecalledAt": "2026-04-14T05:00:16.524Z",
+      "lastRecalledAt": "2026-04-14T05:00:27.114Z",
+      "queryHashes": [
+        "58bb68c179b2",
+        "a2e80b13f5c6",
+        "29ed08645609"
+      ],
+      "recallDays": [
+        "2026-04-14"
+      ],
+      "conceptTags": [
+        "backup",
+        "2-3",
+        "3-3.5",
+        "200-400",
+        "30-day",
+        "000-5",
+        "90-day",
+        "10k-30k/mo"
+      ]
+    },
+    "memory:memory/2026-04-11.md:13:16": {
+      "key": "memory:memory/2026-04-11.md:13:16",
+      "path": "memory/2026-04-11.md",
+      "startLine": 13,
+      "endLine": 16,
+      "source": "memory",
+      "snippet": "- Removed OpenRouter as a default path from /home/andrey/.openclaw/openclaw.json, including the global agents.defaults.model.primary openrouter/qwen/qwen3.6-plus:free and per-agent top-level model overrides for main, apex, and luminary. Result: Luminary and Apex now resolve from their own agent.json files rather than inherited OpenRouter defaults. - Found persistent ambiguity between live primary assistant 'main' and a separate 'Jedai' agent directory on disk. Live primary is still main; Jedai dir appears legacy or redundant and may need later cleanup after diff review. - User asked to add 'GLP5.1' for Apex; blocked pending exact model ID because the requested name did not map to a known cur",
+      "recallCount": 4,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1.9095931679010392,
+      "maxScore": 0.5030185222625733,
+      "firstRecalledAt": "2026-04-14T08:11:08.190Z",
+      "lastRecalledAt": "2026-04-26T03:08:10.065Z",
+      "queryHashes": [
+        "8ca2bf659b32",
+        "b8cd417e213a",
+        "673c875d2740",
+        "f4c13f698dee"
+      ],
+      "recallDays": [
+        "2026-04-14",
+        "2026-04-25",
+        "2026-04-26"
+      ],
+      "conceptTags": [
+        "router",
+        "home/andrey",
+        "openclaw/openclaw.json",
+        "agents.defaults.model.primary",
+        "openrouter/qwen/qwen3.6-plus",
+        "per-agent",
+        "top-level",
+        "agent.json"
+      ]
+    },
+    "memory:memory/2026-04-11.md:1:13": {
+      "key": "memory:memory/2026-04-11.md:1:13",
+      "path": "memory/2026-04-11.md",
+      "startLine": 1,
+      "endLine": 13,
+      "source": "memory",
+      "snippet": "- Continued OpenClaw agent configuration cleanup across agents. - Added/confirmed local model registries for all agents so local Ollama models are visible broadly, including additional agent dirs discovered later: cfo-studio, coo, creative-director, groq, and a separate Jedai directory on disk. - Final explicit per-agent model defaults set during this session: - main -> primary openai-codex/gpt-5.4; fallbacks ollama/qwen2.5:32b, ollama/qwen2.5:14b - luminary -> primary ollama/deepseek-r1:32b; fallback ollama/qwen2.5:32b - apex -> primary ollama/qwen3.5:122b-a10b-q4_K_M; fallback ollama/qwen2.5:32b - cfo-company -> primary ollama/deepseek-r1:32b; fallback ollama/qwen2.5:32b - cfo-st",
+      "recallCount": 5,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 2.4063674092292784,
+      "maxScore": 0.514606299996376,
+      "firstRecalledAt": "2026-04-14T08:11:08.190Z",
+      "lastRecalledAt": "2026-05-18T06:51:28.050Z",
+      "queryHashes": [
+        "8ca2bf659b32",
+        "b8cd417e213a",
+        "673c875d2740",
+        "f4c13f698dee",
+        "385c853a63d4"
+      ],
+      "recallDays": [
+        "2026-04-14",
+        "2026-04-25",
+        "2026-04-26",
+        "2026-05-18"
+      ],
+      "conceptTags": [
+        "gpt",
+        "openai",
+        "added/confirmed",
+        "cfo-studio",
+        "creative-director",
+        "per-agent",
+        "openai-codex/gpt-5.4",
+        "ollama/qwen2.5"
+      ]
+    },
+    "memory:memory/2026-04-14.md:1:4": {
+      "key": "memory:memory/2026-04-14.md:1:4",
+      "path": "memory/2026-04-14.md",
+      "startLine": 1,
+      "endLine": 4,
+      "source": "memory",
+      "snippet": "- Added MiniMax Global as a fallback for Jedai in /home/andrey/.openclaw/openclaw.json. - Inserted fallback model `minimax/minimax-m1` after Groq Scout for the `main` agent. - Not verified end-to-end against provider auth/plugin readiness; MiniMax auth/provider may still need setup if not already configured.",
+      "recallCount": 3,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1.4538250178098677,
+      "maxScore": 0.5021598368883132,
+      "firstRecalledAt": "2026-04-14T08:28:00.256Z",
+      "lastRecalledAt": "2026-04-26T03:08:10.065Z",
+      "queryHashes": [
+        "b8cd417e213a",
+        "673c875d2740",
+        "f4c13f698dee"
+      ],
+      "recallDays": [
+        "2026-04-14",
+        "2026-04-25",
+        "2026-04-26"
+      ],
+      "conceptTags": [
+        "home/andrey",
+        "openclaw/openclaw.json",
+        "minimax/minimax-m1",
+        "end-to-end",
+        "auth/plugin",
+        "auth/provider",
+        "added",
+        "minimax"
+      ]
+    },
+    "memory:memory/2026-04-15.md:1:41": {
+      "key": "memory:memory/2026-04-15.md:1:41",
+      "path": "memory/2026-04-15.md",
+      "startLine": 1,
+      "endLine": 41,
+      "source": "memory",
+      "snippet": "# 2026-04-15 - AutoProfit Daily Run **Time:** 02:00 UTC, Wednesday April 15th, 2026 **Trigger:** Cron job [16ce1a58-d11b-4eb0-a20c-44b5c122f734] - AutoProfit Daily for Luminary **Agent:** Jedai --- ## Context Reviewed - `memory/2026-04-13.md` - `memory/autoprofit-pipeline.md` - `autoprofit-pipeline.md` - `memory/active-goals-tracker.md` - `memory/daily-2026-04-14-overnight-employee.md` - `underwriting_streamlit_app.py` - `README.md` ## Research Notes - Re-reviewed verified workspace strategy and prior AutoProfit outputs. - Attempted fresh web research, but Tavily/web-search access was unavailable due missing API key. - No stronger verified opportunity displaced the current stack. ##",
+      "recallCount": 25,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 13.95592152327299,
+      "maxScore": 0.5770634517073631,
+      "firstRecalledAt": "2026-04-15T02:02:47.540Z",
+      "lastRecalledAt": "2026-04-26T02:03:00.170Z",
+      "queryHashes": [
+        "b68c21c40e57",
+        "7f06bf16e340",
+        "207904137ed3",
+        "b13c29db9832",
+        "fa89a13501b4",
+        "4ca10faeebed",
+        "43673e03cf0a",
+        "ae4c54710355",
+        "eae4732a1bdc",
+        "7633b4070411",
+        "bc24a69b8900",
+        "b044f1be9996",
+        "a4affb7fc68f",
+        "3959d53c6418",
+        "3033dc1ec3fc",
+        "58b6bc93278f",
+        "56d51e394a2f",
+        "636a5ddf6cbd",
+        "d6461914c976",
+        "70a82d27e971",
+        "fa0b4fc1feef",
+        "82b61d7063dd",
+        "c62bac134366",
+        "217d3487bc70",
+        "8b024422cb96"
+      ],
+      "recallDays": [
+        "2026-04-15",
+        "2026-04-16",
+        "2026-04-17",
+        "2026-04-18",
+        "2026-04-19",
+        "2026-04-20",
+        "2026-04-21",
+        "2026-04-22",
+        "2026-04-23",
+        "2026-04-24",
+        "2026-04-25",
+        "2026-04-26"
+      ],
+      "conceptTags": [
+        "memory/2026-04-13.md",
+        "memory/autoprofit-pipeline.md",
+        "autoprofit-pipeline.md",
+        "memory/active-goals-tracker.md",
+        "underwriting-streamlit-app.py",
+        "readme.md",
+        "re-reviewed",
+        "tavily/web-search"
+      ]
+    },
+    "memory:memory/2026-04-15.md:60:96": {
+      "key": "memory:memory/2026-04-15.md:60:96",
+      "path": "memory/2026-04-15.md",
+      "startLine": 60,
+      "endLine": 96,
+      "source": "memory",
+      "snippet": "- Validation value: lowers the human-friction gap between technical MVP and first beta-user testing. ## Why This Is Still the Best Opportunity - only option with verified code artifacts already in workspace - strongest recurring-revenue profile - highest agent autonomy - fastest route to a real product demo ## Blocking Issues - local exec/runtime validation still blocked by symlink restriction - fresh external web research blocked by missing Tavily API key ## Single Best Next Experiment Run one clean smoke-test cycle of the underwriting app in an execution environment that can actually run local commands, then capture screenshots and outputs for the first beta-demo asset. --- ## 02:02 U",
+      "recallCount": 4,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 2.139041155576706,
+      "maxScore": 0.5555532380938529,
+      "firstRecalledAt": "2026-04-15T10:00:13.949Z",
+      "lastRecalledAt": "2026-04-17T02:00:12.675Z",
+      "queryHashes": [
+        "d9ee911eb3ff",
+        "207904137ed3",
+        "b13c29db9832",
+        "fa89a13501b4"
+      ],
+      "recallDays": [
+        "2026-04-15",
+        "2026-04-16",
+        "2026-04-17"
+      ],
+      "conceptTags": [
+        "human-friction",
+        "beta-user",
+        "recurring-revenue",
+        "exec/runtime",
+        "smoke-test",
+        "beta-demo",
+        "validation",
+        "value"
+      ]
+    },
+    "memory:memory/2026-04-16.md:1:41": {
+      "key": "memory:memory/2026-04-16.md:1:41",
+      "path": "memory/2026-04-16.md",
+      "startLine": 1,
+      "endLine": 41,
+      "source": "memory",
+      "snippet": "# 2026-04-16 - AutoProfit Daily Run **Time:** 02:00 UTC, Thursday April 16th, 2026 **Trigger:** Cron job [16ce1a58-d11b-4eb0-a20c-44b5c122f734] - AutoProfit Daily for Luminary **Agent:** Jedai --- ## Context Reviewed - `memory/autoprofit-pipeline.md` - `autoprofit-pipeline.md` - `memory/2026-04-15.md` - `memory/2026-04-13.md` - `memory/active-goals-tracker.md` - `README.md` - `underwriting_beta_packet.md` ## Research Constraints - Fresh web research attempt via `web_search` was blocked because Tavily API key is still missing. - Local command execution remains unavailable in this environment due the existing symlink/exec restriction, so no runtime validation could be added tonight. #",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.5610073119401932,
+      "maxScore": 0.5610073119401932,
+      "firstRecalledAt": "2026-04-16T02:03:36.971Z",
+      "lastRecalledAt": "2026-04-16T02:03:36.971Z",
+      "queryHashes": [
+        "b13c29db9832"
+      ],
+      "recallDays": [
+        "2026-04-16"
+      ],
+      "conceptTags": [
+        "memory/autoprofit-pipeline.md",
+        "autoprofit-pipeline.md",
+        "memory/2026-04-15.md",
+        "memory/2026-04-13.md",
+        "memory/active-goals-tracker.md",
+        "readme.md",
+        "underwriting-beta-packet.md",
+        "web-search"
+      ]
+    },
+    "memory:memory/2026-04-16.md:1:42": {
+      "key": "memory:memory/2026-04-16.md:1:42",
+      "path": "memory/2026-04-16.md",
+      "startLine": 1,
+      "endLine": 42,
+      "source": "memory",
+      "snippet": "# 2026-04-16 - AutoProfit Daily Run **Time:** 02:03 UTC, Thursday April 16th, 2026 **Trigger:** Cron job [04a59440-c7c9-45b9-b8a2-4280246d8068] - AutoProfit Daily for Luminary **Agent:** Jedai --- ## Context Reviewed - `autoprofit-pipeline.md` - `memory/autoprofit-pipeline.md` - `memory/2026-04-15.md` - `memory/2026-04-13.md` - `memory/active-goals-tracker.md` - `README.md` - `underwriting_beta_packet.md` - `underwriting_landing_page_v1.md` ## Research Constraints - Fresh web research remains blocked by missing Tavily/web-search access. - Local command execution remains blocked by the symlink/exec restriction on `/home/andrey/.openclaw`. ## Top 3 for Tonight ### 1. AI Underwriting",
+      "recallCount": 13,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 7.144323115050792,
+      "maxScore": 0.5665611878037452,
+      "firstRecalledAt": "2026-04-17T02:00:12.675Z",
+      "lastRecalledAt": "2026-04-25T02:02:32.103Z",
+      "queryHashes": [
+        "fa89a13501b4",
+        "4ca10faeebed",
+        "97e0b5e4b225",
+        "43673e03cf0a",
+        "ae4c54710355",
+        "eae4732a1bdc",
+        "7633b4070411",
+        "bc24a69b8900",
+        "b044f1be9996",
+        "a4affb7fc68f",
+        "3959d53c6418",
+        "3033dc1ec3fc",
+        "82b61d7063dd"
+      ],
+      "recallDays": [
+        "2026-04-17",
+        "2026-04-18",
+        "2026-04-19",
+        "2026-04-20",
+        "2026-04-21",
+        "2026-04-22",
+        "2026-04-25"
+      ],
+      "conceptTags": [
+        "autoprofit-pipeline.md",
+        "memory/autoprofit-pipeline.md",
+        "memory/2026-04-15.md",
+        "memory/2026-04-13.md",
+        "memory/active-goals-tracker.md",
+        "readme.md",
+        "underwriting-beta-packet.md",
+        "underwriting-landing-page-v1.md"
+      ]
+    },
+    "memory:memory/2026-04-17.md:1:43": {
+      "key": "memory:memory/2026-04-17.md:1:43",
+      "path": "memory/2026-04-17.md",
+      "startLine": 1,
+      "endLine": 43,
+      "source": "memory",
+      "snippet": "# 2026-04-17 - AutoProfit Daily Run **Time:** 02:00 UTC, Friday April 17th, 2026 **Trigger:** Cron job [16ce1a58-d11b-4eb0-a20c-44b5c122f734] - AutoProfit Daily for Luminary **Agent:** Jedai --- ## Context Reviewed - `autoprofit-pipeline.md` - `memory/autoprofit-pipeline.md` - `memory/2026-04-16.md` - `memory/2026-04-15.md` - `memory/active-goals-tracker.md` - `README.md` - `underwriting_beta_packet.md` - `underwriting_landing_page_v1.md` - `underwriting_demo_capture_checklist.md` ## Research Constraints - Fresh web research is still blocked by missing Tavily/web-search access. - Local command execution is still blocked by the symlink/exec restriction on `/home/andrey/.openclaw`. ##",
+      "recallCount": 17,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 9.359528313577172,
+      "maxScore": 0.569629056751728,
+      "firstRecalledAt": "2026-04-17T02:01:56.623Z",
+      "lastRecalledAt": "2026-04-25T02:03:04.986Z",
+      "queryHashes": [
+        "4ca10faeebed",
+        "97e0b5e4b225",
+        "43673e03cf0a",
+        "ae4c54710355",
+        "eae4732a1bdc",
+        "7633b4070411",
+        "bc24a69b8900",
+        "b044f1be9996",
+        "a4affb7fc68f",
+        "3959d53c6418",
+        "3033dc1ec3fc",
+        "58b6bc93278f",
+        "636a5ddf6cbd",
+        "d6461914c976",
+        "fa0b4fc1feef",
+        "82b61d7063dd",
+        "c62bac134366"
+      ],
+      "recallDays": [
+        "2026-04-17",
+        "2026-04-18",
+        "2026-04-19",
+        "2026-04-20",
+        "2026-04-21",
+        "2026-04-22",
+        "2026-04-23",
+        "2026-04-24",
+        "2026-04-25"
+      ],
+      "conceptTags": [
+        "autoprofit-pipeline.md",
+        "memory/autoprofit-pipeline.md",
+        "memory/2026-04-16.md",
+        "memory/2026-04-15.md",
+        "memory/active-goals-tracker.md",
+        "readme.md",
+        "underwriting-beta-packet.md",
+        "underwriting-landing-page-v1.md"
+      ]
+    },
+    "memory:memory/2026-04-17.md:82:115": {
+      "key": "memory:memory/2026-04-17.md:82:115",
+      "path": "memory/2026-04-17.md",
+      "startLine": 82,
+      "endLine": 115,
+      "source": "memory",
+      "snippet": "**Trigger:** Cron job [04a59440-c7c9-45b9-b8a2-4280246d8068] - AutoProfit Daily for Luminary **Agent:** Jedai ### Context Re-Reviewed - `autoprofit-pipeline.md` - `memory/autoprofit-pipeline.md` - `memory/2026-04-17.md` - `memory/2026-04-16.md` - `memory/2026-04-15.md` - `README.md` - `underwriting_beta_scorecard.md` - `underwriting_demo_capture_checklist.md` ### Fresh Research / Validation Attempts - Re-checked workspace-backed opportunities and prior AutoProfit outputs. - Attempted fresh web research with `web_search`; still blocked because Tavily API key is missing. - Confirmed local runtime validation is still blocked by the symlink/exec restriction on `/home/andrey/.openclaw`. ###",
+      "recallCount": 18,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 10.005612683296201,
+      "maxScore": 0.5770245760679245,
+      "firstRecalledAt": "2026-04-18T02:00:20.194Z",
+      "lastRecalledAt": "2026-05-19T02:02:03.510Z",
+      "queryHashes": [
+        "43673e03cf0a",
+        "ae4c54710355",
+        "eae4732a1bdc",
+        "7633b4070411",
+        "bc24a69b8900",
+        "b044f1be9996",
+        "a4affb7fc68f",
+        "3959d53c6418",
+        "3033dc1ec3fc",
+        "58b6bc93278f",
+        "56d51e394a2f",
+        "636a5ddf6cbd",
+        "d6461914c976",
+        "fa0b4fc1feef",
+        "82b61d7063dd",
+        "c62bac134366",
+        "217d3487bc70",
+        "aa50e4f8785e"
+      ],
+      "recallDays": [
+        "2026-04-18",
+        "2026-04-19",
+        "2026-04-20",
+        "2026-04-21",
+        "2026-04-22",
+        "2026-04-23",
+        "2026-04-24",
+        "2026-04-25",
+        "2026-04-26",
+        "2026-05-19"
+      ],
+      "conceptTags": [
+        "re-reviewed",
+        "autoprofit-pipeline.md",
+        "memory/autoprofit-pipeline.md",
+        "memory/2026-04-17.md",
+        "memory/2026-04-16.md",
+        "memory/2026-04-15.md",
+        "readme.md",
+        "underwriting-beta-scorecard.md"
+      ]
+    },
+    "memory:memory/2026-04-17.md:61:95": {
+      "key": "memory:memory/2026-04-17.md:61:95",
+      "path": "memory/2026-04-17.md",
+      "startLine": 61,
+      "endLine": 95,
+      "source": "memory",
+      "snippet": "- New asset: `underwriting_beta_scorecard.md` - Validation value: reduces ambiguity in future beta feedback, shortens the path from demo to pricing signal, and helps prevent drifting into vague “sounds interesting” conversations. ## Why Rankings Did Not Change - No fresh external evidence was available because Tavily is still unconfigured. - No stronger workspace-backed idea displaced the underwriting SaaS. - Underwriting SaaS still has the strongest moat, recurring-revenue shape, and agent autonomy among verified assets. ## Single Best Next Experiment Use `underwriting_beta_scorecard.md` on the first 3 beta demos after runtime access is restored, and record whether at least 2 prospects sc",
+      "recallCount": 4,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 2.0556826576590534,
+      "maxScore": 0.5545106783509254,
+      "firstRecalledAt": "2026-04-18T02:00:20.194Z",
+      "lastRecalledAt": "2026-04-25T19:15:32.866Z",
+      "queryHashes": [
+        "43673e03cf0a",
+        "eae4732a1bdc",
+        "258f04f62fa9",
+        "335143a5e9b0"
+      ],
+      "recallDays": [
+        "2026-04-18",
+        "2026-04-19",
+        "2026-04-24",
+        "2026-04-25"
+      ],
+      "conceptTags": [
+        "underwriting-beta-scorecard.md",
+        "workspace-backed",
+        "recurring-revenue",
+        "new",
+        "asset",
+        "validation",
+        "value",
+        "reduces"
+      ]
+    },
+    "memory:memory/2026-04-18.md:1:42": {
+      "key": "memory:memory/2026-04-18.md:1:42",
+      "path": "memory/2026-04-18.md",
+      "startLine": 1,
+      "endLine": 42,
+      "source": "memory",
+      "snippet": "# 2026-04-18 - AutoProfit Daily Run **Time:** 02:00 UTC, Saturday April 18th, 2026 **Trigger:** Cron job [16ce1a58-d11b-4eb0-a20c-44b5c122f734] - AutoProfit Daily for Luminary **Agent:** Jedai --- ## Context Reviewed - `autoprofit-pipeline.md` - `memory/autoprofit-pipeline.md` - `memory/2026-04-17.md` - `memory/2026-04-16.md` - `README.md` - `underwriting_beta_packet.md` - `underwriting_landing_page_v1.md` - `underwriting_demo_capture_checklist.md` - `underwriting_beta_scorecard.md` - `underwriting_pricing_test_matrix.md` ## Research Constraints - Fresh web research is still blocked by missing Tavily/web-search access. - Local command execution is still blocked by the symlink/exec re",
+      "recallCount": 8,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 4.405736830830573,
+      "maxScore": 0.5658669963479042,
+      "firstRecalledAt": "2026-04-18T02:02:15.293Z",
+      "lastRecalledAt": "2026-04-22T02:00:10.679Z",
+      "queryHashes": [
+        "ae4c54710355",
+        "fd69a822fcf7",
+        "eae4732a1bdc",
+        "7633b4070411",
+        "bc24a69b8900",
+        "b044f1be9996",
+        "a4affb7fc68f",
+        "3033dc1ec3fc"
+      ],
+      "recallDays": [
+        "2026-04-18",
+        "2026-04-19",
+        "2026-04-20",
+        "2026-04-21",
+        "2026-04-22"
+      ],
+      "conceptTags": [
+        "autoprofit-pipeline.md",
+        "memory/autoprofit-pipeline.md",
+        "memory/2026-04-17.md",
+        "memory/2026-04-16.md",
+        "readme.md",
+        "underwriting-beta-packet.md",
+        "underwriting-landing-page-v1.md",
+        "underwriting-beta-scorecard.md"
+      ]
+    },
+    "memory:memory/2026-04-19.md:1:40": {
+      "key": "memory:memory/2026-04-19.md:1:40",
+      "path": "memory/2026-04-19.md",
+      "startLine": 1,
+      "endLine": 40,
+      "source": "memory",
+      "snippet": "# 2026-04-19 - AutoProfit Daily Run **Time:** 02:00 UTC, Sunday April 19th, 2026 **Trigger:** Cron job [16ce1a58-d11b-4eb0-a20c-44b5c122f734] - AutoProfit Daily for Luminary **Agent:** Jedai --- ## Context Reviewed - `autoprofit-pipeline.md` - `memory/autoprofit-pipeline.md` - `memory/2026-04-18.md` - `README.md` - `austin_market_intel_subscription_spec.md` - `underwriting_pricing_test_matrix.md` ## Research Constraints - Fresh web research is still blocked by missing Tavily/web-search access. - Local command execution is still blocked by the symlink/exec restriction on `/home/andrey/.openclaw`. ## Top 3 for Tonight ### 1. AI Underwriting SaaS - Startup capital: $0-100 free/local p",
+      "recallCount": 4,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 2.2103218570351597,
+      "maxScore": 0.5652629166841506,
+      "firstRecalledAt": "2026-04-19T02:02:19.544Z",
+      "lastRecalledAt": "2026-04-21T02:00:17.158Z",
+      "queryHashes": [
+        "7633b4070411",
+        "bc24a69b8900",
+        "b044f1be9996",
+        "a4affb7fc68f"
+      ],
+      "recallDays": [
+        "2026-04-19",
+        "2026-04-20",
+        "2026-04-21"
+      ],
+      "conceptTags": [
+        "autoprofit-pipeline.md",
+        "memory/autoprofit-pipeline.md",
+        "memory/2026-04-18.md",
+        "readme.md",
+        "tavily/web-search",
+        "symlink/exec",
+        "home/andrey",
+        "0-100"
+      ]
+    },
+    "memory:memory/2026-04-20.md:1:41": {
+      "key": "memory:memory/2026-04-20.md:1:41",
+      "path": "memory/2026-04-20.md",
+      "startLine": 1,
+      "endLine": 41,
+      "source": "memory",
+      "snippet": "# 2026-04-20 - AutoProfit Daily Run **Time:** 02:00 UTC, Monday April 20th, 2026 **Trigger:** Cron job [16ce1a58-d11b-4eb0-a20c-44b5c122f734] - AutoProfit Daily for Luminary **Agent:** Jedai --- ## Context Reviewed - `autoprofit-pipeline.md` - `memory/autoprofit-pipeline.md` - `memory/2026-04-19.md` - `README.md` - `austin_market_intel_subscription_spec.md` - `austin_market_intel_sample_issue_template.md` - `underwriting_pricing_test_matrix.md` - `underwriting_beta_packet.md` - `underwriting_demo_capture_checklist.md` ## Research Constraints - Fresh web research is still blocked because `web_search` requires a missing Tavily API key. - Local command execution is still blocked by the",
+      "recallCount": 10,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 5.509817434847355,
+      "maxScore": 0.5699257299304008,
+      "firstRecalledAt": "2026-04-20T02:02:56.833Z",
+      "lastRecalledAt": "2026-04-25T02:02:32.103Z",
+      "queryHashes": [
+        "b044f1be9996",
+        "a4affb7fc68f",
+        "3959d53c6418",
+        "3033dc1ec3fc",
+        "58b6bc93278f",
+        "56d51e394a2f",
+        "636a5ddf6cbd",
+        "d6461914c976",
+        "70a82d27e971",
+        "82b61d7063dd"
+      ],
+      "recallDays": [
+        "2026-04-20",
+        "2026-04-21",
+        "2026-04-22",
+        "2026-04-23",
+        "2026-04-24",
+        "2026-04-25"
+      ],
+      "conceptTags": [
+        "autoprofit-pipeline.md",
+        "memory/autoprofit-pipeline.md",
+        "memory/2026-04-19.md",
+        "readme.md",
+        "underwriting-beta-packet.md",
+        "web-search",
+        "autoprofit",
+        "run"
+      ]
+    },
+    "memory:memory/2026-04-20.md:76:103": {
+      "key": "memory:memory/2026-04-20.md:76:103",
+      "path": "memory/2026-04-20.md",
+      "startLine": 76,
+      "endLine": 103,
+      "source": "memory",
+      "snippet": "3. Use `austin_market_intel_source_map.md` plus `austin_market_intel_sample_issue_template.md` to produce one real source-backed sample issue. --- ## 2026-04-20 - AutoProfit Daily Run **Time:** 02:02 UTC, Monday April 20th, 2026 **Trigger:** Cron job [04a59440-c7c9-45b9-b8a2-4280246d8068] - AutoProfit Daily for Luminary **Agent:** Jedai ### Context Re-Reviewed - `autoprofit-pipeline.md` - `memory/autoprofit-pipeline.md` - `memory/2026-04-20.md` - `README.md` - `austin_market_intel_subscription_spec.md` - `austin_market_intel_sample_issue_template.md` - `austin_market_intel_source_map.md` - `underwriting_pricing_test_matrix.md` - `underwriting_beta_packet.md` ### Research Constraints",
+      "recallCount": 6,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 3.291776682436466,
+      "maxScore": 0.5570781603455544,
+      "firstRecalledAt": "2026-04-21T02:02:21.616Z",
+      "lastRecalledAt": "2026-04-26T02:03:00.170Z",
+      "queryHashes": [
+        "3959d53c6418",
+        "56d51e394a2f",
+        "636a5ddf6cbd",
+        "70a82d27e971",
+        "217d3487bc70",
+        "8b024422cb96"
+      ],
+      "recallDays": [
+        "2026-04-21",
+        "2026-04-23",
+        "2026-04-24",
+        "2026-04-26"
+      ],
+      "conceptTags": [
+        "source-backed",
+        "re-reviewed",
+        "autoprofit-pipeline.md",
+        "memory/autoprofit-pipeline.md",
+        "memory/2026-04-20.md",
+        "readme.md",
+        "underwriting-beta-packet.md",
+        "use"
+      ]
+    },
+    "memory:memory/2026-04-21.md:1:42": {
+      "key": "memory:memory/2026-04-21.md:1:42",
+      "path": "memory/2026-04-21.md",
+      "startLine": 1,
+      "endLine": 42,
+      "source": "memory",
+      "snippet": "# 2026-04-21 - AutoProfit Daily Run **Time:** 02:00 UTC, Tuesday April 21st, 2026 **Trigger:** Cron job [16ce1a58-d11b-4eb0-a20c-44b5c122f734] - AutoProfit Daily for Luminary **Agent:** Jedai --- ## Context Reviewed - `autoprofit-pipeline.md` - `memory/autoprofit-pipeline.md` - `memory/2026-04-20.md` - `README.md` - `underwriting_beta_packet.md` - `underwriting_pricing_test_matrix.md` - `austin_market_intel_subscription_spec.md` - `austin_market_intel_sample_issue_template.md` - `austin_market_intel_source_map.md` - `developer_playbook_membership_presell_spec.md` - `underwriting_demo_capture_checklist.md` ## Research Constraints - Fresh web research is still blocked because `web_sear",
+      "recallCount": 4,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 2.211207193136215,
+      "maxScore": 0.5647372454404831,
+      "firstRecalledAt": "2026-04-21T02:02:21.616Z",
+      "lastRecalledAt": "2026-04-23T02:02:52.755Z",
+      "queryHashes": [
+        "3959d53c6418",
+        "3033dc1ec3fc",
+        "58b6bc93278f",
+        "636a5ddf6cbd"
+      ],
+      "recallDays": [
+        "2026-04-21",
+        "2026-04-22",
+        "2026-04-23"
+      ],
+      "conceptTags": [
+        "autoprofit-pipeline.md",
+        "memory/autoprofit-pipeline.md",
+        "memory/2026-04-20.md",
+        "readme.md",
+        "underwriting-beta-packet.md",
+        "web-sear",
+        "autoprofit",
+        "run"
+      ]
+    },
+    "memory:memory/2026-04-22.md:1:39": {
+      "key": "memory:memory/2026-04-22.md:1:39",
+      "path": "memory/2026-04-22.md",
+      "startLine": 1,
+      "endLine": 39,
+      "source": "memory",
+      "snippet": "# 2026-04-22 - AutoProfit Daily Run **Time:** 02:00 UTC, Wednesday April 22nd, 2026 **Trigger:** Cron job [16ce1a58-d11b-4eb0-a20c-44b5c122f734] - AutoProfit Daily for Luminary **Agent:** Jedai --- ## Context Reviewed - `autoprofit-pipeline.md` - `memory/autoprofit-pipeline.md` - `memory/2026-04-21.md` - `README.md` - `developer_playbook_membership_presell_spec.md` - `developer_playbook_founding_member_offer.md` - `developer_playbook_month1_backlog.md` - `austin_market_intel_subscription_spec.md` - `austin_market_intel_sample_issue_template.md` - `austin_market_intel_source_map.md` - `underwriting_demo_capture_checklist.md` ## Research Constraints - Fresh web research is still blocke",
+      "recallCount": 10,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 5.50178802460432,
+      "maxScore": 0.5720602497458458,
+      "firstRecalledAt": "2026-04-22T02:03:48.762Z",
+      "lastRecalledAt": "2026-04-26T02:03:00.170Z",
+      "queryHashes": [
+        "58b6bc93278f",
+        "56d51e394a2f",
+        "636a5ddf6cbd",
+        "d6461914c976",
+        "70a82d27e971",
+        "fa0b4fc1feef",
+        "82b61d7063dd",
+        "c62bac134366",
+        "217d3487bc70",
+        "8b024422cb96"
+      ],
+      "recallDays": [
+        "2026-04-22",
+        "2026-04-23",
+        "2026-04-24",
+        "2026-04-25",
+        "2026-04-26"
+      ],
+      "conceptTags": [
+        "autoprofit-pipeline.md",
+        "memory/autoprofit-pipeline.md",
+        "memory/2026-04-21.md",
+        "readme.md",
+        "autoprofit",
+        "run",
+        "time",
+        "utc"
+      ]
+    },
+    "memory:memory/2026-04-23.md:1:39": {
+      "key": "memory:memory/2026-04-23.md:1:39",
+      "path": "memory/2026-04-23.md",
+      "startLine": 1,
+      "endLine": 39,
+      "source": "memory",
+      "snippet": "# 2026-04-23 - AutoProfit Daily Run **Time:** 02:00 UTC, Thursday April 23rd, 2026 **Trigger:** Cron job [16ce1a58-d11b-4eb0-a20c-44b5c122f734] - AutoProfit Daily for Luminary **Agent:** Jedai --- ## Context Reviewed - `autoprofit-pipeline.md` - `memory/autoprofit-pipeline.md` - `memory/2026-04-22.md` - `README.md` - `austin_market_intel_subscription_spec.md` - `austin_market_intel_sample_issue_template.md` - `austin_market_intel_source_map.md` - `developer_playbook_waitlist_page.md` - `developer_playbook_waitlist_handoff.md` - `underwriting_demo_capture_checklist.md` ## Research Constraints - Fresh web research is still blocked because `web_search` requires a missing Tavily API key.",
+      "recallCount": 5,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 2.7696734443306923,
+      "maxScore": 0.5701180845499039,
+      "firstRecalledAt": "2026-04-23T02:02:52.755Z",
+      "lastRecalledAt": "2026-04-26T02:03:00.170Z",
+      "queryHashes": [
+        "636a5ddf6cbd",
+        "d6461914c976",
+        "70a82d27e971",
+        "82b61d7063dd",
+        "8b024422cb96"
+      ],
+      "recallDays": [
+        "2026-04-23",
+        "2026-04-24",
+        "2026-04-25",
+        "2026-04-26"
+      ],
+      "conceptTags": [
+        "autoprofit-pipeline.md",
+        "memory/autoprofit-pipeline.md",
+        "memory/2026-04-22.md",
+        "readme.md",
+        "web-search",
+        "autoprofit",
+        "run",
+        "time"
+      ]
+    },
+    "memory:memory/2026-04-23.md:88:122": {
+      "key": "memory:memory/2026-04-23.md:88:122",
+      "path": "memory/2026-04-23.md",
+      "startLine": 88,
+      "endLine": 122,
+      "source": "memory",
+      "snippet": "**Trigger:** Cron job [04a59440-c7c9-45b9-b8a2-4280246d8068] - AutoProfit Daily for Luminary **Agent:** Jedai ### Context Re-Reviewed - `autoprofit-pipeline.md` - `memory/autoprofit-pipeline.md` - `memory/2026-04-23.md` - `README.md` - `austin_market_intel_subscription_spec.md` - `austin_market_intel_source_map.md` - `austin_market_intel_sample_issue_template.md` - `austin_market_intel_live_source_validation.md` - `underwriting_beta_packet.md` - `underwriting_pricing_test_matrix.md` - `underwriting_demo_capture_checklist.md` - `developer_playbook_membership_presell_spec.md` ### Research Constraints - Fresh web research is still blocked because `web_search` requires a missing Tavily API k",
+      "recallCount": 5,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 2.6910380601882937,
+      "maxScore": 0.5732355624437332,
+      "firstRecalledAt": "2026-04-24T02:00:20.396Z",
+      "lastRecalledAt": "2026-05-19T02:47:36.206Z",
+      "queryHashes": [
+        "d6461914c976",
+        "fa0b4fc1feef",
+        "c62bac134366",
+        "217d3487bc70",
+        "af27418c7132"
+      ],
+      "recallDays": [
+        "2026-04-24",
+        "2026-04-25",
+        "2026-04-26",
+        "2026-05-19"
+      ],
+      "conceptTags": [
+        "re-reviewed",
+        "autoprofit-pipeline.md",
+        "memory/autoprofit-pipeline.md",
+        "memory/2026-04-23.md",
+        "readme.md",
+        "underwriting-beta-packet.md",
+        "web-search",
+        "trigger"
+      ]
+    },
+    "memory:memory/2026-04-23.md:68:97": {
+      "key": "memory:memory/2026-04-23.md:68:97",
+      "path": "memory/2026-04-23.md",
+      "startLine": 68,
+      "endLine": 97,
+      "source": "memory",
+      "snippet": "- Validation value: improved confidence that Austin public-source collection is possible through current tooling, though still slower and noisier than ideal. ## Ranking Rationale Tonight - Underwriting stays first because it still has the strongest verified product stack and clearest path to high-margin recurring revenue. - Austin stays second because tonight's source validation lowered execution risk, but not enough to surpass underwriting. - Developer Playbook stays third because it is more publishable now, but still requires more sustained human content effort. ## Single Best Next Experiment Produce one real Austin source-backed sample issue using `austin_market_intel_sample_issue_templ",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.5433092266321182,
+      "maxScore": 0.5433092266321182,
+      "firstRecalledAt": "2026-04-24T02:03:16.366Z",
+      "lastRecalledAt": "2026-04-24T02:03:16.366Z",
+      "queryHashes": [
+        "70a82d27e971"
+      ],
+      "recallDays": [
+        "2026-04-24"
+      ],
+      "conceptTags": [
+        "public-source",
+        "high-margin",
+        "source-backed",
+        "validation",
+        "value",
+        "improved",
+        "confidence",
+        "austin"
+      ]
+    },
+    "memory:memory/2026-04-24.md:1:39": {
+      "key": "memory:memory/2026-04-24.md:1:39",
+      "path": "memory/2026-04-24.md",
+      "startLine": 1,
+      "endLine": 39,
+      "source": "memory",
+      "snippet": "# 2026-04-24 - AutoProfit Daily Run **Time:** 02:00 UTC, Friday April 24th, 2026 **Trigger:** Cron job [16ce1a58-d11b-4eb0-a20c-44b5c122f734] - AutoProfit Daily for Luminary **Agent:** Jedai --- ## Context Reviewed - `autoprofit-pipeline.md` - `memory/autoprofit-pipeline.md` - `memory/2026-04-23.md` - `README.md` - `underwriting_beta_packet.md` - `underwriting_pricing_test_matrix.md` - `underwriting_demo_capture_checklist.md` - `austin_market_intel_subscription_spec.md` - `austin_market_intel_live_source_validation.md` - `austin_market_intel_sample_issue_2026-04-23.md` - `developer_playbook_membership_presell_spec.md` - `developer_playbook_founding_member_offer.md` - `developer_playbo",
+      "recallCount": 4,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 2.2075261801481245,
+      "maxScore": 0.5573050513863563,
+      "firstRecalledAt": "2026-04-24T02:03:16.366Z",
+      "lastRecalledAt": "2026-04-26T02:03:00.170Z",
+      "queryHashes": [
+        "70a82d27e971",
+        "fa0b4fc1feef",
+        "217d3487bc70",
+        "8b024422cb96"
+      ],
+      "recallDays": [
+        "2026-04-24",
+        "2026-04-25",
+        "2026-04-26"
+      ],
+      "conceptTags": [
+        "autoprofit-pipeline.md",
+        "memory/autoprofit-pipeline.md",
+        "memory/2026-04-23.md",
+        "readme.md",
+        "underwriting-beta-packet.md",
+        "developer-playbo",
+        "autoprofit",
+        "run"
+      ]
+    },
+    "memory:memory/2026-04-24.md:80:87": {
+      "key": "memory:memory/2026-04-24.md:80:87",
+      "path": "memory/2026-04-24.md",
+      "startLine": 80,
+      "endLine": 87,
+      "source": "memory",
+      "snippet": "Run the underwriting app in a command-capable environment, follow `underwriting_demo_capture_checklist.md`, and use `underwriting_beta_demo_script.md` on the first 3 beta demos. ## What To Research Next 1. Restore Tavily/web access for broader market and competitor discovery. 2. Route around the exec restriction so the underwriting MVP can be smoke-tested and demoed. 3. Add 2-3 stronger Austin transaction/leasing sources to test whether the Austin brief can become truly differentiated. 4. If underwriting remains blocked, publish the Developer Playbook waitlist using `developer_playbook_waitlist_page.md`, `developer_playbook_waitlist_handoff.md`, and the new sample playbook as proof.",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1.0433970034122466,
+      "maxScore": 0.5234179377555847,
+      "firstRecalledAt": "2026-04-24T02:03:42.563Z",
+      "lastRecalledAt": "2026-04-24T02:03:57.102Z",
+      "queryHashes": [
+        "7ab07dc56c7b",
+        "258f04f62fa9"
+      ],
+      "recallDays": [
+        "2026-04-24"
+      ],
+      "conceptTags": [
+        "command-capable",
+        "underwriting-beta-demo-script.md",
+        "tavily/web",
+        "smoke-tested",
+        "2-3",
+        "transaction/leasing",
+        "run",
+        "the"
+      ]
+    },
+    "memory:memory/2026-04-22.md:119:130": {
+      "key": "memory:memory/2026-04-22.md:119:130",
+      "path": "memory/2026-04-22.md",
+      "startLine": 119,
+      "endLine": 130,
+      "source": "memory",
+      "snippet": "- Cost incurred: **$0** - Outcome: **PASS** - New asset: `developer_playbook_waitlist_handoff.md` ### Recommendation Snapshot - **Best idea tonight:** AI Underwriting SaaS - **Best backup:** Austin Market Intel Subscription - **Safest autonomous launch-prep path:** Developer Playbook Membership ### Single Best Next Experiment Run the underwriting app in a command-capable environment, follow `underwriting_demo_capture_checklist.md`, and use `underwriting_beta_demo_script.md` on the first 3 beta demos.",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1.0107465565204619,
+      "maxScore": 0.5105913758277892,
+      "firstRecalledAt": "2026-04-24T02:03:42.563Z",
+      "lastRecalledAt": "2026-04-24T02:03:57.102Z",
+      "queryHashes": [
+        "7ab07dc56c7b",
+        "258f04f62fa9"
+      ],
+      "recallDays": [
+        "2026-04-24"
+      ],
+      "conceptTags": [
+        "backup",
+        "launch-prep",
+        "command-capable",
+        "underwriting-beta-demo-script.md",
+        "cost",
+        "incurred",
+        "outcome",
+        "pass"
+      ]
+    },
+    "memory:memory/2026-04-16.md:63:74": {
+      "key": "memory:memory/2026-04-16.md:63:74",
+      "path": "memory/2026-04-16.md",
+      "startLine": 63,
+      "endLine": 74,
+      "source": "memory",
+      "snippet": "- No fresh external market signal was available because Tavily is still unconfigured. - No other opportunity in the workspace has stronger verified product assets than the underwriting SaaS. - Underwriting SaaS still has the best combination of moat, recurring revenue shape, and agent autonomy. ## Single Best Next Experiment Run the underwriting app in a command-capable environment, follow `underwriting_demo_capture_checklist.md`, and capture the first clean screenshot/output set for beta demos. ## What To Research Next 1. Restore Tavily/web access for current demand and competitor checks. 2. Route around the exec restriction so the underwriting MVP can be smoke-tested again. 3. If both re",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.9879674136638641,
+      "maxScore": 0.49907542467117305,
+      "firstRecalledAt": "2026-04-24T02:03:42.563Z",
+      "lastRecalledAt": "2026-04-24T02:03:57.102Z",
+      "queryHashes": [
+        "7ab07dc56c7b",
+        "258f04f62fa9"
+      ],
+      "recallDays": [
+        "2026-04-24"
+      ],
+      "conceptTags": [
+        "command-capable",
+        "screenshot/output",
+        "tavily/web",
+        "smoke-tested",
+        "fresh",
+        "external",
+        "market",
+        "signal"
+      ]
+    },
+    "memory:memory/2026-04-22.md:75:105": {
+      "key": "memory:memory/2026-04-22.md:75:105",
+      "path": "memory/2026-04-22.md",
+      "startLine": 75,
+      "endLine": 105,
+      "source": "memory",
+      "snippet": "Run the underwriting app in a command-capable environment, follow `underwriting_demo_capture_checklist.md`, and use `underwriting_beta_demo_script.md` on the first 3 beta demos. ## What To Research Next 1. Restore Tavily/web access for live competitor and demand checks. 2. Route around the exec restriction so the underwriting MVP can be smoke-tested. 3. Publish the Developer Playbook waitlist page, or produce one real Austin source-backed sample issue, then compare which backup path gets sharper proof faster. --- ## 02:03 UTC Follow-On Run **Time:** 02:03 UTC, Wednesday April 22nd, 2026 **Trigger:** Cron job [04a59440-c7c9-45b9-b8a2-4280246d8068] - AutoProfit Daily for Luminary **Age",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.9896474838256835,
+      "maxScore": 0.49839648306369777,
+      "firstRecalledAt": "2026-04-24T02:03:42.563Z",
+      "lastRecalledAt": "2026-04-24T02:03:57.102Z",
+      "queryHashes": [
+        "7ab07dc56c7b",
+        "258f04f62fa9"
+      ],
+      "recallDays": [
+        "2026-04-24"
+      ],
+      "conceptTags": [
+        "backup",
+        "command-capable",
+        "underwriting-beta-demo-script.md",
+        "tavily/web",
+        "smoke-tested",
+        "source-backed",
+        "follow-on",
+        "run"
+      ]
+    },
+    "memory:memory/2026-04-17.md:134:148": {
+      "key": "memory:memory/2026-04-17.md:134:148",
+      "path": "memory/2026-04-17.md",
+      "startLine": 134,
+      "endLine": 148,
+      "source": "memory",
+      "snippet": "- Validation value: makes early pricing conversations more consistent and reduces the chance of underpricing or drifting into custom consulting. ### Why Rankings Did Not Change - Fresh external evidence is still unavailable because Tavily is unconfigured. - Runtime smoke-testing is still blocked by the environment. - Underwriting SaaS remains the strongest workspace-backed opportunity with the highest recurring-revenue leverage and agent autonomy. ### Single Best Next Experiment Use `underwriting_beta_scorecard.md` and `underwriting_pricing_test_matrix.md` on the first 3 beta demos after runtime access is restored; success threshold is at least 2 prospects scoring as strong or warm paid-be",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.9843033403158188,
+      "maxScore": 0.49459970891475674,
+      "firstRecalledAt": "2026-04-24T02:03:57.102Z",
+      "lastRecalledAt": "2026-05-19T02:47:36.206Z",
+      "queryHashes": [
+        "258f04f62fa9",
+        "af27418c7132"
+      ],
+      "recallDays": [
+        "2026-04-24",
+        "2026-05-19"
+      ],
+      "conceptTags": [
+        "smoke-testing",
+        "workspace-backed",
+        "recurring-revenue",
+        "underwriting-beta-scorecard.md",
+        "paid-be",
+        "validation",
+        "value",
+        "makes"
+      ]
+    },
+    "memory:memory/2026-03-30.md:113:153": {
+      "key": "memory:memory/2026-03-30.md:113:153",
+      "path": "memory/2026-03-30.md",
+      "startLine": 113,
+      "endLine": 153,
+      "source": "memory",
+      "snippet": "- Create simple API wrapper around `underwriting_mvp.py` - Build basic UI (Softr or Streamlit) - Add Stripe integration for payment - **Cost:** $0-50 (free tier first) - **Time:** 2-3 hrs tonight - **Validation metric:** Can a user input JSON, get analysis, and pay $49-99 for a report? **Execution plan (autonomous):** 1. Set up Render.com free account (or Replit) 2. Create API endpoint that accepts JSON property data 3. Call `underwriting_mvp.py` analyze_deal() function 4. Return JSON analysis 5. Add basic rate limiting (3 free reports/mo, then $49/report or $197/mo subscription) 6. Deploy to test URL 7. Document setup for beta user recruitment **If successful:** Recruit 3 beta users from",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.4875998198986053,
+      "maxScore": 0.4875998198986053,
+      "firstRecalledAt": "2026-04-24T02:03:57.102Z",
+      "lastRecalledAt": "2026-04-24T02:03:57.102Z",
+      "queryHashes": [
+        "258f04f62fa9"
+      ],
+      "recallDays": [
+        "2026-04-24"
+      ],
+      "conceptTags": [
+        "underwriting-mvp.py",
+        "0-50",
+        "2-3",
+        "49-99",
+        "render.com",
+        "analyze-deal",
+        "reports/mo",
+        "49/report"
+      ]
+    },
+    "memory:memory/2026-04-23.md:156:166": {
+      "key": "memory:memory/2026-04-23.md:156:166",
+      "path": "memory/2026-04-23.md",
+      "startLine": 156,
+      "endLine": 166,
+      "source": "memory",
+      "snippet": "- Austin stays second because tonight’s real sample issue materially reduced execution risk, but the issue is still too process/macro-heavy to outrank underwriting. - Developer Playbook stays third because it is still the easiest publish path, but also the most ongoing human-content-heavy. ### Single Best Next Experiment Run the underwriting app in a command-capable environment, follow `underwriting_demo_capture_checklist.md`, and use `underwriting_beta_demo_script.md` on the first 3 beta demos. ### What To Research Next 1. Restore Tavily/web access for better discovery and competitor checks. 2. Route around the exec restriction so the underwriting MVP can be smoke-tested and demoed. 3. Ad",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.48433005213737484,
+      "maxScore": 0.48433005213737484,
+      "firstRecalledAt": "2026-04-24T02:03:57.102Z",
+      "lastRecalledAt": "2026-04-24T02:03:57.102Z",
+      "queryHashes": [
+        "258f04f62fa9"
+      ],
+      "recallDays": [
+        "2026-04-24"
+      ],
+      "conceptTags": [
+        "process/macro-heavy",
+        "human-content-heavy",
+        "command-capable",
+        "underwriting-beta-demo-script.md",
+        "tavily/web",
+        "smoke-tested",
+        "austin",
+        "stays"
+      ]
+    },
+    "memory:memory/2026-04-22.md:104:128": {
+      "key": "memory:memory/2026-04-22.md:104:128",
+      "path": "memory/2026-04-22.md",
+      "startLine": 104,
+      "endLine": 128,
+      "source": "memory",
+      "snippet": "- Attempted direct public-source validation for the Austin path via `web_fetch`, but guessed Austin city URLs returned 404s and AHFC host resolution failed, which reinforces that discovery is weaker without Tavily/search support. - Runtime validation for underwriting remains blocked by the `/home/andrey/.openclaw` exec/symlink restriction. ### Smallest Viable Experiment Executed **Selected idea:** Developer Playbook Membership **Why it qualified:** low-risk, $0 cost, autonomous, reversible, and directly reduced launch friction without external messaging. #### Exactly what was done 1. Re-reviewed `developer_playbook_waitlist_page.md`, `developer_playbook_membership_presell_spec.md`, and t",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.48425467908382414,
+      "maxScore": 0.48425467908382414,
+      "firstRecalledAt": "2026-04-24T02:03:57.102Z",
+      "lastRecalledAt": "2026-04-24T02:03:57.102Z",
+      "queryHashes": [
+        "258f04f62fa9"
+      ],
+      "recallDays": [
+        "2026-04-24"
+      ],
+      "conceptTags": [
+        "public-source",
+        "web-fetch",
+        "tavily/search",
+        "home/andrey",
+        "exec/symlink",
+        "low-risk",
+        "re-reviewed",
+        "attempted"
+      ]
+    },
+    "memory:memory/2026-04-26.md:1:37": {
+      "key": "memory:memory/2026-04-26.md:1:37",
+      "path": "memory/2026-04-26.md",
+      "startLine": 1,
+      "endLine": 37,
+      "source": "memory",
+      "snippet": "# 2026-04-26 - AutoProfit Daily Run **Time:** 02:00 UTC, Sunday April 26th, 2026 **Trigger:** Cron job [16ce1a58-d11b-4eb0-a20c-44b5c122f734] - AutoProfit Daily for Luminary **Agent:** Jedai --- ## Context Reviewed - `autoprofit-pipeline.md` - `memory/autoprofit-pipeline.md` - `memory/2026-04-25.md` - `README.md` - `memory/active-goals-tracker.md` - `underwriting_beta_landing_page.md` - `underwriting_free_tier_smoke_test_handoff.md` - `austin_market_intel_subscription_spec.md` - `austin_market_intel_source_map.md` - `austin_market_intel_sample_issue_2026-04-23.md` - `austin_market_intel_live_source_validation.md` - `developer_playbook_membership_presell_spec.md` - `developer_playbook_",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.5539230063557624,
+      "maxScore": 0.5539230063557624,
+      "firstRecalledAt": "2026-04-26T02:03:00.170Z",
+      "lastRecalledAt": "2026-04-26T02:03:00.170Z",
+      "queryHashes": [
+        "8b024422cb96"
+      ],
+      "recallDays": [
+        "2026-04-26"
+      ],
+      "conceptTags": [
+        "autoprofit-pipeline.md",
+        "memory/autoprofit-pipeline.md",
+        "memory/2026-04-25.md",
+        "readme.md",
+        "memory/active-goals-tracker.md",
+        "developer-playbook",
+        "autoprofit",
+        "run"
+      ]
+    },
+    "memory:memory/2026-04-25.md:1:37": {
+      "key": "memory:memory/2026-04-25.md:1:37",
+      "path": "memory/2026-04-25.md",
+      "startLine": 1,
+      "endLine": 37,
+      "source": "memory",
+      "snippet": "# 2026-04-25 - AutoProfit Daily Run **Time:** 02:00 UTC, Saturday April 25th, 2026 **Trigger:** Cron job [16ce1a58-d11b-4eb0-a20c-44b5c122f734] - AutoProfit Daily for Luminary **Agent:** Jedai --- ## Context Reviewed - `autoprofit-pipeline.md` - `memory/autoprofit-pipeline.md` - `memory/2026-04-24.md` - `README.md` - `underwriting_beta_packet.md` - `underwriting_streamlit_app.py` - `underwriting_demo_capture_checklist.md` - `memory/underwriting_mvp.py` - `austin_market_intel_subscription_spec.md` - `developer_playbook_membership_presell_spec.md` ## Research Constraints - Fresh broad web research is still blocked because Tavily / `web_search` access is unavailable. - Command execution",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.5519108712673186,
+      "maxScore": 0.5519108712673186,
+      "firstRecalledAt": "2026-04-26T02:03:00.170Z",
+      "lastRecalledAt": "2026-04-26T02:03:00.170Z",
+      "queryHashes": [
+        "8b024422cb96"
+      ],
+      "recallDays": [
+        "2026-04-26"
+      ],
+      "conceptTags": [
+        "autoprofit-pipeline.md",
+        "memory/autoprofit-pipeline.md",
+        "memory/2026-04-24.md",
+        "readme.md",
+        "underwriting-beta-packet.md",
+        "underwriting-streamlit-app.py",
+        "memory/underwriting-mvp.py",
+        "web-search"
+      ]
+    },
+    "memory:memory/2026-04-15.md:113:143": {
+      "key": "memory:memory/2026-04-15.md:113:143",
+      "path": "memory/2026-04-15.md",
+      "startLine": 113,
+      "endLine": 143,
+      "source": "memory",
+      "snippet": "- Startup capital: $0-100 validation path, $200-400 launch path - 30-day revenue: $0-1.5K revenue, breakeven to ~$1K profit - 90-day revenue: $3K-10K MRR, ~$1.5K-7K profit - Key risks: content burden, crowded trust market, retention dependency - Human time: 4-6 hrs week 1, then 2-4 hrs/week ### Experiment Log **Selected idea:** AI Underwriting SaaS **Experiment type:** smallest viable autonomous technical smoke-test attempt **Exactly what was done** 1. Re-reviewed `README.md`, `underwriting_streamlit_app.py`, and `memory/underwriting_mvp.py`. 2. Attempted to run `python3 memory/underwriting_mvp.py`. 3. Attempted to run `python3 -m py_compile underwriting_streamlit_app.py m",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.45090762078762053,
+      "maxScore": 0.45090762078762053,
+      "firstRecalledAt": "2026-04-26T03:08:10.065Z",
+      "lastRecalledAt": "2026-04-26T03:08:10.065Z",
+      "queryHashes": [
+        "f4c13f698dee"
+      ],
+      "recallDays": [
+        "2026-04-26"
+      ],
+      "conceptTags": [
+        "0-100",
+        "200-400",
+        "30-day",
+        "0-1.5k",
+        "90-day",
+        "3k-10k",
+        "1.5k-7k",
+        "4-6"
+      ]
+    },
+    "memory:memory/2026-04-13.md:71:110": {
+      "key": "memory:memory/2026-04-13.md:71:110",
+      "path": "memory/2026-04-13.md",
+      "startLine": 71,
+      "endLine": 110,
+      "source": "memory",
+      "snippet": "- Added asset: minimal Streamlit wrapper for local/free-tier packaging - Validation signal: strongest idea remains technically viable with immediate next-step path ### Test output summary - Good Fix-and-Flip -> GO - Bad Fix-and-Flip -> NO-GO - Strong Multifamily -> GO - Marginal Multifamily -> NO-GO - Match rate: **4/4 (100%)** ### Additional sanitized validation set - Sanitized Flip A -> **GO** - Total project cost: $243,300 - Profit: $76,700 - ROI: 31.52% - Sanitized Multifamily B -> **GO** - NOI: $167,040 - Cap rate: 9.28% - Cash-on-cash: 11.83% - DSCR: 1.62 - Sanitized Flip C -> **NO-GO** - Total project cost: $363,600 - Profit: -$3,600 - ROI: -0.99% Interpretation",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.4930030226707458,
+      "maxScore": 0.4930030226707458,
+      "firstRecalledAt": "2026-05-18T06:51:28.050Z",
+      "lastRecalledAt": "2026-05-18T06:51:28.050Z",
+      "queryHashes": [
+        "385c853a63d4"
+      ],
+      "recallDays": [
+        "2026-05-18"
+      ],
+      "conceptTags": [
+        "local/free-tier",
+        "next-step",
+        "fix-and-flip",
+        "no-go",
+        "4/4",
+        "31.52",
+        "9.28",
+        "cash-on-cash"
+      ]
+    },
+    "memory:memory/2026-04-24.md:104:120": {
+      "key": "memory:memory/2026-04-24.md:104:120",
+      "path": "memory/2026-04-24.md",
+      "startLine": 104,
+      "endLine": 120,
+      "source": "memory",
+      "snippet": "- `austin_market_intel_subscription_spec.md` - `developer_playbook_membership_presell_spec.md` ### Additional Research Notes - Reconfirmed the same top-3 ranking: AI Underwriting SaaS, Austin Market Intel Subscription, Developer Playbook Membership. - Fresh broad web research is still blocked by missing Tavily access. - Runtime smoke testing for underwriting is still blocked by the exec/symlink restriction, but packaging and launch-prep work remains unblocked. - The underwriting path still offers the best mix of recurring revenue, information asymmetry, and agent leverage because it already has an engine, app wrapper, pricing matrix, beta packet, demo script, outreach assets, and now a ligh",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.48547844290733333,
+      "maxScore": 0.48547844290733333,
+      "firstRecalledAt": "2026-05-18T06:51:28.050Z",
+      "lastRecalledAt": "2026-05-18T06:51:28.050Z",
+      "queryHashes": [
+        "385c853a63d4"
+      ],
+      "recallDays": [
+        "2026-05-18"
+      ],
+      "conceptTags": [
+        "top-3",
+        "exec/symlink",
+        "launch-prep",
+        "additional",
+        "research",
+        "reconfirmed",
+        "top",
+        "ranking"
+      ]
+    },
+    "memory:memory/2026-05-08.md:1:31": {
+      "key": "memory:memory/2026-05-08.md:1:31",
+      "path": "memory/2026-05-08.md",
+      "startLine": 1,
+      "endLine": 31,
+      "source": "memory",
+      "snippet": "# AutoProfit Daily — 2026-05-08 02:00 UTC ## Workspace review completed first Reviewed: - `/home/andrey/.openclaw/luminary/roadmap.md` - `/home/andrey/.openclaw/luminary/autoprofit-pipeline.md` - `/home/andrey/.openclaw/luminary/memory/2026-05-06.md` - `/home/andrey/.openclaw/luminary/memory/2026-05-07.md` - `/home/andrey/.openclaw/luminary/autoprofit-daily-cron-spec.md` - `/home/andrey/.openclaw/workspace/autoprofit-pipeline.md` - `/home/andrey/.openclaw/workspace/memory/2026-05-06.md` - `/home/andrey/.openclaw/workspace/memory/2026-05-07.md` - `memory/autoprofit-deployment-plan.md` - `underwriting_local_validation_report_2026-05-05.md` - Austin brief SOP, launch pack, novelty audit, and p",
+      "recallCount": 3,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1.517049491405487,
+      "maxScore": 0.5343755900859832,
+      "firstRecalledAt": "2026-05-19T02:02:03.510Z",
+      "lastRecalledAt": "2026-05-19T05:00:48.898Z",
+      "queryHashes": [
+        "aa50e4f8785e",
+        "36977879481c",
+        "2e4a022a7bcc"
+      ],
+      "recallDays": [
+        "2026-05-19"
+      ],
+      "conceptTags": [
+        "home/andrey",
+        "openclaw/luminary/roadmap.md",
+        "autoprofit",
+        "utc",
+        "review",
+        "completed",
+        "first",
+        "reviewed"
+      ]
+    },
+    "memory:memory/2026-05-04.md:1:35": {
+      "key": "memory:memory/2026-05-04.md:1:35",
+      "path": "memory/2026-05-04.md",
+      "startLine": 1,
+      "endLine": 35,
+      "source": "memory",
+      "snippet": "# AutoProfit Daily — 2026-05-04 02:00 UTC ## Workspace review completed first Reviewed: - `.openclaw/luminary/autoprofit-pipeline.md` - `.openclaw/luminary/memory.md` - `.openclaw/luminary/roadmap.md` - `.openclaw/luminary/landing-page-draft.md` - `.openclaw/workspace/autoprofit-pipeline.md` - `.openclaw/workspace/developer_playbook_founding_member_offer.md` - `.openclaw/workspace/memory/daily-2026-05-03-1117.md` - `.openclaw/workspace/memory/top-3-capital-positioning-sheet.md` - `.openclaw/workspace/memory/profile-summary.md` - `.openclaw/workspace/memory/pipeline-execution-board.md` - Austin / underwriting / developer playbook specs and samples in workspace ## Tooling constraints - `memo",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1.0613380432128905,
+      "maxScore": 0.53225829154253,
+      "firstRecalledAt": "2026-05-19T02:02:03.510Z",
+      "lastRecalledAt": "2026-05-19T02:47:36.288Z",
+      "queryHashes": [
+        "aa50e4f8785e",
+        "36977879481c"
+      ],
+      "recallDays": [
+        "2026-05-19"
+      ],
+      "conceptTags": [
+        "openclaw/luminary/memory.md",
+        "openclaw/luminary/roadmap.md",
+        "autoprofit",
+        "utc",
+        "review",
+        "completed",
+        "first",
+        "reviewed"
+      ]
+    },
+    "memory:memory/2026-05-10.md:1:30": {
+      "key": "memory:memory/2026-05-10.md:1:30",
+      "path": "memory/2026-05-10.md",
+      "startLine": 1,
+      "endLine": 30,
+      "source": "memory",
+      "snippet": "# AutoProfit Daily — 2026-05-10 02:00 UTC ## Workspace review completed first Reviewed: - `/home/andrey/.openclaw/luminary/roadmap.md` - `/home/andrey/.openclaw/workspace/autoprofit-pipeline.md` - `/home/andrey/.openclaw/luminary/memory/2026-05-08.md` - `/home/andrey/.openclaw/luminary/memory/2026-05-09.md` - Austin brief pricing, launch, SOP, staged-site, and sample-issue assets - `underwriting_local_validation_report_2026-05-05.md` - developer playbook presell assets ## Tooling constraints - Attempted `memory_search` first, but it is still unavailable due to embeddings/API-key 401. - Ranking used workspace evidence and already-validated live Austin source checks. - No fresh broad web sea",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1.0593996226787565,
+      "maxScore": 0.5311579659581184,
+      "firstRecalledAt": "2026-05-19T02:02:03.510Z",
+      "lastRecalledAt": "2026-05-19T02:47:36.288Z",
+      "queryHashes": [
+        "aa50e4f8785e",
+        "36977879481c"
+      ],
+      "recallDays": [
+        "2026-05-19"
+      ],
+      "conceptTags": [
+        "embedding",
+        "embeddings",
+        "home/andrey",
+        "openclaw/luminary/roadmap.md",
+        "staged-site",
+        "sample-issue",
+        "memory-search",
+        "embeddings/api-key"
+      ]
+    },
+    "memory:memory/2026-05-07.md:1:29": {
+      "key": "memory:memory/2026-05-07.md:1:29",
+      "path": "memory/2026-05-07.md",
+      "startLine": 1,
+      "endLine": 29,
+      "source": "memory",
+      "snippet": "# AutoProfit Daily — 2026-05-07 02:00 UTC ## Workspace review completed first Reviewed: - `/home/andrey/.openclaw/luminary/roadmap.md` - `/home/andrey/.openclaw/luminary/autoprofit-pipeline.md` - `/home/andrey/.openclaw/luminary/autoprofit-daily-cron-spec.md` - `/home/andrey/.openclaw/workspace/autoprofit-pipeline.md` - `/home/andrey/.openclaw/workspace/memory/2026-05-04.md` - `/home/andrey/.openclaw/workspace/memory/2026-05-06.md` - `/home/andrey/.openclaw/workspace/memory/autoprofit-deployment-plan.md` - `/home/andrey/.openclaw/workspace/underwriting_local_validation_report_2026-05-05.md` - Austin brief spec, SOP, landing-page, launch-pack, and prior sample issues - Developer playbook pre",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1.0555787533521652,
+      "maxScore": 0.5305414736270904,
+      "firstRecalledAt": "2026-05-19T02:02:03.510Z",
+      "lastRecalledAt": "2026-05-19T02:47:36.288Z",
+      "queryHashes": [
+        "aa50e4f8785e",
+        "36977879481c"
+      ],
+      "recallDays": [
+        "2026-05-19"
+      ],
+      "conceptTags": [
+        "home/andrey",
+        "openclaw/luminary/roadmap.md",
+        "landing-page",
+        "launch-pack",
+        "autoprofit",
+        "utc",
+        "review",
+        "completed"
+      ]
+    },
+    "memory:memory/2026-05-10.md:95:118": {
+      "key": "memory:memory/2026-05-10.md:95:118",
+      "path": "memory/2026-05-10.md",
+      "startLine": 95,
+      "endLine": 118,
+      "source": "memory",
+      "snippet": "- `/home/andrey/.openclaw/luminary/site/src/app/austin-signals/sample/page.tsx` - `/home/andrey/.openclaw/luminary/site/src/app/austin-signals/page.tsx` - What changed: the top-ranked idea now has a staged sample-preview surface, which makes the strongest proof easier to show during pricing tests without sending raw markdown files. ## Recommendation Keep Austin #1 for near-term launchability. Keep underwriting #2 for upside. Keep Developer Playbook #3 unless fresh demand proof improves materially. --- ## Overnight Employee — 2026-05-10 05:00 UTC ### Task executed Created `austin_entitlement_signal_brief_outreach_tracker.md` to operationalize the first 10 warm pricing tests for the Au",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.9801144510507582,
+      "maxScore": 0.49517021179199217,
+      "firstRecalledAt": "2026-05-19T02:47:36.206Z",
+      "lastRecalledAt": "2026-05-19T05:00:48.819Z",
+      "queryHashes": [
+        "af27418c7132",
+        "7d227273f7b0"
+      ],
+      "recallDays": [
+        "2026-05-19"
+      ],
+      "conceptTags": [
+        "home/andrey",
+        "top-ranked",
+        "sample-preview",
+        "near-term",
+        "home",
+        "andrey",
+        "openclaw",
+        "luminary"
+      ]
+    },
+    "memory:memory/2026-04-22.md:33:61": {
+      "key": "memory:memory/2026-04-22.md:33:61",
+      "path": "memory/2026-04-22.md",
+      "startLine": 33,
+      "endLine": 61,
+      "source": "memory",
+      "snippet": "- Key risks: beta-user acquisition, runtime/deployment friction, proving trust fast enough for paid beta - Human time: 2-3 hrs week 1, then 1-2 hrs/week ### 2. Austin Market Intel Subscription - Startup capital: $0-100 public-data/manual path, $100-300 tooled path - 30-day revenue: $0-2K revenue, ~$0-1.5K profit - 90-day revenue: $4K-12K MRR, ~$2.5K-9K profit - Key risks: repeatable data workflow, bespoke-analysis creep, local distribution dependency - Human time: 3-5 hrs week 1, then 1-3 hrs/week ### 3. Developer Playbook Membership - Startup capital: $0-100 validation path, $200-400 launch path - 30-day revenue: $0-1.5K revenue, breakeven to ~$1K profit - 90-day revenue: $3K-10K MRR, ~$1",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.49453850090503687,
+      "maxScore": 0.49453850090503687,
+      "firstRecalledAt": "2026-05-19T02:47:36.206Z",
+      "lastRecalledAt": "2026-05-19T02:47:36.206Z",
+      "queryHashes": [
+        "af27418c7132"
+      ],
+      "recallDays": [
+        "2026-05-19"
+      ],
+      "conceptTags": [
+        "beta-user",
+        "runtime/deployment",
+        "2-3",
+        "1-2",
+        "hrs/week",
+        "0-100",
+        "public-data/manual",
+        "100-300"
+      ]
+    },
+    "memory:memory/2026-05-06.md:70:79": {
+      "key": "memory:memory/2026-05-06.md:70:79",
+      "path": "memory/2026-05-06.md",
+      "startLine": 70,
+      "endLine": 79,
+      "source": "memory",
+      "snippet": "### Experiment result - Cost: $0 - Outcome: PASS - Validation type: publish-path / launch-friction reduction - New asset: `/home/andrey/.openclaw/luminary/site/src/app/austin-signals/page.tsx` - What changed: the leading Austin offer now has a real internal publish surface, so the next step can be buyer testing instead of more packaging. ## Recommendation Keep Austin #1 for immediate execution. Underwriting is now materially closer and should be the next leverage bet once screenshots or a live beta link exist.",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.49081983268260954,
+      "maxScore": 0.49081983268260954,
+      "firstRecalledAt": "2026-05-19T02:47:36.206Z",
+      "lastRecalledAt": "2026-05-19T02:47:36.206Z",
+      "queryHashes": [
+        "af27418c7132"
+      ],
+      "recallDays": [
+        "2026-05-19"
+      ],
+      "conceptTags": [
+        "publish-path",
+        "launch-friction",
+        "home/andrey",
+        "experiment",
+        "result",
+        "cost",
+        "outcome",
+        "pass"
+      ]
+    },
+    "memory:memory/2026-04-21.md:36:62": {
+      "key": "memory:memory/2026-04-21.md:36:62",
+      "path": "memory/2026-04-21.md",
+      "startLine": 36,
+      "endLine": 62,
+      "source": "memory",
+      "snippet": "- Startup capital: $0-100 public-data/manual path, $100-300 tooled path - 30-day revenue: $0-2K revenue, ~$0-1.5K profit - 90-day revenue: $4K-12K MRR, ~$2.5K-9K profit - Key risks: repeatable data workflow, bespoke-analysis creep, local distribution dependency - Human time: 3-5 hrs week 1, then 1-3 hrs/week ### 3. Developer Playbook Membership - Startup capital: $0-100 validation path, $200-400 launch path - 30-day revenue: $0-1.5K revenue, breakeven to ~$1K profit - 90-day revenue: $3K-10K MRR, ~$1.5K-7K profit - Key risks: content burden, crowded trust market, retention dependency - Human time: 4-6 hrs week 1, then 2-4 hrs/week ## Why Rankings Stayed the Same - Underwriting still has th",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.4875032097101211,
+      "maxScore": 0.4875032097101211,
+      "firstRecalledAt": "2026-05-19T02:47:36.206Z",
+      "lastRecalledAt": "2026-05-19T02:47:36.206Z",
+      "queryHashes": [
+        "af27418c7132"
+      ],
+      "recallDays": [
+        "2026-05-19"
+      ],
+      "conceptTags": [
+        "0-100",
+        "public-data/manual",
+        "100-300",
+        "30-day",
+        "0-2k",
+        "0-1.5k",
+        "90-day",
+        "4k-12k"
+      ]
+    },
+    "memory:memory/2026-04-25.md:67:95": {
+      "key": "memory:memory/2026-04-25.md:67:95",
+      "path": "memory/2026-04-25.md",
+      "startLine": 67,
+      "endLine": 95,
+      "source": "memory",
+      "snippet": "- New evidence: direct runtime-attempt failure on 2026-04-25, matching prior blocker reports ## Ranking Rationale Tonight - Underwriting remains first because no other idea matches its combination of recurring revenue, product leverage, and existing artifacts. - Austin remains second because it has a real source-backed sample issue and low launch cost, but its differentiation is still not strong enough. - Developer Playbook remains third because it is viable and cheap, but it is still the most human-heavy business of the three. ## Single Best Next Experiment Get one command-capable runtime outside the blocked `/home/andrey/.openclaw` path, run the exact smoke-test steps from `underwriting_",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.4872887939214706,
+      "maxScore": 0.4872887939214706,
+      "firstRecalledAt": "2026-05-19T02:47:36.206Z",
+      "lastRecalledAt": "2026-05-19T02:47:36.206Z",
+      "queryHashes": [
+        "af27418c7132"
+      ],
+      "recallDays": [
+        "2026-05-19"
+      ],
+      "conceptTags": [
+        "runtime-attempt",
+        "source-backed",
+        "human-heavy",
+        "command-capable",
+        "home/andrey",
+        "smoke-test",
+        "new",
+        "evidence"
+      ]
+    },
+    "memory:memory/2026-05-11.md:1:29": {
+      "key": "memory:memory/2026-05-11.md:1:29",
+      "path": "memory/2026-05-11.md",
+      "startLine": 1,
+      "endLine": 29,
+      "source": "memory",
+      "snippet": "# AutoProfit Daily — 2026-05-11 02:00 UTC ## Workspace review completed first Reviewed: - `/home/andrey/.openclaw/luminary/roadmap.md` - `/home/andrey/.openclaw/workspace/autoprofit-pipeline.md` - `/home/andrey/.openclaw/workspace/memory/2026-05-09.md` - `/home/andrey/.openclaw/workspace/memory/2026-05-10.md` - Austin brief sample, SOP, launch, pricing, outreach, and staged-site assets - `underwriting_local_validation_report_2026-05-05.md` - developer playbook presell assets ## Tooling constraints - Attempted `memory_search` first, but it is still unavailable due to embeddings/API-key 401. - Ranking therefore used direct workspace evidence, prior validation artifacts, and current staged-as",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.5276199489831924,
+      "maxScore": 0.5276199489831924,
+      "firstRecalledAt": "2026-05-19T02:47:36.288Z",
+      "lastRecalledAt": "2026-05-19T02:47:36.288Z",
+      "queryHashes": [
+        "36977879481c"
+      ],
+      "recallDays": [
+        "2026-05-19"
+      ],
+      "conceptTags": [
+        "embedding",
+        "embeddings",
+        "home/andrey",
+        "openclaw/luminary/roadmap.md",
+        "staged-site",
+        "memory-search",
+        "embeddings/api-key",
+        "staged-as"
+      ]
+    },
+    "memory:memory/2026-05-06.md:1:34": {
+      "key": "memory:memory/2026-05-06.md:1:34",
+      "path": "memory/2026-05-06.md",
+      "startLine": 1,
+      "endLine": 34,
+      "source": "memory",
+      "snippet": "# AutoProfit Daily — 2026-05-06 02:00 UTC ## Workspace review completed first Reviewed: - `/home/andrey/.openclaw/luminary/roadmap.md` - `/home/andrey/.openclaw/luminary/memory/2026-05-04.md` - `/home/andrey/.openclaw/luminary/memory/2026-05-05.md` - `/home/andrey/.openclaw/luminary/autoprofit-pipeline.md` - `autoprofit-pipeline.md` - `underwriting_local_validation_report_2026-05-05.md` - `austin_entitlement_signal_brief_landing_page.md` - `austin_entitlement_signal_brief_launch_pack.md` - `memory/project-priority-brief.md` - `memory/pipeline-execution-board.md` - `memory/top-3-capital-positioning-sheet.md` ## Tooling constraints - `memory_search` was attempted first and is still unavailab",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.5248578280210495,
+      "maxScore": 0.5248578280210495,
+      "firstRecalledAt": "2026-05-19T02:47:36.288Z",
+      "lastRecalledAt": "2026-05-19T02:47:36.288Z",
+      "queryHashes": [
+        "36977879481c"
+      ],
+      "recallDays": [
+        "2026-05-19"
+      ],
+      "conceptTags": [
+        "home/andrey",
+        "openclaw/luminary/roadmap.md",
+        "autoprofit-pipeline.md",
+        "memory/project-priority-brief.md",
+        "memory-search",
+        "autoprofit",
+        "utc",
+        "review"
+      ]
+    },
+    "memory:memory/2026-05-13.md:1:32": {
+      "key": "memory:memory/2026-05-13.md:1:32",
+      "path": "memory/2026-05-13.md",
+      "startLine": 1,
+      "endLine": 32,
+      "source": "memory",
+      "snippet": "# AutoProfit Daily — 2026-05-13 02:12 UTC Reviewed workspace strategy, prior AutoProfit outputs, recent notes, Austin staged-site assets, underwriting assets, and the current AutoProfit pipeline first. ## Constraints - `memory_search` unavailable due embeddings/API-key 401. - Broad `web_search` unavailable / not relied on. - Used direct file review plus targeted `web_fetch` checks on live Austin public pages. ## Top 3 tonight 1. **Austin Entitlement Signal Brief** - Startup capital: **$0-100** - 30-day revenue / profit: **$0-1K / $0-900** - 90-day revenue / profit: **$1.5K-6K MRR / $1.2K-5K MRR** - Risks: willingness to pay still unproven; distribution still needs real warm ou",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.5192886710166931,
+      "maxScore": 0.5192886710166931,
+      "firstRecalledAt": "2026-05-19T02:47:36.288Z",
+      "lastRecalledAt": "2026-05-19T02:47:36.288Z",
+      "queryHashes": [
+        "36977879481c"
+      ],
+      "recallDays": [
+        "2026-05-19"
+      ],
+      "conceptTags": [
+        "embedding",
+        "embeddings",
+        "staged-site",
+        "memory-search",
+        "embeddings/api-key",
+        "web-search",
+        "web-fetch",
+        "0-100"
+      ]
+    },
+    "memory:memory/2026-04-26.md:105:134": {
+      "key": "memory:memory/2026-04-26.md:105:134",
+      "path": "memory/2026-04-26.md",
+      "startLine": 105,
+      "endLine": 134,
+      "source": "memory",
+      "snippet": "- `austin_market_intel_live_source_validation.md` - `developer_playbook_membership_presell_spec.md` - `underwriting_beta_landing_page.md` ## Research Constraints - Fresh broad search is still constrained because Tavily / `web_search` remains unavailable. - Local command execution remains blocked by the `/home/andrey/.openclaw` symlink restriction. - Austin public-source research remains viable through direct `web_fetch` on stable URLs. ## Top 3 for Tonight ### 1. AI Underwriting SaaS - Startup capital: $0-100 free/local path, $200-500 paid stack - 30-day revenue: $0-1.5K revenue, ~$0-1.2K profit - 90-day revenue: $5K-15K MRR, ~$4K-13K profit - Key risks: runtime/deployment still blocked l",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.5116551101207732,
+      "maxScore": 0.5116551101207732,
+      "firstRecalledAt": "2026-05-19T05:00:48.834Z",
+      "lastRecalledAt": "2026-05-19T05:00:48.834Z",
+      "queryHashes": [
+        "cde6f0278771"
+      ],
+      "recallDays": [
+        "2026-05-19"
+      ],
+      "conceptTags": [
+        "web-search",
+        "home/andrey",
+        "public-source",
+        "web-fetch",
+        "0-100",
+        "free/local",
+        "200-500",
+        "30-day"
+      ]
+    },
+    "memory:memory/2026-05-12.md:44:71": {
+      "key": "memory:memory/2026-05-12.md:44:71",
+      "path": "memory/2026-05-12.md",
+      "startLine": 44,
+      "endLine": 71,
+      "source": "memory",
+      "snippet": "8. Updated `site/src/app/austin-signals/page.tsx` to add a CTA to `/austin-signals/founding`. 9. Ran `npm run build` in `site`. 10. Confirmed `/austin-signals`, `/austin-signals/archive`, `/austin-signals/founding`, `/austin-signals/one-pager`, `/austin-signals/pilot`, and `/austin-signals/sample` compile successfully. ### Result - Cost: **$0** - Outcome: **PASS** - What changed: Austin now has a dedicated staged founding-offer page, so the main blocker is real buyer feedback, not more internal packaging. --- # Overnight Employee — 2026-05-12 05:00 UTC ## Task executed Created `austin_entitlement_signal_brief_first10_selection_sheet.md` so the first 10 warm Austin prospects can be chosen",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.5431084021925926,
+      "maxScore": 0.5431084021925926,
+      "firstRecalledAt": "2026-05-19T10:00:51.769Z",
+      "lastRecalledAt": "2026-05-19T10:00:51.769Z",
+      "queryHashes": [
+        "a599a8f07386"
+      ],
+      "recallDays": [
+        "2026-05-19"
+      ],
+      "conceptTags": [
+        "austin-signals/founding",
+        "austin-signals",
+        "austin-signals/archive",
+        "austin-signals/one-pager",
+        "austin-signals/pilot",
+        "austin-signals/sample",
+        "founding-offer",
+        "updated"
+      ]
+    },
+    "memory:memory/2026-04-26.md:148:168": {
+      "key": "memory:memory/2026-04-26.md:148:168",
+      "path": "memory/2026-04-26.md",
+      "startLine": 148,
+      "endLine": 168,
+      "source": "memory",
+      "snippet": "- `https://www.bls.gov/eag/eag.tx_austin_msa.htm` - `https://www.austintexas.gov/development-services/commercial-plan-review` - `https://www.austintexas.gov/development-services/types-permits` - `https://www.austintexas.gov/development-services/expedited-building-plan-review` - `https://www.austintexas.gov/boards-commissions` - `https://www.austintexas.gov/housing/programs/affordable-housing-online-search-tool-ahost` 3. Created `austin_entitlement_signal_brief_sample_2026-04-26.md`. 4. Converted the fetched facts into an 8-signal entitlement/permit/operator-risk brief with executive summary, watchlist, underwriting implications, operator triggers, and source log. 5. Compare",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.543021972477436,
+      "maxScore": 0.543021972477436,
+      "firstRecalledAt": "2026-05-19T10:00:51.769Z",
+      "lastRecalledAt": "2026-05-19T10:00:51.769Z",
+      "queryHashes": [
+        "a599a8f07386"
+      ],
+      "recallDays": [
+        "2026-05-19"
+      ],
+      "conceptTags": [
+        "8-signal",
+        "entitlement/permit/operator-risk",
+        "https",
+        "www.bls.gov",
+        "eag",
+        "eag.tx-austin-msa.htm",
+        "www.austintexas.gov",
+        "development"
+      ]
+    },
+    "memory:memory/2026-04-26.md:65:83": {
+      "key": "memory:memory/2026-04-26.md:65:83",
+      "path": "memory/2026-04-26.md",
+      "startLine": 65,
+      "endLine": 83,
+      "source": "memory",
+      "snippet": "4. Repositioned the backup offer from a generic Austin market-intel subscription into a narrower Austin entitlement-and-permit signal brief with clearer ICP, scope, exclusions, pricing hypothesis, pass standard, and next test. 5. Logged that the narrowed wedge improves information asymmetry and autonomy, but still needs one sample issue produced explicitly in the new format. ### Experiment result - Cost incurred: **$0** - Outcome: **PASS** - New asset: `austin_entitlement_signal_brief_spec.md` - Validation value: improved the #2 idea's differentiation and reduced the risk that it turns into a broad weak local-news product ## Ranking Rationale Tonight - Underwriting remains first because no",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.5404868990182876,
+      "maxScore": 0.5404868990182876,
+      "firstRecalledAt": "2026-05-19T10:00:51.769Z",
+      "lastRecalledAt": "2026-05-19T10:00:51.769Z",
+      "queryHashes": [
+        "a599a8f07386"
+      ],
+      "recallDays": [
+        "2026-05-19"
+      ],
+      "conceptTags": [
+        "backup",
+        "market-intel",
+        "entitlement-and-permit",
+        "local-news",
+        "repositioned",
+        "offer",
+        "generic",
+        "austin"
+      ]
+    },
+    "memory:memory/2026-05-07.md:97:113": {
+      "key": "memory:memory/2026-05-07.md:97:113",
+      "path": "memory/2026-05-07.md",
+      "startLine": 97,
+      "endLine": 113,
+      "source": "memory",
+      "snippet": "1. Reviewed `austin_entitlement_signal_brief_sample_2026-04-26.md`. 2. Reviewed `austin_entitlement_signal_brief_sample_2026-05-03.md`. 3. Reviewed `austin_entitlement_signal_brief_sample_2026-05-05.md`. 4. Reviewed `austin_entitlement_signal_brief_sample_2026-05-07.md`. 5. Created `austin_entitlement_signal_brief_novelty_audit_2026-05-07.md`. 6. Logged durable recurring buckets, variable premium signal buckets, and a 4-week editorial map. ### Experiment result - Cost: $0 - Outcome: PASS - Validation type: recurrence / novelty-risk audit - New asset: `austin_entitlement_signal_brief_novelty_audit_2026-05-07.md` - What changed: Austin now has evidence not only that the workflow is repeatable",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.5394712924957275,
+      "maxScore": 0.5394712924957275,
+      "firstRecalledAt": "2026-05-19T10:00:51.769Z",
+      "lastRecalledAt": "2026-05-19T10:00:51.769Z",
+      "queryHashes": [
+        "a599a8f07386"
+      ],
+      "recallDays": [
+        "2026-05-19"
+      ],
+      "conceptTags": [
+        "4-week",
+        "novelty-risk",
+        "reviewed",
+        "created",
+        "logged",
+        "durable",
+        "recurring",
+        "buckets"
+      ]
+    },
+    "memory:memory/2026-05-08.md:67:82": {
+      "key": "memory:memory/2026-05-08.md:67:82",
+      "path": "memory/2026-05-08.md",
+      "startLine": 67,
+      "endLine": 82,
+      "source": "memory",
+      "snippet": "3. Re-reviewed `austin_entitlement_signal_brief_launch_pack.md`. 4. Re-reviewed the four Austin sample issues dated 2026-04-26, 2026-05-03, 2026-05-05, and 2026-05-07. 5. Fetched live Austin public-source pages for the Council meeting center, May 7 Council agenda, May 7 AHFC agenda, Commercial Plan Review, Expedited Building Plan Review, and AHOST. 6. Created `austin_entitlement_signal_brief_unit_economics_2026-05-08.md`. 7. Logged time-budget assumptions, pilot pricing sensitivity, margin readout, and the still-open conversion risk. ### Experiment result - Cost: $0 - Outcome: PASS - Validation type: unit economics / production-time risk audit - New asset: `austin_entitlement_signal_brief_u",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.5369377106428146,
+      "maxScore": 0.5369377106428146,
+      "firstRecalledAt": "2026-05-19T10:00:51.769Z",
+      "lastRecalledAt": "2026-05-19T10:00:51.769Z",
+      "queryHashes": [
+        "a599a8f07386"
+      ],
+      "recallDays": [
+        "2026-05-19"
+      ],
+      "conceptTags": [
+        "re-reviewed",
+        "public-source",
+        "time-budget",
+        "still-open",
+        "production-time",
+        "reviewed",
+        "four",
+        "austin"
+      ]
+    }
+  }
+}

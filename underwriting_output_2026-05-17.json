@@ -1,0 +1,135 @@
+[
+  {
+    "case": 1,
+    "type": "Fix-and-Flip",
+    "input": {
+      "property_type": "Fix-and-Flip",
+      "acquisition_price": 200000,
+      "renovation_budget": 50000,
+      "arv": 350000,
+      "holding_period_months": 6,
+      "financing_down_percent": 25,
+      "financing_interest_rate": 8.5,
+      "other_costs": 15000
+    },
+    "output": {
+      "property_type": "Fix-and-Flip",
+      "metrics": {
+        "total_project_cost": 271375.0,
+        "profit": 78625.0,
+        "roi_percent": 28.97,
+        "holding_cost": 6375.0,
+        "purchase_to_arv_ratio": 0.5714
+      },
+      "recommendation": "GO",
+      "risk_level": "Low",
+      "red_flags": [],
+      "green_flags": [
+        "Strong purchase spread (57% of ARV)",
+        "Strong ROI (29.0%)",
+        "Renovation budget at reasonable 25% of acquisition"
+      ],
+      "summary": "Deal analysis for Fix-and-Flip. Metrics meet or exceed Andrey's framework thresholds. 3 positive indicators identified.",
+      "confidence_score": 115
+    }
+  },
+  {
+    "case": 2,
+    "type": "Fix-and-Flip",
+    "input": {
+      "property_type": "Fix-and-Flip",
+      "acquisition_price": 300000,
+      "renovation_budget": 50000,
+      "arv": 350000,
+      "holding_period_months": 12,
+      "financing_down_percent": 25,
+      "financing_interest_rate": 8.5,
+      "other_costs": 15000
+    },
+    "output": {
+      "property_type": "Fix-and-Flip",
+      "metrics": {
+        "total_project_cost": 384125.0,
+        "profit": -34125.0,
+        "roi_percent": -8.88,
+        "holding_cost": 19125.0,
+        "purchase_to_arv_ratio": 0.8571
+      },
+      "recommendation": "NO-GO",
+      "risk_level": "High",
+      "red_flags": [
+        "ROI (-8.9%) below minimum threshold (15%)"
+      ],
+      "green_flags": [
+        "Renovation budget at reasonable 17% of acquisition"
+      ],
+      "summary": "Deal analysis for Fix-and-Flip. Deal fails Andrey's framework thresholds. 1 red flags identified.",
+      "confidence_score": 90
+    }
+  },
+  {
+    "case": 3,
+    "type": "Multifamily",
+    "input": {
+      "property_type": "Multifamily",
+      "acquisition_price": 2000000,
+      "renovation_budget": 500000,
+      "rental_income": 25000,
+      "operating_expense_percent": 40,
+      "financing_down_percent": 30,
+      "financing_interest_rate": 7.5,
+      "other_costs": 50000
+    },
+    "output": {
+      "property_type": "Multifamily",
+      "metrics": {
+        "annual_gross_income": 300000,
+        "operating_expenses": 120000.0,
+        "noi": 180000.0,
+        "cap_rate_percent": 9.0,
+        "annual_debt_service": 117468.04,
+        "annual_cash_flow": 62531.96,
+        "cash_on_cash_return": 10.42,
+        "dscr": 1.53
+      },
+      "recommendation": "GO",
+      "risk_level": "Low",
+      "red_flags": [],
+      "green_flags": [
+        "Solid cap rate (9.00%)",
+        "Strong DSCR (1.53)",
+        "Positive cash-on-cash return (10.42%)"
+      ],
+      "summary": "Deal analysis for Multifamily. Metrics meet or exceed Andrey's framework thresholds. 3 positive indicators identified.",
+      "confidence_score": 115
+    }
+  },
+  {
+    "case": 4,
+    "type": "Development",
+    "input": {
+      "property_type": "Development",
+      "acquisition_price": 500000,
+      "renovation_budget": 2000000,
+      "arv": 4000000,
+      "holding_period_months": 24,
+      "financing_down_percent": 25,
+      "financing_interest_rate": 9.0,
+      "other_costs": 200000
+    },
+    "output": {
+      "property_type": "Development",
+      "metrics": {
+        "note": "Property type not recognized - using basic analysis"
+      },
+      "recommendation": "REVIEW",
+      "risk_level": "Medium",
+      "red_flags": [
+        "Unknown property type - manual review recommended"
+      ],
+      "green_flags": [],
+      "summary": "Deal analysis for Development. Deal has some concerns requiring manual review. 1 red flags identified.",
+      "confidence_score": 85
+    }
+  }
+]

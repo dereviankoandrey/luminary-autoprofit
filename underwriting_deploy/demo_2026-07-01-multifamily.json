@@ -1,0 +1,52 @@
+{
+  "deal_type": "multifamily",
+  "property_name": "Oakwood Apartments",
+  "address": "Austin, TX 78745",
+  "units": 24,
+  "year_built": 1998,
+  "square_footage": 28800,
+  "lot_size_acres": 3.2,
+
+  "acquisition_price": 2850000,
+  "appraised_value": 3100000,
+
+  "rental_income_monthly": {
+    "unit_1br_6": 1100,
+    "unit_2br_12": 1450,
+    "unit_3br_6": 1900
+  },
+
+  "occupancy_rate": 0.92,
+  "vacancy_allowance": 0.08,
+  "other_income_monthly": 600,
+
+  "operating_expenses_annual": {
+    "property_management": 0.05,
+    "insurance": 14400,
+    "property_taxes": 42000,
+    "maintenance_reserves": 36000,
+    "utilities_common": 28000,
+    "repairs_annual": 24000,
+    "landscaping_security": 18000
+  },
+
+  "financing": {
+    "loan_to_value": 0.75,
+    "interest_rate": 7.25,
+    "term_years": 30,
+    "debt_service_annual": 162000
+  },
+
+  "reno_scope": {
+    "total_reno_budget": 95000,
+    "per_unit_cost": 3958,
+    "expected_arv_increase": 180000,
+    "timeline_months": 6
+  },
+
+  "hold_strategy": "buy_and_hold",
+  "exit_period_years": 7,
+  "annual_appreciation": 0.035,
+  "cap_rate_market": 0.062,
+  "exit_cap_rate": 0.068
+}

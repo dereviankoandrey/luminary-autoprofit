@@ -1,0 +1,79 @@
+---
+name: gscrm
+description: Read and write the LBV Google Sheets CRM (GSCRM). Use to look up customer records, log new sales, update fulfillment status, and track onboarding progress.
+metadata: {"openclaw":{"requires":{"bins":["node"],"env":["GOOGLE_SHEET_ID","GOOGLE_SERVICE_ACCOUNT_EMAIL","GOOGLE_PRIVATE_KEY"]}}}
+---
+
+# gscrm
+
+Read and write the LBV Google Sheets CRM via the service account.
+
+Sheet name is controlled by `GSCRM_SHEET_NAME` env var (default: `Sheet1`). Never hard-code the sheet name.
+
+## Usage
+
+```bash
+node ~/.openclaw/tools/gscrm.js '<json>'
+```
+
+## Operations
+
+### Read rows
+
+```bash
+# Most recent 5 rows
+node ~/.openclaw/tools/gscrm.js '{"op":"read","limit":5}'
+
+# Find by Stripe session ID
+node ~/.openclaw/tools/gscrm.js '{"op":"read","session_id":"cs_live_xxx"}'
+
+# Find by email
+node ~/.openclaw/tools/gscrm.js '{"op":"read","email":"customer@example.com"}'
+```
+
+### Append a new row
+
+```bash
+node ~/.openclaw/tools/gscrm.js '{"op":"append","row":{"Timestamp":"2026-05-08T10:00:00Z","Email":"customer@example.com","Full Name":"Jane Smith","Tier":"T3","Payment Status":"Paid","Fulfillment Status":"Awaiting Info"}}'
+```
+
+### Update fields on an existing row
+
+```bash
+# Update by session ID
+node ~/.openclaw/tools/gscrm.js '{"op":"update","session_id":"cs_live_xxx","fields":{"Fulfillment Status":"Complete","Notes / Next Action":"USB shipped 2026-05-08"}}'
+
+# Update by row number
+node ~/.openclaw/tools/gscrm.js '{"op":"update","row_number":15,"fields":{"Payment Status":"Paid"}}'
+```
+
+### Delete a row (use sparingly — only for cleanup/test rows)
+
+```bash
+node ~/.openclaw/tools/gscrm.js '{"op":"delete","row_number":42}'
+```
+
+## Column reference (34 columns)
+
+```
+Timestamp | Email | Full Name | Phone | Tier | Lead Source | Discount Code | Discount %
+Amount Paid | Stripe Session ID | Payment Method | Street Address | City | State / Province
+Postal Code | Country | Jarvis Name | Jarvis Personality | Personality Notes | Preferred Platform
+Niche / Industry | Workflows | Current Tools | Revenue Goal | Hardware Config | Additional Notes
+PayPal Return Tier | Payment Status | Fulfillment Status | Questionnaire Complete
+USB Built | Hardware Ordered / Tracking # | Setup Session Scheduled | Notes / Next Action
+```
+
+## Output
+
+Success: `{"ok":true,...}` with operation-specific data
+Failure: `{"ok":false,"error":"..."}`
+
+## Rules
+
+- Always use column names exactly as listed above — case-sensitive
+- Never hard-code the sheet name; always rely on GSCRM_SHEET_NAME env var
+- For `append`, include at minimum: Timestamp, Email, Tier, Payment Status
+- For `delete`, only use on `[TEST]` rows or after explicit Andrey approval
+- If `ok` is false, report the full error to Apex before retrying
+- Read before update if you're unsure of the current state

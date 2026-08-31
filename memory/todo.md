@@ -1,0 +1,52 @@
+# To-Do
+
+- [ ] Fix memory_search embedding/API configuration so historical context is queryable.
+- [x] Build/update active goals and opportunities tracker for current real estate developments.
+- [ ] Review workspace access restrictions caused by approvals-path symlink issue.
+- [x] Route around the missing Streamlit/venv path by validating a workspace-local `.vendor` install path for `/home/andrey/.openclaw/workspace`.
+- [ ] Install or expose a cleaner long-term Streamlit-capable Python runtime for `/home/andrey/.openclaw/workspace` (current workaround uses `.vendor` because `python3.12-venv` / `ensurepip` is unavailable).
+- [x] Create a buyer-visible underwriting demo report using realistic Austin-area deal parameters.
+- [ ] Capture 3-5 clean underwriting UI screenshots using the validated local `.vendor` run path or a free-tier deployment.
+- [x] Gather current project pipeline, capital needs, and outreach priorities into one operating document.
+- [x] Build a project-by-project development operating sheet with stage, blocker, capital need, next action, owner, and deadline.
+- [ ] Fill the development operating sheet with current stage, blocker, capital need, counterparties, and deadlines for each active project from live project updates.
+- [x] Create capital + outreach tracker for active development projects.
+- [ ] Add named capital sources / partners, relationship status, and next asks to `memory/capital-outreach-tracker.md`.
+- [x] Create weekly development pipeline review template.
+- [x] Create a weekly development review output sheet so review decisions, follow-ups, and tracker changes are captured in one place.
+- [x] Create a weekly review runbook that defines the exact execution sequence across the review template, output sheet, ingestion log, and downstream trackers.
+- [x] Create a weekly development review prep sheet that consolidates known facts, open gaps, and minimum required answers for the first live review.
+- [ ] Run the first weekly review using `memory/weekly-development-review-template.md`, `memory/weekly-development-review-output-sheet.md`, `memory/weekly-review-runbook.md`, and `memory/weekly-development-review-prep-sheet.md`, then update the operating trackers with live facts.
+- [x] Create a development update request packet to gather missing live project and counterparty facts quickly.
+- [x] Create a project priority brief ranking the development pipeline by leverage and urgency.
+- [x] Create a development pipeline execution board for overdue follow-ups, decisions needed, and 7-day actions.
+- [x] Create a top-3 project briefing pack for Laguna Marble Falls, Leander Springs, and ZFB at Anderson Mill.
+- [x] Create a dated development update ingestion log so live project facts can be captured once and propagated across trackers.
+- [ ] Fill `memory/top-3-project-briefing-pack.md` with live facts and use it to update the operating sheet, capital tracker, and execution board.
+- [x] Create a compact unblocker sheet for Andrey covering the minimum live inputs needed across top projects, capital conversations, and underwriting beta candidates.
+- [x] Create a top-3 capital positioning sheet that turns verified project facts into outreach-prep framing.
+- [ ] Update `memory/top-3-capital-positioning-sheet.md` with live facts and concrete asks once project updates arrive.
+- [ ] Use `memory/andrey-unblocker-sheet.md` to collect live inputs, then propagate them into the operating sheet, capital tracker, briefing pack, execution board, ingestion log, and underwriting beta files.
+- [x] Create a copy-paste message pack for requesting top-project updates and underwriting beta candidate names.
+- [ ] Start using `memory/development-update-ingestion-log.md` for all live project updates and clear its propagation checklists weekly.
+- [x] Create underwriting SaaS beta target list structure and outreach sequence.
+- [x] Create underwriting beta candidate scorecard for ranking real outreach targets.
+- [x] Create underwriting beta outreach tracker for moving real candidates from scoring to outreach, demo, and validation.
+- [x] Create underwriting first-batch selection template for choosing the first beta outreach wave.
+- [ ] Add 3-5 real beta candidates from Andrey's network to `underwriting_beta_targets.md`.
+- [ ] Score real beta candidates in `underwriting_beta_candidate_scorecard.md` and choose first outreach batch.
+- [x] Create Austin Market Intel source pack template for repeatable issue production.
+- [x] Create an Austin Entitlement Signal Brief outreach tracker for the first 10 warm pricing tests.
+- [x] Create an Austin Entitlement Signal Brief first-10 selection sheet so warm prospects can be scored and chosen quickly.
+- [x] Create an Austin Entitlement Signal Brief warm lead capture sheet so 15-20 raw names can be dumped before scoring the first 10.
+- [x] Create an Austin Entitlement Signal Brief batch-1 send sheet so the top 5 names can be locked, routed, and sent without extra decision friction.
+- [x] Create an Austin Entitlement Signal Brief reply handling sheet so sample requests, pricing questions, and common objections can be answered without custom drafting.
+- [x] Create an Austin Entitlement Signal Brief asset routing sheet so each warm lead gets the right single proof asset by stage, segment, and objection.
+- [x] Refresh the Austin Entitlement Signal Brief proof-stack routing to use the 2026-05-15 sample and process-layer validation asset.
+- [x] Refresh memory/active-goals-tracker.md so the main business priority stack reflects the current Austin lead, underwriting proof state, and execution bottlenecks.
+- [x] Create a device sales follow-up pack with priority queue, normalized statuses, and outreach drafts.
+- [x] Upgrade `memory/device-sales-setup-tracker-2026-04-25.md` with action columns and normalized statuses.
+- [ ] Use `memory/device-sales-follow-up-pack-2026-04-25.md` and `memory/device-sales-setup-tracker-2026-04-25.md` to work the device/setup follow-up queue: Steve delivery, Peter setup next step, Kevin payment, Jay payment, remaining Track B statuses.
+- [ ] Clarify what Track A contacts represent and desired action.
+- [x] Create a one-page executive digest format for the Austin Entitlement Signal Brief that compresses full brief + live agenda into developer-relevant action items.
+- [ ] Choose the first 10 warm names for the Austin Entitlement Signal Brief pilot and use `austin_entitlement_signal_brief_outreach_tracker.md`, `austin_entitlement_signal_brief_pricing_test_pack.md`, `austin_entitlement_signal_brief_launch_pack.md`, `austin_entitlement_signal_brief_pilot_intake_pack.md`, and the staged `/austin-signals/one-pager` page to run the first outreach/pricing tests and handle intake cleanly.

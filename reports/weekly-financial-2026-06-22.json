@@ -1,0 +1,29 @@
+{
+  "agent": "cfo-company",
+  "message": "",
+  "embed": {
+    "title": "Weekly Financial Report",
+    "description": "Week of June 15\u201322, 2026\nRevenue this week: $0.00 (no completed transactions)\nPrior week revenue: $632.00\nCumulative all-time: $10,883.00",
+    "color": 14277937,
+    "fields": [
+      {
+        "name": "This Week",
+        "value": "\u2022 0 paid sessions\n\u2022 2 expired carts ($74 pending)\n\u2022 Conversion: N/A",
+        "inline": true
+      },
+      {
+        "name": "Prior Week (Jun 8-14)",
+        "value": "\u2022 $632.00 revenue\n\u2022 4 paid / 6 unpaid\n\u2022 Conversion rate: 40%",
+        "inline": true
+      },
+      {
+        "name": "All-Time Total",
+        "value": "\u2022 $10,883.00 collected\n\u2022 15 transactions\n\u2022 Avg order: $725.53",
+        "inline": false
+      }
+    ],
+    "footer": {
+      "text": "CFO Report \u2022 Generated 2026-06-22"
+    }
+  }
+}

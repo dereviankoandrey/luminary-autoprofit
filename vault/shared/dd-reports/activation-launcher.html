@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luminary Ventures — Activation Launcher</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0e17; color: #c9d1d9; line-height: 1.6; padding: 2rem; max-width: 800px; margin: 0 auto; }
+h1 { font-size: 1.5rem; color: #f0f6fc; margin-bottom: .25rem; }
+.subtitle { color: #7d8590; font-size: .9rem; margin-bottom: 2rem; }
+.lane-section { background: #111820; border: 1px solid #21262d; border-radius: 8px; padding: 1.25rem; margin-bottom: 1rem; transition: all .3s ease; }
+.lane-section.active { border-color: #2f81f7; box-shadow: 0 0 0 1px rgba(47,129,247,.2); }
+.lane-section.complete { border-color: #3fb950; opacity: .85; }
+.lane-header { display: flex; justify-content: space-between; align-items: center; cursor: pointer; user-select: none; }
+.lane-title { font-weight: 600; color: #f0f6fc; font-size: 1rem; }
+.lane-badge { font-size: .75rem; padding: 2px 8px; border-radius: 12px; background: #21262d; color: #7d8590; }
+.lane-badge.active { background: rgba(47,129,247,.15); color: #58a6ff; }
+.lane-badge.complete { background: rgba(63,185,80,.15); color: #3fb950; }
+.step-list { margin-top: 1rem; display: none; }
+.lane-section.active .step-list, .lane-section.complete .step-list { display: block; }
+.step-item { display: flex; align-items: flex-start; gap: .75rem; padding: .625rem 0; border-bottom: 1px solid #1a2332; }
+.step-item:last-child { border-bottom: none; }
+.step-num { background: #21262d; color: #7d8590; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: .75rem; flex-shrink: 0; margin-top: 1px; }
+.step-item.checked .step-num { background: #3fb950; color: #fff; }
+.step-check { cursor: pointer; width: 18px; height: 18px; border: 2px solid #30363d; border-radius: 4px; flex-shrink: 0; margin-top: 3px; transition: all .2s ease; background: transparent; }
+.step-check:hover { border-color: #58a6ff; }
+.step-item.checked .step-check { background: #3fb950; border-color: #3fb950; }
+.step-content { flex: 1; }
+.step-title { font-size: .9rem; color: #c9d1d9; }
+.step-detail { font-size: .8rem; color: #7d8590; margin-top: .25rem; white-space: pre-wrap; font-family: 'SF Mono', 'Fira Code', monospace; background: #0d1117; padding: .5rem .75rem; border-radius: 4px; margin-top: .375rem; overflow-x: auto; }
+.step-detail a { color: #58a6ff; text-decoration: none; }
+.step-detail a:hover { text-decoration: underline; }
+.expand-btn { background: none; border: none; color: #2f81f7; cursor: pointer; font-size: .8rem; padding: .375rem 0; margin-top: .375rem; }
+.expand-btn:hover { color: #58a6ff; text-decoration: underline; }
+.progress-bar-container { background: #21262d; border-radius: 4px; height: 6px; margin-bottom: 1.5rem; overflow: hidden; }
+.progress-bar-fill { height: 100%; background: linear-gradient(90deg, #2f81f7, #3fb950); transition: width .5s ease; border-radius: 4px; }
+.progress-label { font-size: .8rem; color: #7d8590; margin-bottom: .5rem; text-align: right; }
+.action-btn { background: linear-gradient(135deg, #2f81f7, #1a6fdc); color: #fff; border: none; padding: .75rem 1.5rem; border-radius: 6px; font-size: .9rem; cursor: pointer; transition: all .2s ease; margin-top: 1rem; }
+.action-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(47,129,247,.3); }
+.action-btn.secondary { background: #21262d; color: #c9d1d9; margin-left: .5rem; }
+.action-btn.secondary:hover { background: #30363d; }
+.timestamp { font-size: .75rem; color: #484f58; text-align: right; margin-top: 2rem; }
+.warning { background: rgba(210,153,34,.1); border-left: 3px solid #d29922; padding: .75rem 1rem; border-radius: 0 6px 6px 0; margin-bottom: 1.5rem; font-size: .85rem; }
+.warning strong { color: #d29922; }
+</style>
+</head>
+<body>
+
+<h1>Luminary Ventures — Activation Launcher</h1>
+<div class="subtitle">One session. Three lanes. ~45 minutes total.</div>
+
+<div class="warning">
+<strong>Critical:</strong> Everything is built and validated. No more product work needed. This launcher guides you through the remaining deployment steps only.
+</div>
+
+<div class="progress-bar-container"><div class="progress-bar-fill" id="progressBar" style="width:0%"></div></div>
+<div class="progress-label" id="progressLabel">0 / 9 steps complete</div>
+
+<!-- LANE 1 -->
+<div class="lane-section active" id="lane1">
+<div class="lane-header">
+<span class="lane-title">Lane 1: GitHub Pages Demo Deploy (~10 min)</span>
+<span class="lane-badge active" id="badge1">ACTIVE</span>
+</div>
+<div class="step-list">
+
+<div class="step-item" data-step="1-1">
+<input type="checkbox" class="step-check" onchange="toggleStep(this)">
+<div class="step-content">
+<div class="step-title">Check GitHub CLI is installed and authenticated</div>
+<div class="step-detail"># Run these in terminal:
+gh auth status
+
+# If not authenticated:
+gh auth login --with-token  # paste your GH_PAT
+# or follow interactive flow: gh auth login</div>
+</div>
+</div>
+
+<div class="step-item" data-step="1-2">
+<input type="checkbox" class="step-check" onchange="toggleStep(this)">
+<div class="step-content">
+<div class="step-title">Run the one-click deploy script</div>
+<div class="step-detail"># From workspace root:
+bash vault/shared/deploy-scripts/github-pages-one-click.sh
+
+# This creates a repo, pushes demo.html, enables Pages.
+# Result: https://yourusername.github.io/deal-screener-demo/</div>
+</div>
+</div>
+
+<div class="step-item" data-step="1-3">
+<input type="checkbox" class="step-check" onchange="toggleStep(this)">
+<div class="step-content">
+<div class="step-title">Verify the live URL loads correctly</div>
+<div class="step-detail"># Open in browser and test:
+# 1. Page loads without errors
+# 2. All 6 sample deals work
+# 3. Custom input mode works
+# 4. Underwriting calculations match expected outputs
+
+Copy your live URL here for reference:
+───────────────────────────────────────</div>
+</div>
+</div>
+
+</div>
+<button class="expand-btn" onclick="toggleSection('lane1')">Show details ▾</button>
+</div>
+
+<!-- LANE 2 -->
+<div class="lane-section active" id="lane2">
+<div class="lane-header">
+<span class="lane-title">Lane 2: DD Reports Stripe + Landing Page (~25 min)</span>
+<span class="lane-badge active" id="badge2">ACTIVE</span>
+</div>
+<div class="step-list">
+
+<div class="step-item" data-step="2-1">
+<input type="checkbox" class="step-check" onchange="toggleStep(this)">
+<div class="step-content">
+<div class="step-title">Create Stripe products and payment links</div>
+<div class="step-detail"># Go to stripe.com → Products → Add Product
+
+Product 1: DD Report — Standard ($197)
+- Description: Fix-and-flip or small multifamily analysis, 3-5 day turnaround
+- Type: One-time payment, $197
+
+Product 2: DD Report — Premium ($497)  
+- Description: Large multifamily/development analysis with market research, 3-day turnaround
+- Type: One-time payment, $497
+
+For each product: Create Payment Link → customize success page → copy URL</div>
+</div>
+</div>
+
+<div class="step-item" data-step="2-2">
+<input type="checkbox" class="step-check" onchange="toggleStep(this)">
+<div class="step-content">
+<div class="step-title">Deploy landing page (GitHub Pages or Carrd.co)</div>
+<div class="step-detail"># Option A: GitHub Pages (free, same account as Lane 1)
+# Add an index.html to your demo repo with DD Reports info + Stripe links
+
+# Option B: Carrd.co (faster, free tier available)
+# Go to carrd.co → Create new site → Use template or blank
+# Copy landing page content from vault/shared/deploy-instructions-v1.md
+
+Paste your landing page URL:
+───────────────────────────────────────</div>
+</div>
+</div>
+
+<div class="step-item" data-step="2-3">
+<input type="checkbox" class="step-check" onchange="toggleStep(this)">
+<div class="step-content">
+<div class="step-title">Test the full payment flow end-to-end</div>
+<div class="step-detail"># Open your landing page → click a Stripe payment link
+# Verify: checkout loads, price is correct, success page displays
+
+Record your Stripe product URLs for future outreach:
+───────────────────────────────────────
+Standard ($197): 
+Premium ($497): </div>
+</div>
+</div>
+
+</div>
+<button class="expand-btn" onclick="toggleSection('lane2')">Show details ▾</button>
+</div>
+
+<!-- LANE 3 -->
+<div class="lane-section active" id="lane3">
+<div class="lane-header">
+<span class="lane-title">Lane 3: Chrome Web Store Submission (~15 min)</span>
+<span class="lane-badge active" id="badge3">ACTIVE</span>
+</div>
+<div class="step-list">
+
+<div class="step-item" data-step="3-1">
+<input type="checkbox" class="step-check" onchange="toggleStep(this)">
+<div class="step-content">
+<div class="step-title">Prepare the ZIP package</div>
+<div class="step-detail"># From workspace root:
+cd experiments/chrome-extension-deal-screener
+zip -r ../deal-screener-extension.zip .
+
+# Verify contents:
+unzip -l ../deal-screener-extension.zip
+# Should include: manifest.json, engine.js, overlay.js, 
+# overlay.css, email-capture.js, demo.html</div>
+</div>
+</div>
+
+<div class="step-item" data-step="3-2">
+<input type="checkbox" class="step-check" onchange="toggleStep(this)">
+<div class="step-content">
+<div class="step-title">Upload to Chrome Web Store Developer Dashboard</div>
+<div class="step-detail"># Go to chrome.google.com/webstore/developer/dashboard
+
+1. Pay $5 one-time developer fee (if not already paid)
+2. Click "New Item" 
+3. Upload deal-screener-extension.zip
+4. Fill in store listing:
+   - Title: Deal Screener by Luminary Ventures
+   - Description: Use the copy from marketing/store-listing.md
+   - Category: Productivity
+   - Tags: real estate, underwriting, investment analysis, property, flip
+5. Upload screenshots (use demo.html displayed in browser)
+
+# Full guide: experiments/chrome-extension-deal-screener/launch-kit/SUBMISSION-GUIDE.md</div>
+</div>
+</div>
+
+<div class="step-item" data-step="3-3">
+<input type="checkbox" class="step-check" onchange="toggleStep(this)">
+<div class="step-content">
+<div class="step-title">Submit for review and note the listing URL</div>
+<div class="step-detail"># Chrome Web Store reviews take 1-3 business days.
+
+Once live, add your extension link to:
+- LinkedIn post comments
+- DD Reports landing page
+- Email outreach templates
+
+Chrome Web Store listing URL (after approval):
+───────────────────────────────────────</div>
+</div>
+</div>
+
+</div>
+<button class="expand-btn" onclick="toggleSection('lane3')">Show details ▾</button>
+</div>
+
+<div style="text-align: center; margin-top: 2rem;">
+<button class="action-btn" onclick="exportProgress()">📋 Export Progress (copy to clipboard)</button>
+<button class="action-btn secondary" onclick="resetAll()">↺ Reset All Steps</button>
+</div>
+
+<div class="timestamp">Generated: July 27, 2026 — AutoProfit Night Run #53</div>
+
+<script>
+const STORAGE_KEY = 'luminary_activation_progress';
+
+function loadProgress() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; } 
+    catch(e) { return {}; }
+}
+
+function saveProgress(data) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+}
+
+function toggleStep(checkbox) {
+    const step = checkbox.closest('.step-item');
+    const isChecked = checkbox.checked;
+    
+    if (isChecked) {
+        step.classList.add('checked');
+        // Auto-scroll to next unchecked step after brief delay
+        setTimeout(() => {
+            const allSteps = document.querySelectorAll('.step-item:not(.checked)');
+            if (allSteps.length > 0) {
+                allSteps[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }, 300);
+    } else {
+        step.classList.remove('checked');
+    }
+    
+    updateProgress();
+}
+
+function toggleSection(laneId) {
+    const lane = document.getElementById(laneId);
+    const btn = lane.querySelector('.expand-btn');
+    const isExpanded = lane.classList.contains('active') || lane.classList.contains('complete');
+    
+    if (isExpanded) {
+        lane.classList.remove('active', 'complete');
+        btn.textContent = 'Show details ▾';
+    } else {
+        lane.classList.add('active');
+        btn.textContent = 'Hide details ▴';
+    }
+}
+
+function updateProgress() {
+    const allChecks = document.querySelectorAll('.step-check');
+    const checked = document.querySelectorAll('.step-check:checked');
+    const total = allChecks.length;
+    const done = checked.length;
+    const pct = Math.round((done / total) * 100);
+    
+    document.getElementById('progressBar').style.width = pct + '%';
+    document.getElementById('progressLabel').textContent = `${done} / ${total} steps complete`;
+    
+    // Update lane badges
+    for (let lane = 1; lane <= 3; lane++) {
+        const laneChecks = document.querySelectorAll(`#lane${lane} .step-check`);
+        const laneChecked = document.querySelectorAll(`#lane${lane} .step-check:checked`);
+        const badge = document.getElementById(`badge${lane}`);
+        
+        if (laneChecked.length === laneChecks.length && laneChecks.length > 0) {
+            badge.textContent = 'COMPLETE';
+            badge.className = 'lane-badge complete';
+            document.getElementById(`lane${lane}`).classList.add('complete');
+            document.getElementById(`lane${lane}`).classList.remove('active');
+        } else if (laneChecked.length > 0) {
+            badge.textContent = `IN PROGRESS (${laneChecked.length}/${laneChecks.length})`;
+        }
+    }
+    
+    saveProgress({ timestamp: new Date().toISOString() });
+}
+
+function exportProgress() {
+    const allSteps = document.querySelectorAll('.step-item');
+    let text = '=== Luminary Ventures — Activation Progress ===\n\n';
+    
+    for (let lane = 1; lane <= 3; lane++) {
+        const laneEl = document.getElementById(`lane${lane}`);
+        const title = laneEl.querySelector('.lane-title').textContent;
+        text += `${title}\n`;
+        
+        const steps = laneEl.querySelectorAll('.step-item');
+        steps.forEach(s => {
+            const checked = s.classList.contains('checked') ? '✅' : '⬜';
+            const stepTitle = s.querySelector('.step-title').textContent;
+            text += `  ${checked} ${stepTitle}\n`;
+        });
+        
+        // Capture any free-text fields (URLs, notes)
+        const details = laneEl.querySelectorAll('.step-detail');
+        details.forEach(d => {
+            const lines = d.textContent.trim().split('\n').filter(l => l.startsWith('─'));
+            if (lines.length > 0) {
+                text += `  ${lines[0]}\n`;
+            }
+        });
+        
+        text += '\n';
+    }
+    
+    text += `\nExported: ${new Date().toISOString()}\n`;
+    
+    navigator.clipboard.writeText(text).then(() => {
+        alert('Progress copied to clipboard! Paste it wherever you want to save it.');
+    }).catch(() => {
+        // Fallback
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        alert('Progress copied to clipboard!');
+    });
+}
+
+function resetAll() {
+    if (confirm('Reset all steps? This cannot be undone.')) {
+        localStorage.removeItem(STORAGE_KEY);
+        document.querySelectorAll('.step-check').forEach(cb => {
+            cb.checked = false;
+            cb.closest('.step-item').classList.remove('checked');
+        });
+        updateProgress();
+    }
+}
+
+// Load saved progress on startup
+document.addEventListener('DOMContentLoaded', () => {
+    const saved = loadProgress();
+    // Progress is stored implicitly via checkbox state persistence
+});
+</script>
+
+</body>
+</html>

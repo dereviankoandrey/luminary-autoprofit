@@ -1,0 +1,16 @@
+Confirmed. Subwoofer is not just an idea. It already exists as a product line in the site stack.
+
+What is already there:
+The sales route exists at slash subwoofer.
+There is a Stripe checkout flow for three tiers: twenty seven dollars build guide, forty seven dollars builder's edition, and ninety seven dollars premium pack.
+There is a post payment questionnaire route.
+There is a token gated download route.
+And the questionnaire is designed to log leads into CRM with product line set to subwoofer.
+
+So commercially, I should treat Subwoofer as an active asset that needs go to market work, not product invention work.
+
+My view: this is a good parallel offer because it is outside the core AI buyer, but it is already packaged, digital, and fast to monetize if the funnel is tightened.
+
+The next practical step is to audit whether the Stripe price IDs, downloadable files, and CRM logging are fully live in production, then build the launch plan around traffic, positioning, and follow up.
+
+I will include Subwoofer in the ranked product slate as an already built product that is ready for commercialization review, not as a net new product.

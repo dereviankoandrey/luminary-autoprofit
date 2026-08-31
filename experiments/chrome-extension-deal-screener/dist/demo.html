@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Deal Screener — Demo (with Email Capture)</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f5f5; padding: 40px; max-width: 900px; margin: 0 auto; }
+  h1 { color: #333; border-bottom: 2px solid #22c55e; padding-bottom: 8px; }
+  .subtitle { color: #666; margin-top: -4px; margin-bottom: 24px; font-size: 14px; }
+  .property-card { background: white; border-radius: 8px; padding: 20px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); cursor: pointer; transition: box-shadow 0.2s; }
+  .property-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+  .property-card h3 { margin: 0 0 8px 0; color: #1a73e8; }
+  .property-card p { margin: 4px 0; font-size: 14px; color: #555; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; }
+  .go { background: #dcfce7; color: #166534; }
+  .review { background: #fef3c7; color: #92400e; }
+  .nogo { background: #fee2e2; color: #991b1b; }
+  button#run-demo { background: #22c55e; color: white; border: none; padding: 12px 24px; border-radius: 6px; font-size: 14px; cursor: pointer; margin-bottom: 20px; }
+  button#run-demo:hover { background: #16a34a; }
+  .status { padding: 8px 12px; border-radius: 4px; margin-top: 12px; font-size: 13px; }
+  .pass { background: #dcfce7; color: #166534; }
+
+  /* Demo-specific controls */
+  #demo-controls { display: flex; gap: 8px; margin-bottom: 16px; align-items: center; }
+  button#reset-demo { background: #6b7280; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-size: 13px; cursor: pointer; }
+  button#reset-demo:hover { background: #4b5563; }
+  .captured-email { color: #22c55e; font-weight: 600; margin-left: 12px; }
+
+  /* Saved deals panel */
+  #saved-deals-panel { display: none; margin-top: 24px; background: white; border-radius: 8px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+  #saved-deals-panel h3 { margin: 0 0 12px 0; color: #333; font-size: 16px; }
+  .deal-list-item { padding: 8px 0; border-bottom: 1px solid #f0f0f0; font-size: 13px; display: flex; justify-content: space-between; align-items: center; }
+  .deal-list-item:last-child { border-bottom: none; }
+
+  /* Email capture modal overrides for demo */
+  #ds-email-capture input:focus { border-color: #22c55e !important; box-shadow: 0 0 0 3px rgba(34,197,94,0.1); }
+</style>
+</head>
+<body>
+
+<h1>Deal Screener — Demo (with Email Capture)</h1>
+<p class="subtitle">Click any property card to see the Deal Score overlay. After first analysis, email capture will trigger automatically.</p>
+
+<div id="demo-controls">
+  <button id="run-demo" onclick="loadEngine()">Load Engine & Run All Demos</button>
+  <button id="reset-demo" onclick="resetDemo()" style="display:none">Reset Demo (clear captured state)</button>
+  <span id="captured-info"></span>
+</div>
+
+<div id="demo-status"></div>
+
+<!-- Simulated Zillow-like listing cards -->
+<h2 style="margin-top:30px">Property Listings (click any card)</h2>
+
+<div class="property-card" data-deal='{"price":450000,"monthly_rent":3800,"units":4,"opex_ratio":0.40}' data-address="123 Oak St, Austin TX">
+  <h3>123 Oak St — 4-Unit Multifamily</h3>
+  <p>$450,000 · $950/mo/unit · 4 units · Austin, TX</p>
+  <span class="badge go">GO / NO-GO / REVIEW</span>
+</div>
+
+<div class="property-card" data-deal='{"price":180000,"arv":280000}' data-address="456 Elm Dr, Dallas TX">
+  <h3>456 Elm Dr — Fix & Flip Opportunity</h3>
+  <p>$180,000 · ARV: $280,000 · 3 bed/2 bath · Dallas, TX</p>
+  <span class="badge go">GO / NO-GO / REVIEW</span>
+</div>
+
+<div class="property-card" data-deal='{"price":650000,"monthly_rent":4200,"units":3,"opex_ratio":0.38}' data-address="789 Pine Ave, Houston TX">
+  <h3>789 Pine Ave — Triplex</h3>
+  <p>$650,000 · $1,400/mo/unit · 3 units · Houston, TX</p>
+  <span class="badge go">GO / NO-GO / REVIEW</span>
+</div>
+
+<div class="property-card" data-deal='{"price":850000,"monthly_rent":6200,"units":4,"opex_ratio":0.42}' data-address="321 Cedar Blvd, San Antonio TX">
+  <h3>321 Cedar Blvd — 4-Unit Multifamily</h3>
+  <p>$850,000 · $1,550/mo/unit · 4 units · San Antonio, TX</p>
+  <span class="badge go">GO / NO-GO / REVIEW</span>
+</div>
+
+<div class="property-card" data-deal='{"price":220000,"arv":310000}' data-address="567 Maple Ln, Austin TX">
+  <h3>567 Maple Ln — Fix & Flip</h3>
+  <p>$220,000 · ARV: $310,000 · 4 bed/3 bath · Austin, TX</p>
+  <span class="badge go">GO / NO-GO / REVIEW</span>
+</div>
+
+<!-- Saved deals panel (shown after capture) -->
+<div id="saved-deals-panel">
+  <h3>📋 Your Saved Deals</h3>
+  <div id="deal-list"></div>
+  <button onclick="exportDeals()" style="margin-top:12px;padding:8px 16px;background:#22c55e;color:white;border:none;border-radius:6px;font-size:13px;cursor:pointer">Export as Report</button>
+</div>
+
+<!-- Scripts (order matters: engine → email-capture → demo) -->
+<script src="engine.js"></script>
+<script src="email-capture.js"></script>
+<script>
+// ─── Demo state tracking ──────────────────────────────────────
+
+let demoResults = []; // Store {deal, result} pairs for this session
+
+function createOverlayPanel(result) {
+  if (result.error) return;
+  const score = result.deal_score || 50;
+  const rec = result.recommendation || "REVIEW";
+  const risk = result.risk_level || "Medium";
+
+  let bgColor, textColor, borderColor;
+  if (rec === "GO") { bgColor = "#f0fdf4"; textColor = "#166534"; borderColor = "#22c55e"; }
+  else if (rec === "NO-GO") { bgColor = "#fef2f2"; textColor = "#991b1b"; borderColor = "#ef4444"; }
+  else { bgColor = "#fffbeb"; textColor = "#92400e"; borderColor = "#f59e0b"; }
+
+  const panel = document.createElement("div");
+  panel.id = "deal-screener-overlay";
+  panel.style.cssText = `position:fixed;top:80px;right:30px;width:280px;background:${bgColor};border-left:4px solid ${borderColor};border-radius:8px;padding:16px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:13px;color:#333;z-index:999999;box-shadow:0 4px 24px rgba(0,0,0,0.15)`;
+
+  let metricsHTML = "";
+  if (result.cap_rate_percent != null) metricsHTML += `<div style="margin-top:8px"><strong>Cap Rate:</strong> ${result.cap_rate_percent}%</div>`;
+  if (result.cash_on_cash_return != null) metricsHTML += `<div><strong>Cash-on-Cash:</strong> ${result.cash_on_cash_return}%</div>`;
+  if (result.annual_noi != null) metricsHTML += `<div><strong>Annual NOI:</strong> $${new Intl.NumberFormat().format(result.annual_noi)}</div>`;
+  if (result.purchase_to_arv_ratio != null) metricsHTML += `<div><strong>Purchase/ARV:</strong> ${result.purchase_to_arv_ratio}</div>`;
+
+  panel.innerHTML = `
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+      <strong style="font-size:14px;color:${textColor}">Deal Screener</strong>
+      <button onclick="this.parentElement.parentElement.remove()" style="background:none;border:none;font-size:16px;cursor:pointer;color:#999" title="Close">✕</button>
+    </div>
+    <div style="font-size:32px;font-weight:bold;color:${textColor};margin-bottom:4px">${score}/100</div>
+    <div style="font-size:13px;font-weight:bold;color:${textColor}">→ ${rec}</div>
+    <div style="font-size:11px;color:#666;margin-top:2px">Risk: ${risk}</div>
+    ${metricsHTML ? `<hr style="border:none;border-top:1px solid #e5e7eb;margin:8px 0">${metricsHTML}` : ""}
+    <div style="font-size:10px;color:#999;margin-top:8px;text-align:center">Math only. No LLMs.<br>© Luminary Underwriting Engine</div>`;
+
+  // Draggable
+  let dragging = false, sx, sy, ox, oy;
+  panel.addEventListener("mousedown", e => { if (e.target.tagName === "BUTTON") return; dragging = true; sx = e.clientX; sy = e.clientY; const r = panel.getBoundingClientRect(); ox = r.left; oy = r.top; panel.style.transition = "none"; });
+  document.addEventListener("mousemove", e => { if (!dragging) return; panel.style.left = (ox + e.clientX - sx) + "px"; panel.style.top = (oy + e.clientY - sy) + "px"; panel.style.right = "auto"; });
+  document.addEventListener("mouseup", () => { dragging = false; });
+
+  document.body.appendChild(panel);
+}
+
+function loadEngine() {
+  const status = document.getElementById("demo-status");
+  const cards = document.querySelectorAll(".property-card");
+
+  if (typeof UnderwritingEngine === "undefined") {
+    status.innerHTML = '<div class="status" style="background:#fee2e2;color:#991b1b">⚠ Engine failed to load. Make sure engine.js is in the same directory.</div>';
+    return;
+  }
+
+  const { quickScreeen } = UnderwritingEngine;
+  demoResults = []; // Reset session results
+  let analyzed = 0;
+
+  cards.forEach((card) => {
+    const deal = JSON.parse(card.dataset.deal);
+    const address = card.dataset.address || "Unknown";
+    const result = quickScreeen(deal);
+    
+    // Store for email capture integration
+    demoResults.push({ listing: { price: deal.price, address }, result });
+
+    card.addEventListener("click", () => createOverlayPanel(result));
+
+    // Update badge color based on prediction
+    const badge = card.querySelector(".badge");
+    if (result.recommendation === "GO") { badge.className = "badge go"; badge.textContent = "✓ GO"; }
+    else if (result.recommendation === "NO-GO") { badge.className = "badge nogo"; badge.textContent = "✗ NO-GO"; }
+    else { badge.className = "badge review"; badge.textContent = "? REVIEW"; }
+
+    analyzed++;
+  });
+
+  // ─── Store deals via email-capture module ──────────────
+  if (window.DealScreenerEmail) {
+    demoResults.forEach(({ listing, result }) => {
+      window.DealScreenerEmail.addDealToListing(listing, result);
+    });
+
+    // Show saved deals panel if any exist
+    updateSavedDealsPanel();
+
+    // Trigger email capture modal after first analysis (if not already captured)
+    if (!window.DealScreenerEmail.hasCaptured()) {
+      setTimeout(() => {
+        window.DealScreenerEmail.showCaptureModal();
+      }, 1500);
+    } else {
+      document.getElementById("captured-info").innerHTML = 
+        `<span class="captured-email">✓ Captured: ${window.DealScreenerEmail.getEmail()}</span>`;
+    }
+  }
+
+  status.innerHTML = `<div class="status pass">✓ Engine loaded. Click any property card to see the Deal Score overlay.</div>`;
+}
+
+// ─── Saved deals panel ──────────────────────────────────────
+
+function updateSavedDealsPanel() {
+  if (!window.DealScreenerEmail) return;
+  
+  const deals = window.DealScreenerEmail.getStoredDeals();
+  const panel = document.getElementById("saved-deals-panel");
+  const list = document.getElementById("deal-list");
+
+  if (deals.length === 0) {
+    panel.style.display = "none";
+    return;
+  }
+
+  panel.style.display = "block";
+  
+  // Show last 10 deals (most recent first)
+  const recent = deals.slice(-10).reverse();
+  list.innerHTML = recent.map(d => {
+    const status = d.recommendation === 'GO' ? '<span style="color:#22c55e">✓ GO</span>' : 
+                   d.recommendation === 'NO-GO' ? '<span style="color:#ef4444">✗ NO-GO</span>' : 
+                   '<span style="color:#f59e0b">? REVIEW</span>';
+    return `<div class="deal-list-item">
+      <span>${d.address} — $${new Intl.NumberFormat().format(d.price)}</span>
+      <span>${status} (${d.score}/100)</span>
+    </div>`;
+  }).join('');
+}
+
+function exportDeals() {
+  if (!window.DealScreenerEmail) return;
+  const email = window.DealScreenerEmail.getEmail();
+  window.DealScreenerEmail.exportDealsReport(email);
+}
+
+// ─── Reset demo (clear captured state for re-testing) ──────
+
+function resetDemo() {
+  localStorage.removeItem('deal_screener_email');
+  localStorage.removeItem('deal_screener_captured_v1');
+  localStorage.removeItem('deal_screener_deals');
+  location.reload();
+}
+
+// Check if already captured on page load
+document.addEventListener("DOMContentLoaded", () => {
+  if (window.DealScreenerEmail && window.DealScreenerEmail.hasCaptured()) {
+    document.getElementById("captured-info").innerHTML = 
+      `<span class="captured-email">✓ Captured: ${window.DealScreenerEmail.getEmail()}</span>`;
+    updateSavedDealsPanel();
+  }
+});
+</script>
+
+</body>
+</html>

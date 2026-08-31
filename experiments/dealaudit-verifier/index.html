@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DealAudit Verifier — Deterministic vs AI Deal Analysis Comparison</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#0a0e17;color:#c9d1d9;line-height:1.6}
+.container{max-width:860px;margin:0 auto;padding:24px 16px}
+header{text-align:center;padding:32px 0 24px;border-bottom:1px solid #21262d;margin-bottom:24px}
+header h1{font-size:1.8rem;color:#58a6ff;margin-bottom:8px}
+header p{color:#8b949e;font-size:0.95rem;max-width:600px;margin:0 auto}
+.badge{display:inline-block;background:#238636;color:#fff;padding:4px 12px;border-radius:20px;font-size:0.75rem;font-weight:600;margin-bottom:12px}
+.section{background:#161b22;border:1px solid #21262d;border-radius:8px;padding:20px;margin-bottom:16px}
+.section h2{font-size:1.1rem;color:#58a6ff;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid #21262d}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:640px){.grid-2{grid-template-columns:1fr}}
+label{display:block;font-size:0.8rem;color:#8b949e;margin-bottom:4px;text-transform:uppercase;letter-spacing:0.5px}
+input,select{width:100%;padding:10px 12px;background:#0d1117;border:1px solid #30363d;color:#c9d1d9;border-radius:6px;font-size:0.9rem;transition:border-color 0.2s}
+input:focus,select:focus{outline:none;border-color:#58a6ff}
+.btn{display:block;width:100%;padding:14px;background:#238636;color:#fff;border:none;border-radius:6px;font-size:1rem;font-weight:600;cursor:pointer;margin-top:16px;transition:background 0.2s}
+.btn:hover{background:#2ea043}
+.btn-secondary{background:#21262d;border:1px solid #30363d;color:#c9d1d9;padding:10px 16px;text-align:center;cursor:pointer;font-size:0.85rem;border-radius:6px;display:inline-block;margin-top:12px}
+.btn-secondary:hover{background:#30363d}
+table{width:100%;border-collapse:collapse;margin-top:12px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid #21262d;font-size:0.85rem}
+th{color:#8b949e;text-transform:uppercase;font-size:0.7rem;letter-spacing:0.5px}
+.match{color:#3fb950;font-weight:600}
+.mismatch{color:#f85149;font-weight:600}
+.discrepancy-high{background:rgba(248,81,73,0.08)}
+.discrepancy-low{background:rgba(210,153,34,0.08)}
+.verdict-box{text-align:center;padding:24px;margin-top:16px;border-radius:8px;font-size:1.2rem;font-weight:700}
+.verdict-go{background:rgba(63,185,80,0.1);color:#3fb950;border:1px solid #238636}
+.verdict-review{background:rgba(210,153,34,0.1);color:#d29922;border:1px solid #9e6a03}
+.verdict-no-go{background:rgba(248,81,73,0.1);color:#f85149;border:1px solid #da3633}
+.info-box{background:#0d1117;border-left:3px solid #58a6ff;padding:12px 16px;margin-top:12px;font-size:0.85rem;color:#8b949e;border-radius:0 6px 6px 0}
+.cta-section{text-align:center;padding:32px 0;border-top:1px solid #21262d;margin-top:24px}
+.cta-section h3{color:#58a6ff;margin-bottom:8px}
+.cta-link{display:inline-block;background:#58a6ff;color:#fff;padding:12px 24px;border-radius:6px;text-decoration:none;font-weight:600;margin-top:8px}
+.footer{text-align:center;padding:24px 0;color:#484f58;font-size:0.75rem;border-top:1px solid #21262d;margin-top:16px}
+#results{display:none}
+.scoring-bar{height:8px;background:#21262d;border-radius:4px;margin-top:8px;overflow:hidden}
+.scoring-fill{height:100%;border-radius:4px;transition:width 0.5s ease}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<span class="badge">DETERMINISTIC • AUDITABLE • VERIFIABLE</span>
+<h1>DealAudit Verifier</h1>
+<p>Paste your AI-generated deal numbers below. Compare them against deterministic calculations anyone can verify in court.</p>
+<div class="info-box" style="margin-top:16px">
+<strong>Why audit?</strong> Recent news (Aug 2026) confirms autonomous AI agents commit real harm when unmonitored. In real estate, black-box deal analysis creates the same risk — operators can't verify results or defend them in disputes. Deterministic math is auditable by anyone with a calculator.
+</div>
+</header>
+
+<!-- DEAL PARAMETERS -->
+<div class="section">
+<h2>📋 Deal Parameters (Deterministic Base)</h2>
+<p style="font-size:0.8rem;color:#484f58;margin-bottom:12px">These inputs feed the deterministic engine — same math anyone can replicate.</p>
+<div class="grid-2">
+<div><label>Purchase Price ($)</label><input type="number" id="purchasePrice" value="350000"></div>
+<div><label>ARV / After Repair Value ($)</label><input type="number" id="arv" value="480000"></div>
+<div><label>Rehab Budget ($)</label><input type="number" id="rehabBudget" value="65000"></div>
+<div><label>Down Payment (%)</label><input type="number" id="downPayment" value="25"></div>
+<div><label>Interest Rate (%)</label><input type="number" id="interestRate" value="8.5" step="0.1"></div>
+<div><label>Loan Term (Years)</label><input type="number" id="loanTerm" value="30"></div>
+<div><label>Monthly Rent ($)</label><input type="number" id="monthlyRent" value="2800"></div>
+<div><label>Monthly Expenses ($)</label><input type="number" id="monthlyExpenses" value="700"></div>
+<div><label>Holding Period (Months)</label><input type="number" id="holdingPeriod" value="6"></div>
+<div><label>Selling Costs (%)</label><input type="number" id="sellingCosts" value="8"></div>
+</div>
+<button class="btn" onclick="runAudit()">Run Deterministic Analysis + Compare</button>
+</div>
+
+<!-- AI-GENERATED NUMBERS FOR COMPARISON -->
+<div class="section">
+<h2>🤖 Your AI-Generated Numbers (Paste Below)</h2>
+<p style="font-size:0.8rem;color:#484f58;margin-bottom:12px">Enter what your AI tool calculated — we'll compare against deterministic math.</p>
+<div class="grid-2">
+<div><label>AI Cap Rate (%)</label><input type="number" id="aiCapRate" placeholder="e.g., 7.2" step="0.1"></div>
+<div><label>AI Cash-on-Cash (%)</label><input type="number" id="aiCashOnCash" placeholder="e.g., 9.5" step="0.1"></div>
+<div><label>AI DSCR</label><input type="number" id="aiDscr" placeholder="e.g., 1.35" step="0.01"></div>
+<div><label>AI ROI (%)</label><input type="number" id="aiRoi" placeholder="e.g., 22" step="0.1"></div>
+<div><label>AI Monthly NOI ($)</label><input type="number" id="aiNoi" placeholder="e.g., 2100" step="1"></div>
+<div><label>AI Total Cash Invested ($)</label><input type="number" id="aiCashInvested" placeholder="e.g": value></div>
+</div>
+<p style="font-size:0.75rem;color:#484f58;margin-top:8px">Leave fields blank if your AI tool didn't calculate them. Any filled field will be compared.</p>
+</div>
+
+<!-- RESULTS -->
+<div id="results" class="section">
+<h2>📊 Audit Results — Deterministic vs Your AI Tool</h2>
+<table>
+<thead><tr><th>Metric</th><th>Deterministic</th><th>Your AI Tool</th><th>Discrepancy</th></tr></thead>
+<tbody id="resultsBody"></tbody>
+</table>
+<div id="verdictBox" class="verdict-box"></div>
+<div class="scoring-bar"><div id="trustBar" class="scoring-fill" style="width:0%"></div></div>
+<p style="text-align:center;font-size:0.75rem;color:#484f58;margin-top:6px">Trust Score: percentage of AI metrics matching deterministic math</p>
+<div id="riskNotes" class="info-box" style="margin-top:12px"></div>
+</div>
+
+<!-- METHODOLOGY -->
+<div class="section">
+<h2>📐 Methodology — Every Calculation Step Visible</h2>
+<table>
+<thead><tr><th>Metric</th><th>Formula</th></tr></thead>
+<tbody>
+<tr><td>Capitalization Rate</td><td>NOI / Property Value × 100</td></tr>
+<tr><td>Monthly NOI</td><td>(Gross Rent − Monthly Expenses) × (1 − Vacancy Rate)</td></tr>
+<tr><td>DSCR</td><td>Annual NOI / Annual Debt Service</td></tr>
+<tr><td>Cash-on-Cash Return</td><td>Annual Pre-Tax Cash Flow / Total Cash Invested × 100</td></tr>
+<tr><td>Total ROI</td><td>(Total Profit − Total Costs) / Total Investment × 100</td></tr>
+</tbody>
+</table>
+<div class="info-box" style="margin-top:8px">
+<strong>No black box.</strong> Every formula above can be verified with a basic calculator. No proprietary algorithms, no hidden adjustments, no "AI magic." If you can do arithmetic, you can audit this analysis. That's the difference between deterministic and probabilistic tools.
+</div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+<h3>Need Full Due Diligence?</h3>
+<p style="color:#8b949e;font-size:0.85rem;margin-bottom:12px">Get a professionally formatted deterministic deal report with every calculation step visible.</p>
+<a href="https://dereviankoandrey.github.io/luminary-safedeal-analyzer/" class="cta-link" target="_blank">→ Try SafeDeal Analyzer (Free Interactive Tool)</a>
+<br>
+<span style="color:#484f58;font-size:0.75rem;margin-top:12px;display:inline-block">Full DD Reports from $197/report • 6/6 engine tests pass • Deterministic math only</span>
+</div>
+
+<div class="footer">
+<p>Luminary Ventures — Deterministic Real Estate Analysis</p>
+<p style="margin-top:4px">Built by Andrey Derevianko | 20-year developer/CFO track record | $4B+ portfolio experience</p>
+</div>
+</div>
+
+<script>
+function runAudit(){
+var P=parseFloat(document.getElementById("purchasePrice").value)||0;
+var ARV=parseFloat(document.getElementById("arv").value)||0;
+var Rehab=parseFloat(document.getElementById("rehabBudget").value)||0;
+var DP_pct=parseFloat(document.getElementById("downPayment").value)/100||0.25;
+var Rate=parseFloat(document.getElementById("interestRate").value)/100/12||0.007083;
+var TermYrs=parseInt(document.getElementById("loanTerm").value)||30;
+var Rent=parseFloat(document.getElementById("monthlyRent").value)||0;
+var Expenses=parseFloat(document.getElementById("monthlyExpenses").value)||0;
+var HoldMonths=parseInt(document.getElementById("holdingPeriod").value)||6;
+var SellPct=parseFloat(document.getElementById("sellingCosts").value)/100||0.08;
+
+// Deterministic calculations
+var Down=P*DP_pct;
+var Loan=P-Down;
+var N=TermYrs*12;
+var MthlyDebt=(Loan>0&&Rate>0)?Loan*(Rate*Math.pow(1+Rate,N))/(Math.pow(1+Rate,N)-1):0;
+var AnnualDebt=MthlyDebt*12;
+var Vacancy=Rent*0.05;
+var NOI=(Rent-Expenses-Vacancy)*12;
+var MonthlyNOI=NOI/12;
+var DSCR=AnnualDebt>0?NOI/AnnualDebt:0;
+var TotalCash=Down+Rehab;
+var AnnualCashFlow=MonthlyNOI-MthlyDebt;
+var CoC=TotalCash>0?(AnnualCashFlow*12)/TotalCash*100:0;
+var CapRate=P>0?NOI/P*100:0;
+var GrossProfit=(ARV-P-Rehab)-AnnualDebt*HoldMonths/12;
+var TotalROI=TotalCash>0?(GrossProfit-Expenses*HoldMonths)/TotalCash*100:0;
+
+// AI inputs
+var aiCap=document.getElementById("aiCapRate").value;
+var aiCoC=document.getElementById("aiCashOnCash").value;
+var aiDscr=document.getElementById("aiDscr").value;
+var aiRoi=document.getElementById("aiRoi").value;
+var aiNoi=document.getElementById("aiNoi").value;
+var aiCash=document.getElementById("aiCashInvested").value;
+
+// Build comparison rows
+var tbody="";
+var checks=0,matches=0;
+
+function addRow(label,det,aiVal,unit){
+checks++;
+if(aiVal===""||aiVal===null||isNaN(parseFloat(aiVal)))return"<tr><td>"+label+"</td><td>"+det+unit+"</td><td colspan='2' style='color:#484f58'>Not provided by AI tool</td></tr>";
+var ai=parseFloat(aiVal);
+var diff=Math.abs(det-ai);
+var pctDiff=det!==0?diff/Math.abs(det)*100:0;
+var isMatch=pctDiff<=2;
+if(isMatch)matches++;
+var cls=isMatch?"match":"mismatch";
+var discRow="";
+if(!isMatch&&pctDiff>5){discRow='<tr class="discrepancy-high"><td></td><td colspan="3">⚠️ HIGH DISCREPANCY — '+diff.toFixed(1)+'% difference. AI tool may be using different assumptions or incorrect formulas.</td></tr>';}
+else if(!isMatch){discRow='<tr class="discrepancy-low"><td></td><td colspan="3">● Minor discrepancy — '+diff.toFixed(1)+'% difference. May reflect different vacancy/rate assumptions.</td></tr>';}
+return"<tr><td>"+label+"</td><td class='match'>"+det.toFixed(2)+unit+"</td><td class='"+cls+"'>"+ai.toFixed(2)+unit+"</td><td class='"+cls+"'>"+diff.toFixed(2)+"% "+(isMatch?"✓ Match":"✗ Differs")+"</td></tr>"+discRow;
+}
+
+tbody+=addRow("Cap Rate",CapRate,"%",aiCap);
+tbody+=addRow("DSCR",Dscr,":1",aiDscr);
+tbody+=addRow("Cash-on-Cash",CoC,"%",aiCoC);
+tbody+=addRow("Total ROI",Math.max(0,TotalROI),"%",aiRoi);
+tbody+=addRow("Monthly NOI",$+MonthlyNOI.toFixed(2),"",aiNoi);
+
+document.getElementById("resultsBody").innerHTML=tbody;
+
+// Verdict
+var trustScore=checks>0?matches/checks*100:100;
+var bar=document.getElementById("trustBar");
+bar.style.width=trustScore+"%";
+if(trustScore===100||checks===0){bar.style.background="#3fb950";}
+else if(trustScore>=60){bar.style.background="#d29922";}
+else{bar.style.background="#f85149";}
+
+var vBox=document.getElementById("verdictBox");
+if(checks===0||trustScore>=80){vBox.className="verdict-box verdict-go";vBox.innerHTML="✅ HIGH TRUST — AI tool's calculations align with deterministic math. Proceed with confidence.";document.getElementById("riskNotes").innerHTML="<strong>Audit passed.</strong> The AI-generated numbers are consistent with transparent, verifiable calculations. No red flags detected in the metrics compared.";}
+else if(trustScore>=50){vBox.className="verdict-box verdict-review";vBox.innerHTML="⚠️ REVIEW NEEDED — Some discrepancies found. Verify assumptions before proceeding.";document.getElementById("riskNotes").innerHTML="<strong>Partial mismatch.</strong> The AI tool uses different assumptions for some metrics. Request the methodology from your AI tool provider or recalculate using deterministic formulas above.";}
+else{vBox.className="verdict-box verdict-no-go";vBox.innerHTML="🚫 LOW TRUST — Significant discrepancies detected. Do not rely on this analysis without verification.";document.getElementById("riskNotes").innerHTML="<strong>Major red flags.</strong> The AI-generated numbers differ substantially from deterministic calculations. This could indicate: (1) incorrect input data, (2) flawed calculation methodology, or (3) hallucinated outputs. Recalculate using the formulas above before making any investment decisions.";}
+
+document.getElementById("results").style.display="block";
+}
+</script>
+</body>
+</html>

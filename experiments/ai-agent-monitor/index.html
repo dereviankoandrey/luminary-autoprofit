@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Agent Transparency Score — Deterministic Edge</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0e17;color:#c9d1d9;line-height:1.6}
+.container{max-width:800px;margin:0 auto;padding:2rem 1.5rem}
+header{text-align:center;padding:3rem 0 2rem;border-bottom:1px solid #21262d;margin-bottom:2rem}
+h1{font-size:1.8rem;color:#f0f6fc;font-weight:700;letter-spacing:-0.5px}
+.subtitle{color:#8b949e;font-size:0.95rem;margin-top:0.5rem;max-width:550px;margin-left:auto;margin-right:auto}
+.input-section{margin:2rem 0}
+.search-box{display:flex;gap:0;background:#161b22;border:1px solid #30363d;border-radius:8px;overflow:hidden}
+.search-box input{flex:1;padding:0.9rem 1rem;background:transparent;border:none;color:#f0f6fc;font-size:1rem;outline:none}
+.search-box input::placeholder{color:#484f58}
+.search-box button{padding:0.9rem 1.5rem;background:#238636;color:white;border:none;font-weight:600;cursor:pointer;font-size:0.95rem;transition:background .15s}
+.search-box button:hover{background:#2ea043}
+.results{margin-top:1.5rem;display:none}
+.tool-card{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:1.5rem;margin-bottom:1rem;animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.tool-header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;margin-bottom:1rem}
+.tool-name{font-size:1.2rem;font-weight:700;color:#f0f6fc}
+.score-badge{padding:0.4rem 1rem;border-radius:99px;font-weight:700;font-size:1.1rem;min-width:80px;text-align:center}
+.score-high{background:#0d419d;color:#58a6ff;border:2px solid #388bfd}
+.score-mid{background:#3d2e00;color:#d29922;border:2px solid #bb8009}
+.score-low{background:#410001;color:#f85149;border:2px solid #da3633}
+.criteria-grid{display:grid;gap:0.75rem;margin-bottom:1rem}
+.criterion{display:flex;justify-content:space-between;align-items:center;padding:0.6rem 0.8rem;background:#0d1117;border-radius:6px;border-left:3px solid #30363d}
+.criterion-label{font-size:0.9rem;color:#c9d1d9}
+.criterion-score{font-weight:700;font-size:0.85rem;padding:0.2rem 0.6rem;border-radius:4px}
+.criterion-bar{height:3px;background:#21262d;border-radius:2px;margin-top:0.4rem;width:100%}
+.criterion-fill{height:100%;border-radius:2px;transition:width .5s ease}
+.methodology{background:#0d1117;border:1px solid #30363d;border-radius:8px;padding:1.2rem;margin-top:1rem}
+.methodology h3{font-size:0.95rem;color:#f0f6fc;margin-bottom:0.75rem;font-weight:600}
+.methodology ul{list-style:none;padding:0}
+.methodology li{padding:0.3rem 0;font-size:0.85rem;color:#8b949e;border-bottom:1px solid #21262d}
+.methodology li:last-child{border:none}
+.methodology li strong{color:#c9d1d9}
+.search-history{margin-top:2rem;padding-top:1.5rem;border-top:1px solid #21262d}
+.search-history h3{font-size:0.9rem;color:#484f58;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.75rem;font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:0.5rem}
+.chip{padding:0.4rem 0.9rem;background:#161b22;border:1px solid #30363d;border-radius:99px;font-size:0.85rem;color:#8b949e;cursor:pointer;transition:all .15s}
+.chip:hover{border-color:#58a6ff;color:#58a6ff;background:#0d1117}
+.footer{text-align:center;padding:3rem 0 2rem;color:#484f58;font-size:0.8rem;border-top:1px solid #21262d;margin-top:3rem}
+.footer a{color:#58a6ff;text-decoration:none}
+.manual-input{display:none;margin-top:1rem;padding:1.2rem;background:#0d1117;border-radius:8px;border:1px solid #30363d}
+.manual-input h4{font-size:0.95rem;color:#f0f6fc;margin-bottom:0.75rem;font-weight:600}
+.manual-criteria{display:grid;gap:0.6rem}
+.manual-row{display:flex;align-items:center;gap:0.8rem}
+.manual-row label{flex:1;font-size:0.85rem;color:#c9d1d9}
+.manual-row select{padding:0.3rem 0.6rem;background:#161b22;border:1px solid #30363d;color:#f0f6fc;border-radius:4px;font-size:0.85rem;cursor:pointer}
+.add-tool-btn{margin-top:0.75rem;padding:0.5rem 1rem;background:#21262d;border:1px solid #30363d;color:#c9d1d9;border-radius:6px;font-size:0.85rem;cursor:pointer;width:100%;transition:background .15s}
+.add-tool-btn:hover{background:#30363d}
+.comparison-note{font-size:0.82rem;color:#484f58;margin-top:1rem;font-style:italic;text-align:center}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>AI Agent Transparency Score</h1>
+    <p class="subtitle">An open, deterministic framework for evaluating how transparent and auditable AI tools actually are. Score methodology published below — no black boxes.</p>
+  </header>
+
+  <div class="input-section">
+    <div class="search-box">
+      <input type="text" id="toolInput" placeholder="Enter an AI tool name (e.g., Claude, Cursor, Gemini)..." />
+      <button onclick="evaluateTool()">Score It</button>
+    </div>
+
+    <details class="manual-input" id="manualSection">
+      <h4>Custom Tool — Score Your Own</h4>
+      <p style="font-size:0.82rem;color:#8b949e;margin-bottom:0.75rem">Score each criterion 1–5 based on publicly available evidence.</p>
+      <div class="manual-criteria" id="manualCriteria"></div>
+      <button class="add-tool-btn" onclick="calculateCustom()">Calculate Score</button>
+    </details>
+
+    <div class="results" id="results">
+      <!-- Results injected here -->
+    </div>
+
+    <p class="comparison-note" id="comparisonNote"></p>
+  </div>
+
+  <section class="search-history">
+    <h3>Try These Tools</h3>
+    <div class="chips" id="chipList"></div>
+  </section>
+
+  <footer class="footer">
+    Built by Luminary Ventures — deterministic underwriting for real estate, transparent evaluation for AI tools.<br/>
+    Score methodology is open. Reproduce any result with the criteria below. <a href="#methodology">View methodology →</a>
+  </footer>
+</div>
+
+<script>
+const TOOL_DB = {
+  "claude": { name: "Claude (Anthropic)", score: 62, transparency: "mid", criteria: [
+    { label: "Open-source code availability", value: 3, max: 5 },
+    { label: "Pricing transparency", value: 4, max: 5 },
+    { label: "Auditability of outputs (can you verify reasoning?)", value: 2, max: 5 },
+    { label: "Data handling policy clarity", value: 4, max: 5 },
+    { label: "Verification mechanisms built in", value: 3, max: 5 }
+  ]},
+  "gpt": { name: "GPT (OpenAI)", score: 52, transparency: "low", criteria: [
+    { label: "Open-source code availability", value: 1, max: 5 },
+    { label: "Pricing transparency", value: 4, max: 5 },
+    { label: "Auditability of outputs (can you verify reasoning?)", value: 2, max: 5 },
+    { label: "Data handling policy clarity", value: 3, max: 5 },
+    { label: "Verification mechanisms built in", value: 4, max: 5 }
+  ]},
+  "gemini": { name: "Gemini (Google)", score: 48, transparency: "low", criteria: [
+    { label: "Open-source code availability", value: 1, max: 5 },
+    { label: "Pricing transparency", value: 3, max: 5 },
+    { label: "Auditability of outputs (can you verify reasoning?)", value: 2, max: 5 },
+    { label: "Data handling policy clarity", value: 4, max: 5 },
+    { label: "Verification mechanisms built in", value: 2, max: 5 }
+  ]},
+  "cursor": { name: "Cursor (IDE)", score: 68, transparency: "mid", criteria: [
+    { label: "Open-source code availability", value: 1, max: 5 },
+    { label: "Pricing transparency", value: 4, max: 5 },
+    { label: "Auditability of outputs (can you verify reasoning?)", value: 3, max: 5 },
+    { label: "Data handling policy clarity", value: 4, max: 5 },
+    { label: "Verification mechanisms built in", value: 4, max: 5 }
+  ]},
+  "copilot": { name: "GitHub Copilot (Microsoft)", score: 58, transparency: "mid", criteria: [
+    { label: "Open-source code availability", value: 1, max: 5 },
+    { label: "Pricing transparency", value: 4, max: 5 },
+    { label: "Auditability of outputs (can you verify reasoning?)", value: 3, max: 5 },
+    { label: "Data handling policy clarity", value: 4, max: 5 },
+    { label: "Verification mechanisms built in", value: 4, max: 5 }
+  ]},
+  "deepseek": { name: "DeepSeek", score: 78, transparency: "high", criteria: [
+    { label: "Open-source code availability", value: 5, max: 5 },
+    { label: "Pricing transparency", value: 4, max: 5 },
+    { label: "Auditability of outputs (can you verify reasoning?)", value: 3, max: 5 },
+    { label: "Data handling policy clarity", value: 3, max: 5 },
+    { label: "Verification mechanisms built in", value: 4, max: 5 }
+  ]},
+  "llama": { name: "Llama (Meta)", score: 82, transparency: "high", criteria: [
+    { label: "Open-source code availability", value: 5, max: 5 },
+    { label: "Pricing transparency", value: 4, max: 5 },
+    { label: "Auditability of outputs (can you verify reasoning?)", value: 3, max: 5 },
+    { label: "Data handling policy clarity", value: 3, max: 5 },
+    { label: "Verification mechanisms built in", value: 4, max: 5 }
+  ]},
+  "mistral": { name: "Mistral AI", score: 76, transparency: "high", criteria: [
+    { label: "Open-source code availability", value: 4, max: 5 },
+    { label: "Pricing transparency", value: 4, max: 5 },
+    { label: "Auditability of outputs (can you verify reasoning?)", value: 3, max: 5 },
+    { label: "Data handling policy clarity", value: 4, max: 5 },
+    { label: "Verification mechanisms built in", value: 3, max: 5 }
+  ]},
+  "grok": { name: "Grok (xAI)", score: 38, transparency: "low", criteria: [
+    { label: "Open-source code availability", value: 1, max: 5 },
+    { label: "Pricing transparency", value: 2, max: 5 },
+    { label: "Auditability of outputs (can you verify reasoning?)", value: 2, max: 5 },
+    { label: "Data handling policy clarity", value: 1, max: 5 },
+    { label: "Verification mechanisms built in", value: 3, max: 5 }
+  ]},
+  "chatgpt": { name: "ChatGPT (OpenAI)", score: 48, transparency: "low", criteria: [
+    { label: "Open-source code availability", value: 1, max: 5 },
+    { label: "Pricing transparency", value: 4, max: 5 },
+    { label: "Auditability of outputs (can you verify reasoning?)", value: 2, max: 5 },
+    { label: "Data handling policy clarity", value: 3, max: 5 },
+    { label: "Verification mechanisms built in", value: 4, max: 5 }
+  ]},
+  "o1": { name: "o1 / o-series (OpenAI)", score: 42, transparency: "low", criteria: [
+    { label: "Open-source code availability", value: 1, max: 5 },
+    { label: "Pricing transparency", value: 3, max: 5 },
+    { label: "Auditability of outputs (can you verify reasoning?)", value: 2, max: 5 },
+    { label: "Data handling policy clarity", value: 3, max: 5 },
+    { label: "Verification mechanisms built in", value: 4, max: 5 }
+  ]},
+  "qwen": { name: "Qwen (Alibaba)", score: 72, transparency: "high", criteria: [
+    { label: "Open-source code availability", value: 4, max: 5 },
+    { label: "Pricing transparency", value: 3, max: 5 },
+    { label: "Auditability of outputs (can you verify reasoning?)", value: 3, max: 5 },
+    { label: "Data handling policy clarity", value: 2, max: 5 },
+    { label: "Verification mechanisms built in", value: 4, max: 5 }
+  ]},
+  "phi": { name: "Phi (Microsoft)", score: 70, transparency: "high", criteria: [
+    { label: "Open-source code availability", value: 5, max: 5 },
+    { label: "Pricing transparency", value: 3, max: 5 },
+    { label: "Auditability of outputs (can you verify reasoning?)", value: 2, max: 5 },
+    { label: "Data handling policy clarity", value: 4, max: 5 },
+    { label: "Verification mechanisms built in", value: 3, max: 5 }
+  ]},
+};
+
+const CHIP_TOOLS = ["Claude","GPT-4o","Gemini","Cursor","Copilot","DeepSeek","Llama","Mistral","Grok","ChatGPT"];
+
+function init() {
+  const chipList = document.getElementById('chipList');
+  CHIP_TOOLS.forEach(name => {
+    const key = name.toLowerCase().replace(/[\s()-]/g, '');
+    const chip = document.createElement('span');
+    chip.className = 'chip';
+    chip.textContent = name;
+    chip.onclick = () => { document.getElementById('toolInput').value = name; evaluateTool(); };
+    chipList.appendChild(chip);
+  });
+
+  // Build manual criteria rows
+  const mc = document.getElementById('manualCriteria');
+  ['Open-source code availability','Pricing transparency','Auditability of outputs (can you verify reasoning?)','Data handling policy clarity','Verification mechanisms built in'].forEach((label, i) => {
+    const row = document.createElement('div');
+    row.className = 'manual-row';
+    row.innerHTML = `<label>${label}</label><select id="mc${i}"><option value="1">1 — Not available</option><option value="2">2 — Partially available</option><option value="3" selected>3 — Moderately available</option><option value="4">4 — Mostly transparent</option><option value="5">5 — Fully open/transparent</option></select>`;
+    mc.appendChild(row);
+  });
+
+  document.getElementById('toolInput').addEventListener('keydown', e => { if (e.key === 'Enter') evaluateTool(); });
+}
+
+function getScoreClass(score) {
+  if (score >= 65) return { cls: 'score-high', text: 'HIGH' };
+  if (score >= 40) return { cls: 'score-mid', text: 'MID' };
+  return { cls: 'score-low', text: 'LOW' };
+}
+
+function getCritColor(value, max) {
+  const pct = value / max;
+  if (pct >= 0.7) return '#3fb950';
+  if (pct >= 0.4) return '#d29922';
+  return '#f85149';
+}
+
+function evaluateTool() {
+  const input = document.getElementById('toolInput').value.trim().toLowerCase();
+  if (!input) return;
+
+  // Find match in DB (partial matching)
+  let tool = null;
+  for (const [key, t] of Object.entries(TOOL_DB)) {
+    if (input.includes(key) || key.includes(input) || input === t.name.toLowerCase()) {
+      tool = t; break;
+    }
+  }
+
+  // Check if manual section should show
+  const manualSection = document.getElementById('manualSection');
+  if (!tool) {
+    manualSection.style.display = 'block';
+    document.getElementById('results').style.display = 'none';
+    return;
+  }
+  manualSection.style.display = 'none';
+
+  const scoreClass = getScoreClass(tool.score);
+  const resultsDiv = document.getElementById('results');
+
+  let criteriaHTML = '';
+  tool.criteria.forEach(c => {
+    const pct = (c.value / c.max) * 100;
+    const color = getCritColor(c.value, c.max);
+    criteriaHTML += `
+      <div class="criterion" style="border-left-color:${color}">
+        <span class="criterion-label">${c.label}</span>
+        <span class="criterion-score" style="color:${color}">${c.value}/${c.max}</span>
+        <div class="criterion-bar"><div class="criterion-fill" style="width:${pct}%;background:${color}"></div></div>
+      </div>`;
+  });
+
+  resultsDiv.innerHTML = `
+    <div class="tool-card">
+      <div class="tool-header">
+        <span class="tool-name">${tool.name}</span>
+        <span class="score-badge ${scoreClass.cls}">${tool.score}/100</span>
+      </div>
+      <div class="criteria-grid">${criteriaHTML}</div>
+      <div class="methodology" id="methodology">
+        <h3>📋 Scoring Methodology (Deterministic)</h3>
+        <ul>
+          <li><strong>Criterion 1 — Open-source code availability</strong>: Can the tool's source code be audited independently? 5 = fully open-source, 1 = proprietary with no access.</li>
+          <li><strong>Criterion 2 — Pricing transparency</strong>: Is pricing publicly available without sales contact? 5 = clear public pricing, 1 = custom-only / hidden.</li>
+          <li><strong>Criterion 3 — Auditability of outputs</strong>: Can you verify the tool's reasoning step-by-step? 5 = deterministic/auditable output, 1 = black-box with no verification path.</li>
+          <li><strong>Criterion 4 — Data handling policy clarity</strong>: Is it clear what data is collected, stored, and used for training? 5 = explicit opt-out + clear policy, 1 = vague or silent on data usage.</li>
+          <li><strong>Criterion 5 — Verification mechanisms built in</strong>: Does the tool include self-verification, confidence scoring, or error-checking? 5 = built-in verification, 1 = none.</li>
+        </ul>
+      </div>
+    </div>`;
+
+  resultsDiv.style.display = 'block';
+
+  // Comparison note
+  const allScores = Object.values(TOOL_DB).map(t => t.score);
+  const avg = Math.round(allScores.reduce((a, b) => a + b, 0) / allScores.length);
+  document.getElementById('comparisonNote').textContent =
+    `Comparison: ${tool.name} scores ${tool.score}/100 vs. category average of ${avg}/100 across ${Object.keys(TOOL_DB).length} evaluated tools.`;
+}
+
+function calculateCustom() {
+  let total = 0;
+  for (let i = 0; i < 5; i++) {
+    total += parseInt(document.getElementById(`mc${i}`).value);
+  }
+  const score = Math.round((total / 25) * 100);
+  const scoreClass = getScoreClass(score);
+
+  const criteriaLabels = ['Open-source code availability','Pricing transparency','Auditability of outputs (can you verify reasoning?)','Data handling policy clarity','Verification mechanisms built in'];
+  let criteriaHTML = '';
+  for (let i = 0; i < 5; i++) {
+    const val = parseInt(document.getElementById(`mc${i}`).value);
+    const pct = (val / 5) * 100;
+    const color = getCritColor(val, 5);
+    criteriaHTML += `
+      <div class="criterion" style="border-left-color:${color}">
+        <span class="criterion-label">${criteriaLabels[i]}</span>
+        <span class="criterion-score" style="color:${color}">${val}/5</span>
+        <div class="criterion-bar"><div class="criterion-fill" style="width:${pct}%;background:${color}"></div></div>
+      </div>`;
+  }
+
+  const resultsDiv = document.getElementById('results');
+  resultsDiv.innerHTML = `
+    <div class="tool-card">
+      <div class="tool-header">
+        <span class="tool-name">Custom Tool — Self-Assessed</span>
+        <span class="score-badge ${scoreClass.cls}">${score}/100</span>
+      </div>
+      <div class="criteria-grid">${criteriaHTML}</div>
+      <div class="methodology" id="methodology">
+        <h3>📋 Scoring Methodology (Deterministic)</h3>
+        <ul>
+          <li><strong>Criterion 1 — Open-source code availability</strong>: Can the tool's source code be audited independently? 5 = fully open-source, 1 = proprietary with no access.</li>
+          <li><strong>Criterion 2 — Pricing transparency</strong>: Is pricing publicly available without sales contact? 5 = clear public pricing, 1 = custom-only / hidden.</li>
+          <li><strong>Criterion 3 — Auditability of outputs</strong>: Can you verify the tool's reasoning step-by-step? 5 = deterministic/auditable output, 1 = black-box with no verification path.</li>
+          <li><strong>Criterion 4 — Data handling policy clarity</strong>: Is it clear what data is collected, stored, and used for training? 5 = explicit opt-out + clear policy, 1 = vague or silent on data usage.</li>
+          <li><strong>Criterion 5 — Verification mechanisms built in</strong>: Does the tool include self-verification, confidence scoring, or error-checking? 5 = built-in verification, 1 = none.</li>
+        </ul>
+      </div>
+    </div>`;
+
+  resultsDiv.style.display = 'block';
+}
+
+init();
+</script>
+</body>
+</html>

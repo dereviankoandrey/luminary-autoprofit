@@ -1,0 +1,55 @@
+---
+name: stripe-ops
+description: Query Stripe checkout sessions, list recent payments, update payment link metadata, and create refunds. Use for customer lookup, revenue tracking, and CRO workflows.
+metadata: {"openclaw":{"requires":{"bins":["node"],"env":["STRIPE_SECRET_KEY"]}}}
+---
+
+# stripe-ops
+
+Stripe API operations via the configured secret key. Works in both live and test mode (auto-detected from key prefix).
+
+## Usage
+
+```bash
+node ~/.openclaw/tools/stripe-ops.js '<json>'
+```
+
+## Operations
+
+### Get a checkout session
+
+```bash
+node ~/.openclaw/tools/stripe-ops.js '{"op":"get_session","session_id":"cs_live_xxx"}'
+```
+
+Returns full session details including customer email, amount, metadata, and line items.
+
+### List recent sessions
+
+```bash
+node ~/.openclaw/tools/stripe-ops.js '{"op":"list_recent_sessions","limit":10}'
+```
+
+Returns the N most recent checkout sessions (max 100).
+
+### Update payment link metadata
+
+```bash
+node ~/.openclaw/tools/stripe-ops.js '{"op":"update_payment_link","link_id":"plink_xxx","metadata":{"promo":"EARLYBIRD","tier":"T3"}}'
+```
+
+### Create a refund (requires explicit confirmation)
+
+```bash
+node ~/.openclaw/tools/stripe-ops.js '{"op":"create_refund","payment_intent_id":"pi_xxx","amount":49700,"confirm":true}'
+```
+
+**IMPORTANT:** `amount` is in cents. $497 = `49700`. `confirm:true` is mandatory — the tool refuses without it to prevent accidental refunds.
+
+## Rules
+
+- Always use `get_session` to verify session details BEFORE processing a refund
+- Never call `create_refund` without Andrey's explicit approval in the current conversation
+- The `confirm:true` flag is not a rubber stamp — re-verify the payment_intent_id and amount before passing it
+- `list_recent_sessions` shows live data; treat it as production-sensitive
+- Never log or expose the full STRIPE_SECRET_KEY value in messages or files

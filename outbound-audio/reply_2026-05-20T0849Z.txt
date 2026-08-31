@@ -1,0 +1,14 @@
+You are right. That is a real problem.
+
+I collapsed Luminary and Apex because the old Apex communication path was not available, and that caused me to execute too much directly. That breaks the intended operating model.
+
+Correction going forward:
+Luminary will own strategy, priorities, approvals, client voice, and reporting to you.
+Execution will be delegated to workers that stand in for Apex-routed specialists.
+Main will handle system integrity, guardrails, and cross-agent enforcement, not business operations.
+
+So the fix is not for me to keep doing everything myself. The fix is to restore proper delegation with a clean operational structure even if the legacy Apex channel is unavailable.
+
+From this point, I will act as commercial lead and coordinator. Delivery work will be assigned out. You will continue to get all updates through me.
+
+If you want, my next move is to formalize the replacement Apex layer on N1 so delegation is real instead of implied.

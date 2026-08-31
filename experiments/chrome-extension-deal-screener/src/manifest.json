@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Deal Screener — Real Estate Underwriting",
+  "version": "0.1.0",
+  "description": "Overlay Deal Score on property listings. Zero LLMs. Pure math. Deterministic underwriting.",
+  "permissions": [],
+  "host_permissions": [
+    "*://www.zillow.com/*",
+    "*://www.redfin.com/*",
+    "*://www.freddiemac.com/mus/propertylookup/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["*://www.zillow.com/*", "*://www.redfin.com/*"],
+      "js": ["engine.js", "email-capture.js", "overlay.js"],
+      "css": ["overlay.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}

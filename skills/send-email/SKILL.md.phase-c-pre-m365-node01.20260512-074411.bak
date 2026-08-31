@@ -1,0 +1,50 @@
+---
+name: send-email
+description: Send transactional email via Gmail on behalf of LBV. Use for customer welcome messages, delivery confirmations, follow-ups, and operational alerts.
+metadata: {"openclaw":{"requires":{"bins":["node"],"env":["GMAIL_USER","GMAIL_APP_PASSWORD"]}}}
+---
+
+# send-email
+
+Send email through the LBV Gmail account using the configured app password.
+
+## Usage
+
+```bash
+node ~/.openclaw/tools/send-email.js '<json>'
+```
+
+## Parameters (JSON object)
+
+| Field | Required | Description |
+|---|---|---|
+| `to` | yes | Recipient email address |
+| `subject` | yes | Email subject line |
+| `body` | yes | Plain text body |
+| `cc` | no | CC address |
+| `bcc` | no | BCC address |
+
+## Examples
+
+Send a welcome email:
+```bash
+node ~/.openclaw/tools/send-email.js '{"to":"customer@example.com","subject":"Your LBV order is confirmed","body":"Hi, your order is confirmed. We will follow up within 24 hours."}'
+```
+
+Send with CC:
+```bash
+node ~/.openclaw/tools/send-email.js '{"to":"customer@example.com","cc":"andrey@birthoflight.org","subject":"Blueprint delivered","body":"Your Blueprint is ready. Download link: ..."}'
+```
+
+## Output
+
+Success: `{"ok":true,"messageId":"<id>","to":"...","subject":"..."}`
+Failure: `{"ok":false,"error":"..."}`
+
+## Rules
+
+- Always construct the `body` as plain text — no HTML
+- From address is always the LBV Gmail account — do not change
+- Double-check `to` address before sending — this sends real email
+- Never send bulk or marketing email through this tool; use it for transactional/operational messages only
+- If `ok` is false, report the error to Apex and do not retry without investigation

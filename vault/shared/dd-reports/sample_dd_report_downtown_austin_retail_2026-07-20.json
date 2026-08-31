@@ -1,0 +1,90 @@
+{
+  "report_id": "DD-AUS-RETAIL-20260720",
+  "generated_at": "2026-07-20T02:15:00Z",
+  "engine_version": "underwriting_mvp_v1.0",
+  "deal_type": "commercial_retail",
+  "property": {
+    "address": "Downtown Austin, TX — Congress Ave corridor",
+    "type": "Retail — single tenant strip center",
+    "size_sqft": 4200,
+    "lot_size_acres": 0.31,
+    "year_built": 1987,
+    "year_renovated": 2019,
+    "zoning": "CS-2 (Commercial Service)",
+    "parking_spaces": 14,
+    "parking_ratio": "3.3 per 1,000 sqft"
+  },
+  "transaction": {
+    "asking_price": 875000,
+    "price_per_sqft": 208.33,
+    "cap_rate_asked": 6.8,
+    "seller_financing_available": false,
+    "days_on_market": 127,
+    "occupancy_status": "tenant-occupied",
+    "lease_remaining_months": 34
+  },
+  "income_analysis": {
+    "current_annual_rent": 59500,
+    "rent_per_sqft": 14.17,
+    "market_rent_estimate": 1650,
+    "market_annual_rent": 62700,
+    "rent_gap_pct": -5.1,
+    "annual_expenses": {
+      "property_tax": 18375,
+      "insurance": 4200,
+      "maintenance_reserve": 3150,
+      "vacancy_allowance": 3135,
+      "management_fee": 5950,
+      "total_operating_expenses": 34810
+    },
+    "noi_current": 24690,
+    "noi_market": 27890,
+    "cap_rate_actual": 2.82,
+    "cap_rate_market_based": 3.19
+  },
+  "underwriting_results": {
+    "recommendation": "NO-GO",
+    "confidence_level": "HIGH",
+    "primary_risk_factors": [
+      "Cap rate of 2.8% is 40% below Austin commercial retail market minimum (4.5%)",
+      "Asking price per sqft ($208) exceeds downtown strip center median ($175)",
+      "Lease expires in 34 months — significant lease-up risk at current terms",
+      "Days on market (127) suggests pricing resistance from institutional buyers"
+    ],
+    "break_even_analysis": {
+      "cap_rate_needed_for_asking_price": 2.82,
+      "minimum_acceptable_cap_rate": 4.50,
+      "max_price_at_target_cap": 619778,
+      "price_reduction_required": 255222,
+      "discount_pct": 29.2
+    },
+    "sensitivity_scenarios": {
+      "if_market_rent_achieved": {
+        "noi": 27890,
+        "cap_rate_at_current_price": 3.19,
+        "still_below_target": true,
+        "max_price_at_45pct_cap": 619778
+      },
+      "if_renovation_needed_50k": {
+        "total_investment": 925000,
+        "noi_after_renovation": 29500,
+        "cap_rate": 3.19,
+        "cash_on_cash_return": -1.8,
+        "recommendation": "NO-GO"
+      }
+    }
+  },
+  "risk_assessment": {
+    "overall_risk_level": "HIGH",
+    "market_risk": "MEDIUM — Austin retail recovering but downtown vacancy at 14%",
+    "tenant_risk": "HIGH — single tenant, 34-month lease remaining with below-market rent",
+    "financial_risk": "VERY HIGH — cap rate 60% below target threshold",
+    "operational_risk": "LOW — well-maintained property, recent renovation"
+  },
+  "operator_notes": [
+    "This deal only works if the buyer has a specific use case for the space or can force rent increases at lease renewal in 2029.",
+    "At $875K with a 2.8% cap rate, this is priced like office conversion potential, not retail income.",
+    "If seller will negotiate to ~$620K (the mathematically justified price based on target cap), it becomes marginal but feasible.",
+    "Key due diligence: verify tenant creditworthiness and lease terms before any negotiation."
+  ]
+}
