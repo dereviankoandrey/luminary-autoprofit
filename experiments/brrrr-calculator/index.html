@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>BRRRR Calculator — Buy, Rehab, Rent, Refinance, Repeat | Luminary Ventures</title>
+<meta name="description" content="Calculate your BRRRR deal profitability: purchase price, rehab costs, after-repair value, rental income, refinance potential, and cash-out amount. Free real estate investment calculator by Luminary Ventures."/>
+<style>
+:root {
+  --bg: #0a0c12;
+  --surface: #141722;
+  --border: #252836;
+  --text: #e2e4ef;
+  --muted: #7d8199;
+  --green: #22c55e;
+  --red: #ef4444;
+  --amber: #f59e0b;
+  --blue: #3b82f6;
+  --cyan: #06b6d4;
+  --purple: #a855f7;
+  --radius: 10px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+.container { max-width: 960px; margin: 0 auto; padding: 24px 20px; }
+
+/* Header */
+header { text-align: center; padding: 40px 0 32px; border-bottom: 1px solid var(--border); margin-bottom: 32px; position: relative; }
+header h1 { font-size: 1.7rem; font-weight: 700; letter-spacing: -0.5px; }
+.badge { display: inline-block; background: rgba(168,85,247,0.12); color: var(--purple); padding: 4px 14px; border-radius: 20px; font-size: 0.78rem; margin-bottom: 14px; letter-spacing: 0.3px; text-transform: uppercase; }
+header p { color: var(--muted); max-width: 560px; margin: 10px auto 0; font-size: 0.92rem; }
+
+/* Sections */
+.section { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin-bottom: 20px; }
+.section h3 { font-size: 1.05rem; margin-bottom: 16px; color: #fff; display: flex; align-items: center; gap: 8px; }
+.form-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; }
+.field label { display: block; font-size: 0.75rem; color: var(--muted); margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.6px; }
+.field input, .field select { width: 100%; padding: 10px 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 6px; color: var(--text); font-size: 0.95rem; outline: none; transition: border-color 0.2s; }
+.field input:focus, .field select:focus { border-color: var(--purple); }
+
+/* Buttons */
+.btn-row { display: flex; gap: 12px; margin-top: 6px; flex-wrap: wrap; }
+button { padding: 12px 24px; border-radius: 8px; font-size: 0.92rem; font-weight: 600; cursor: pointer; border: none; transition: all 0.2s; }
+.btn-primary { background: var(--purple); color: #fff; }
+.btn-primary:hover { background: #9333ea; transform: translateY(-1px); }
+.btn-secondary { background: transparent; color: var(--muted); border: 1px solid var(--border); }
+.btn-secondary:hover { border-color: var(--purple); color: var(--text); }
+
+/* Results */
+.result-card { display: none; margin-top: 8px; }
+.result-card.visible { display: block; animation: fadeIn 0.4s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 0; transform: translateY(0); } }
+
+.rec-bar { padding: 22px; border-radius: var(--radius); text-align: center; margin-bottom: 24px; font-size: 1.35rem; font-weight: 700; letter-spacing: -0.3px; }
+.rec-go { background: rgba(34,197,94,0.1); color: var(--green); border: 2px solid var(--green); }
+.rec-review { background: rgba(245,158,11,0.1); color: var(--amber); border: 2px solid var(--amber); }
+.rec-nogo { background: rgba(239,68,68,0.1); color: var(--red); border: 2px solid var(--red); }
+
+.result-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-top: 16px; }
+.result-item { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 16px; text-align: center; }
+.result-label { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 4px; }
+.result-value { font-size: 1.5rem; font-weight: 700; }
+
+.detail-table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+.detail-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+.detail-table tr:last-child td { border-bottom: none; font-weight: 700; }
+.detail-table .label { color: var(--muted); }
+.detail-table .value { text-align: right; font-family: 'SF Mono', 'Fira Code', monospace; }
+
+/* Cash flow chart */
+.cash-flow-visual { margin-top: 20px; padding: 16px; background: var(--bg); border-radius: 8px; border: 1px solid var(--border); }
+.cf-bar-container { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.cf-label { width: 140px; font-size: 0.8rem; color: var(--muted); text-align: right; flex-shrink: 0; }
+.cf-bar-bg { flex: 1; height: 28px; background: rgba(255,255,255,0.03); border-radius: 4px; overflow: hidden; position: relative; }
+.cf-bar { height: 100%; border-radius: 4px; transition: width 0.6s ease; display: flex; align-items: center; padding-left: 8px; font-size: 0.75rem; font-weight: 600; color: #fff; min-width: fit-content; }
+.cf-value { width: 120px; text-align: right; font-family: monospace; font-size: 0.85rem; flex-shrink: 0; }
+
+/* CTA */
+.cta-section { background: linear-gradient(135deg, rgba(168,85,247,0.1), rgba(6,182,212,0.1)); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; text-align: center; margin-top: 32px; }
+.cta-section h3 { font-size: 1.4rem; color: #fff; margin-bottom: 8px; }
+.cta-section p { color: var(--muted); margin-bottom: 20px; max-width: 500px; margin-left: auto; margin-right: auto; }
+.form-inline { display: flex; gap: 10px; max-width: 480px; margin: 0 auto; }
+.form-inline input[type="email"] { flex: 1; padding: 12px 16px; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-size: 0.95rem; outline: none; }
+.form-inline input[type="email"]:focus { border-color: var(--purple); }
+.form-inline button { padding: 12px 24px; background: var(--purple); color: #fff; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; transition: background 0.2s; white-space: nowrap; }
+.form-inline button:hover { background: #9333ea; }
+
+.success-msg { display: none; background: rgba(34,197,94,0.1); border: 1px solid var(--green); padding: 16px; border-radius: 8px; text-align: center; margin-top: 20px; color: var(--green); font-weight: 600; }
+
+/* Footer */
+.footer { text-align: center; padding: 40px 0; color: var(--muted); font-size: 13px; border-top: 1px solid var(--border); margin-top: 60px; }
+
+/* Responsive */
+@media (max-width: 640px) {
+  .form-grid { grid-template-columns: 1fr; }
+  .result-grid { grid-template-columns: 1fr 1fr; }
+  .cf-bar-container { flex-direction: column; align-items: stretch; }
+  .cf-label { text-align: left; width: auto; }
+  .cf-value { width: auto; text-align: left; }
+  .form-inline { flex-direction: column; }
+}
+
+/* Print */
+@media print {
+  body { background: #fff; color: #000; }
+  .section, .cta-section { border-color: #ccc; }
+  .btn-row, .form-inline { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div class="badge">Luminary Ventures</div>
+    <h1>BRRRR Calculator</h1>
+    <p>Buy • Rehab • Rent • Refinance • Repeat<br/>Calculate your BRRRR deal profitability — purchase, rehab, rent, refinance, and cash-out in one shot.</p>
+  </header>
+
+  <!-- PURCHASE -->
+  <div class="section">
+    <h3>🏠 Purchase &amp; Rehab</h3>
+    <div class="form-grid">
+      <div class="field">
+        <label for="purchasePrice">Purchase Price ($)</label>
+        <input type="number" id="purchasePrice" value="120000" min="0" step="1000"/>
+      </div>
+      <div class="field">
+        <label for="rehabCost">Rehab Cost ($)</label>
+        <input type="number" id="rehabCost" value="35000" min="0" step="500"/>
+      </div>
+      <div class="field">
+        <label for="closingCosts">Closing Costs ($)</label>
+        <input type="number" id="closingCosts" value="4200" min="0" step="100" placeholder="Est. 3-5%"/>
+      </div>
+      <div class="field">
+        <label for="hardMoneyRate">Hard Money Rate (%)</label>
+        <input type="number" id="hardMoneyRate" value="10.5" min="0" max="25" step="0.5"/>
+      </div>
+    </div>
+  </div>
+
+  <!-- ARV & FINANCING -->
+  <div class="section">
+    <h3>📊 After-Repair Value &amp; Refinance</h3>
+    <div class="form-grid">
+      <div class="field">
+        <label for="arv">After Repair Value (ARV) ($)</label>
+        <input type="number" id="arv" value="195000" min="0" step="1000"/>
+      </div>
+      <div class="field">
+        <label for="loanToValue">LTV on Refinance (%)</label>
+        <input type="number" id="loanToValue" value="75" min="50" max="95" step="1"/>
+      </div>
+      <div class="field">
+        <label for="refiRate">Refinance Rate (%)</label>
+        <input type="number" id="refiRate" value="6.5" min="1" max="15" step="0.25"/>
+      </div>
+      <div class="field">
+        <label for="loanTerm">Loan Term (years)</label>
+        <select id="loanTerm">
+          <option value="30" selected>30 years</option>
+          <option value="25">25 years</option>
+          <option value="20">20 years</option>
+          <option value="15">15 years</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- RENTAL -->
+  <div class="section">
+    <h3>💰 Rental Income &amp; Expenses</h3>
+    <div class="form-grid">
+      <div class="field">
+        <label for="monthlyRent">Monthly Rent ($)</label>
+        <input type="number" id="monthlyRent" value="1650" min="0" step="25"/>
+      </div>
+      <div class="field">
+        <label for="vacancyRate">Vacancy Rate (%)</label>
+        <input type="number" id="vacancyRate" value="8" min="0" max="30" step="1"/>
+      </div>
+      <div class="field">
+        <label for="propertyTax">Annual Property Tax ($)</label>
+        <input type="number" id="propertyTax" value="2400" min="0" step="100"/>
+      </div>
+      <div class="field">
+        <label for="insurance">Annual Insurance ($)</label>
+        <input type="number" id="insurance" value="1200" min="0" step="50"/>
+      </div>
+      <div class="field">
+        <label for="maintenancePct">Maintenance (% of rent)</label>
+        <input type="number" id="maintenancePct" value="8" min="0" max="30" step="1"/>
+      </div>
+      <div class="field">
+        <label for="hoaFee">Monthly HOA ($)</label>
+        <input type="number" id="hoaFee" value="0" min="0" step="25"/>
+      </div>
+    </div>
+  </div>
+
+  <!-- BUTTONS -->
+  <div class="btn-row" style="margin: 24px 0;">
+    <button class="btn-primary" onclick="calculateBRRRR()">📈 Calculate BRRRR</button>
+    <button class="btn-secondary" onclick="resetForm()">Reset</button>
+    <button class="btn-secondary" onclick="window.print()">🖨️ Print Results</button>
+  </div>
+
+  <!-- RESULTS -->
+  <div id="results" class="result-card">
+    <div id="recBar" class="rec-bar"></div>
+
+    <div class="section">
+      <h3>💵 Total Investment Breakdown</h3>
+      <table class="detail-table" id="investmentTable">
+        <!-- filled by JS -->
+      </table>
+    </div>
+
+    <div class="result-grid" style="margin-top: 20px;">
+      <div class="result-item">
+        <div class="result-label">Cash Needed</div>
+        <div class="result-value" id="cashNeeded"></div>
+      </div>
+      <div class="result-item">
+        <div class="result-label">Refinance Amount</div>
+        <div class="result-value" id="refiAmount"></div>
+      </div>
+      <div class="result-item">
+        <div class="result-label">Cash-Out</div>
+        <div class="result-value" id="cashOut"></div>
+      </div>
+      <div class="result-item">
+        <div class="result-label">Equity Built</div>
+        <div class="result-style" id="equityBuilt"></div>
+      </div>
+    </div>
+
+    <!-- Cash Flow Visual -->
+    <div class="section" style="margin-top: 20px;">
+      <h3>📊 Monthly Cash Flow</h3>
+      <div class="cash-flow-visual" id="cashFlowVisual">
+        <!-- filled by JS -->
+      </div>
+    </div>
+
+    <!-- Key Metrics -->
+    <div class="section" style="margin-top: 20px;">
+      <h3>🎯 Key BRRRR Metrics</h3>
+      <table class="detail-table" id="metricsTable">
+        <!-- filled by JS -->
+      </table>
+    </div>
+
+    <!-- Strategy Notes -->
+    <div class="section" style="margin-top: 20px;">
+      <h3>🧠 BRRRR Strategy Analysis</h3>
+      <div id="strategyNotes" style="color: var(--muted); font-size: 0.9rem; line-height: 1.8;"></div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <h3>Want a Full Deal Analysis?</h3>
+    <p>Send us your property details and we'll run a comprehensive BRRRR analysis with market comparables, timeline projections, and risk assessment.</p>
+    <form id="leadForm" onsubmit="return submitLead(event)">
+      <div class="form-inline">
+        <input type="email" id="leadEmail" placeholder="Your email address" required/>
+        <button type="submit">Get Analysis →</button>
+      </div>
+    </form>
+    <div id="successMsg" class="success-msg">✅ Thanks! We'll send your analysis within 24 hours.</div>
+  </div>
+
+  <!-- What is BRRRR -->
+  <div class="section" style="margin-top: 32px;">
+    <h3>📖 What Is BRRRR?</h3>
+    <p style="color: var(--muted); font-size: 0.9rem; line-height: 1.8;">
+      <strong>BRRRR</strong> stands for <em>Buy, Rehab, Rent, Refinance, Repeat</em>. It's a real estate investment strategy where you:<br/><br/>
+      <strong>1. Buy</strong> — Purchase a distressed property below market value<br/>
+      <strong>2. Rehab</strong> — Renovate to increase the property's value (ARV)<br/>
+      <strong>3. Rent</strong> — Place a qualified tenant and generate cash flow<br/>
+      <strong>4. Refinance</strong> — Obtain a new mortgage based on the higher ARV, pulling out your original capital<br/>
+      <strong>5. Repeat</strong> — Use the recycled capital to acquire another property<br/><br/>
+      The magic of BRRRR is that you can potentially recycle 100%+ of your initial investment, allowing you to scale a rental portfolio with minimal ongoing capital outlay. This calculator helps you model each step and determine if a deal meets your criteria for a successful BRRRR strategy.
+    </p>
+  </div>
+
+  <footer class="footer">
+    Luminary Ventures · Deterministic Real Estate Analysis Tools<br/>
+    <span style="font-size:12px;">Built by Andrey Derevianko · <a href="https://dereviankoandrey.github.io/luminary-product-hub/" style="color: var(--purple); text-decoration: none;">More Tools →</a></span>
+  </footer>
+</div>
+
+<script>
+function fmt(n) {
+  if (n >= 1e6) return '$' + (n/1e6).toFixed(2) + 'M';
+  if (n >= 1e3) return '$' + n.toLocaleString('en-US', {minimumFractionDigits:0, maximumFractionDigits:0});
+  return '$' + n.toFixed(0);
+}
+
+function fmtMonthly(n) {
+  const sign = n < 0 ? '-' : '';
+  return sign + fmt(Math.abs(n));
+}
+
+function calculateBRRRR() {
+  // Get values
+  const purchasePrice = parseFloat(document.getElementById('purchasePrice').value) || 0;
+  const rehabCost = parseFloat(document.getElementById('rehabCost').value) || 0;
+  const closingCosts = parseFloat(document.getElementById('closingCosts').value) || 0;
+  const hardMoneyRate = parseFloat(document.getElementById('hardMoneyRate').value) || 0;
+  
+  const arv = parseFloat(document.getElementById('arv').value) || 0;
+  const ltv = parseFloat(document.getElementById('loanToValue').value) / 100 || 0.75;
+  const refiRate = parseFloat(document.getElementById('refiRate').value) / 100 || 0.065;
+  const loanTerm = parseInt(document.getElementById('loanTerm').value) || 30;
+  
+  const monthlyRent = parseFloat(document.getElementById('monthlyRent').value) || 0;
+  const vacancyRate = parseFloat(document.getElementById('vacancyRate').value) / 100 || 0.08;
+  const annualTax = parseFloat(document.getElementById('propertyTax').value) || 0;
+  const annualInsurance = parseFloat(document.getElementById('insurance').value) || 0;
+  const maintenancePct = parseFloat(document.getElementById('maintenancePct').value) / 100 || 0.08;
+  const monthlyHOA = parseFloat(document.getElementById('hoaFee').value) || 0;
+
+  // Total investment
+  const totalInvestment = purchasePrice + rehabCost + closingCosts;
+  
+  // Refinance amount (based on LTV of ARV)
+  const refiAmount = arv * ltv;
+  
+  // Cash needed upfront (investment minus any initial financing - simplified: assume all cash)
+  const cashNeeded = totalInvestment;
+
+  // Monthly mortgage payment (P&I)
+  const monthlyRate = refiRate / 12;
+  const numPayments = loanTerm * 12;
+  let monthlyMortgage = 0;
+  if (monthlyRate > 0 && numPayments > 0) {
+    monthlyMortgage = refiAmount * (monthlyRate * Math.pow(1 + monthlyRate, numPayments)) / (Math.pow(1 + monthlyRate, numPayments) - 1);
+  }
+
+  // Monthly expenses
+  const effectiveRent = monthlyRent * (1 - vacancyRate);
+  const monthlyTax = annualTax / 12;
+  const monthlyInsurance = annualInsurance / 12;
+  const monthlyMaintenance = monthlyRent * maintenancePct;
+  const totalMonthlyExpenses = monthlyMortgage + monthlyTax + monthlyInsurance + monthlyMaintenance + monthlyHOA;
+  
+  // Monthly cash flow
+  const monthlyCashFlow = effectiveRent - totalMonthlyExpenses;
+  const annualCashFlow = monthlyCashFlow * 12;
+
+  // Cash-out (refinance minus original investment)
+  const cashOut = refiAmount - cashNeeded;
+  const isPositiveCashOut = cashOut > 0;
+
+  // Equity built (ARV minus remaining loan balance approximated as refi amount for simplicity)
+  const equityBuilt = arv - refiAmount;
+
+  // Cash-on-cash return (annual cash flow / total investment)
+  const cashOnCashReturn = cashNeeded > 0 ? (annualCashFlow / cashNeeded) * 100 : 0;
+
+  // Gross yield (annual rent / total investment)
+  const grossYield = cashNeeded > 0 ? ((monthlyRent * 12) / cashNeeded) * 100 : 0;
+
+  // DSCR (Debt Service Coverage Ratio)
+  const dscr = monthlyMortgage > 0 ? effectiveRent / monthlyMortgage : 0;
+
+  // ROI including equity appreciation
+  const totalROI = cashNeeded > 0 ? ((annualCashFlow + equityBuilt) / cashNeeded) * 100 : 0;
+
+  // Show results
+  document.getElementById('results').classList.add('visible');
+
+  // Recommendation bar
+  const recBar = document.getElementById('recBar');
+  let recClass, recText;
+  if (monthlyCashFlow >= 200 && dscr >= 1.25 && cashOnCashReturn >= 8) {
+    recClass = 'rec-go';
+    recText = '✅ STRONG BRRRR DEAL — Meets all key criteria';
+  } else if (monthlyCashFlow >= 50 && dscr >= 1.0 && cashOnCashReturn >= 3) {
+    recClass = 'rec-review';
+    recText = '⚠️ MARGINAL — Needs optimization or higher rent';
+  } else {
+    recClass = 'rec-nogo';
+    recText = '❌ WEAK DEAL — Doesn\'t meet BRRRR criteria';
+  }
+  recBar.className = 'rec-bar ' + recClass;
+  recBar.textContent = recText;
+
+  // Investment table
+  document.getElementById('investmentTable').innerHTML = `
+    <tr><td class="label">Purchase Price</td><td class="value">${fmt(purchasePrice)}</td></tr>
+    <tr><td class="label">Rehab Costs</td><td class="value">${fmt(rehabCost)}</td></tr>
+    <tr><td class="label">Closing &amp; Other</td><td class="value">${fmt(closingCosts)}</td></tr>
+    <tr><td class="label">Total Initial Investment</td><td class="value" style="color: var(--amber); font-size: 1.05rem;">${fmt(totalInvestment)}</td></tr>
+  `;
+
+  // Key metrics grid
+  document.getElementById('cashNeeded').textContent = fmt(cashNeeded);
+  document.getElementById('refiAmount').textContent = fmt(refiAmount);
+  
+  const cashOutEl = document.getElementById('cashOut');
+  cashOutEl.textContent = (isPositiveCashOut ? '+' : '') + fmt(cashOut);
+  cashOutEl.style.color = isPositiveCashOut ? 'var(--green)' : 'var(--red)';
+
+  const equityEl = document.getElementById('equityBuilt');
+  equityEl.textContent = fmt(equityBuilt);
+  equityEl.style.color = 'var(--purple)';
+
+  // Cash flow visual
+  const maxExpense = Math.max(Math.abs(monthlyMortgage), effectiveRent, totalMonthlyExpenses, 1);
+  document.getElementById('cashFlowVisual').innerHTML = `
+    <div class="cf-bar-container">
+      <div class="cf-label">Gross Rent</div>
+      <div class="cf-bar-bg"><div class="cf-bar" style="width: ${Math.min(100, (effectiveRent/maxExpense)*100)}%; background: var(--green);">${fmtMonthly(effectiveRent)}</div></div>
+    </div>
+    <div class="cf-bar-container">
+      <div class="cf-label">Mortgage (P&I)</div>
+      <div class="cf-bar-bg"><div class="cf-bar" style="width: ${Math.min(100, (monthlyMortgage/maxExpense)*100)}%; background: var(--red);">${fmtMonthly(-monthlyMortgage)}</div></div>
+    </div>
+    <div class="cf-bar-container">
+      <div class="cf-label">Other Expenses</div>
+      <div class="cf-bar-bg"><div class="cf-bar" style="width: ${Math.min(100, (((monthlyTax + monthlyInsurance + monthlyMaintenance + monthlyHOA))/maxExpense)*100)}%; background: var(--amber);">${fmtMonthly(-(monthlyTax + monthlyInsurance + monthlyMaintenance + monthlyHOA))}</div></div>
+    </div>
+    <div class="cf-bar-container" style="margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--border);">
+      <div class="cf-label"><strong>Cash Flow</strong></div>
+      <div class="cf-bar-bg"><div class="cf-bar" style="width: ${Math.min(100, (Math.abs(monthlyCashFlow)/maxExpense)*100)}%; background: ${monthlyCashFlow >= 0 ? 'var(--cyan)' : 'var(--red)'};">${fmtMonthly(monthlyCashFlow)}</div></div>
+      <div class="cf-value" style="color: ${monthlyCashFlow >= 0 ? 'var(--green)' : 'var(--red)'}; font-weight: 700;">${fmtMonthly(monthlyCashFlow)}<br/>/mo</div>
+    </div>
+  `;
+
+  // Metrics table
+  document.getElementById('metricsTable').innerHTML = `
+    <tr><td class="label">Monthly Cash Flow</td><td class="value" style="color: ${monthlyCashFlow >= 0 ? 'var(--green)' : 'var(--red)'};">${fmtMonthly(monthlyCashFlow)}</td></tr>
+    <tr><td class="label">Annual Cash Flow</td><td class="value" style="color: ${annualCashFlow >= 0 ? 'var(--green)' : 'var(--red)'};">${fmtMonthly(annualCashFlow)}</td></tr>
+    <tr><td class="label">DSCR (Debt Coverage)</td><td class="value">${dscr.toFixed(2)}x</td></tr>
+    <tr><td class="label">Cash-on-Cash Return</td><td class="value" style="color: ${cashOnCashReturn >= 0 ? 'var(--green)' : 'var(--red)'};">${cashOnCashReturn.toFixed(1)}%</td></tr>
+    <tr><td class="label">Gross Yield</td><td class="value">${grossYield.toFixed(1)}%</td></tr>
+    <tr><td class="label">Total ROI (incl. equity)</td><td class="value" style="color: 'var(--purple)';">${totalROI.toFixed(1)}%/yr</td></tr>
+    <tr><td class="label">Equity Built via Rehab</td><td class="value">${fmt(equityBuilt)}</td></tr>
+    <tr><td class="label">Cash-Back at Refi</td><td class="value" style="color: ${isPositiveCashOut ? 'var(--green)' : 'var(--red)'};">${isPositiveCashOut ? '+' : ''}${fmt(cashOut)}</td></tr>
+    <tr><td class="label">ARV / Investment Ratio</td><td class="value">${(arv / totalInvestment).toFixed(2)}x</td></tr>
+  `;
+
+  // Strategy notes
+  let notes = [];
+  if (monthlyCashFlow >= 200) {
+    notes.push('✅ <strong>Cash flow is strong</strong> at ' + fmtMonthly(monthlyCashFlow) + '/mo — well above the $100/mo BRRRR minimum.');
+  } else if (monthlyCashFlow >= 50) {
+    notes.push('⚠️ <strong>Cash flow is thin</strong> at ' + fmtMonthly(monthlyCashFlow) + '/mo. Consider higher rent, lower purchase price, or larger down payment.');
+  } else {
+    notes.push('❌ <strong>Negative cash flow</strong> — this deal may not work for BRRRR unless you can significantly increase rent or reduce costs.');
+  }
+  
+  if (dscr >= 1.25) {
+    notes.push('✅ <strong>DSCR of ' + dscr.toFixed(2) + 'x</strong> meets most lender requirements (typically ≥1.20-1.25x).');
+  } else if (dscr >= 1.0) {
+    notes.push('⚠️ <strong>DSCR of ' + dscr.toFixed(2) + 'x</strong> is below typical lender thresholds — refinancing may be challenging.');
+  } else {
+    notes.push('❌ <strong>DSCR below 1.0x</strong> means rental income doesn\'t cover mortgage — lenders will likely decline refinance.');
+  }
+
+  if (isPositiveCashOut) {
+    notes.push('🎉 <strong>' + fmt(cashOut) + ' cash-back at refi!</strong> You\'re recycling capital to deploy in your next deal.');
+  } else {
+    notes.push('💡 To achieve positive cash-out, you need ARV ≥ ' + fmt((cashNeeded / ltv)) + ' or a higher LTV ratio.');
+  }
+
+  if (arv > totalInvestment * 1.3) {
+    notes.push('✅ <strong>ARV is ' + ((arv/totalInvestment - 1)*100).toFixed(0) + '% above investment</strong> — good value-add margin for lender confidence.');
+  } else {
+    notes.push('⚠️ ARV margin is tight. BRRRR typically requires ≥30% equity cushion after rehab.');
+  }
+
+  if (cashOnCashReturn >= 8) {
+    notes.push('✅ <strong>Cash-on-cash return of ' + cashOnCashReturn.toFixed(1) + '%</strong> exceeds the typical 6-8% BRRRR target.');
+  } else {
+    notes.push('⚠️ Cash-on-cash return is below the 6-8% BRRRR benchmark. Focus on increasing rent or reducing purchase price.');
+  }
+
+  document.getElementById('strategyNotes').innerHTML = '<br/>' + notes.join('<br/>');
+
+  // Scroll to results
+  document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function resetForm() {
+  document.getElementById('purchasePrice').value = 120000;
+  document.getElementById('rehabCost').value = 35000;
+  document.getElementById('closingCosts').value = 4200;
+  document.getElementById('hardMoneyRate').value = 10.5;
+  document.getElementById('arv').value = 195000;
+  document.getElementById('loanToValue').value = 75;
+  document.getElementById('refiRate').value = 6.5;
+  document.getElementById('loanTerm').value = '30';
+  document.getElementById('monthlyRent').value = 1650;
+  document.getElementById('vacancyRate').value = 8;
+  document.getElementById('propertyTax').value = 2400;
+  document.getElementById('insurance').value = 1200;
+  document.getElementById('maintenancePct').value = 8;
+  document.getElementById('hoaFee').value = 0;
+  document.getElementById('results').classList.remove('visible');
+}
+
+function submitLead(e) {
+  e.preventDefault();
+  const email = document.getElementById('leadEmail').value;
+  if (email) {
+    // Opens mailto with pre-filled subject linking to Product Hub
+    window.location.href = 'mailto:andrey.derevianko@gmail.com?subject=BRRRR Deal Analysis Request&body=Hi Andrey,%0A%0AI used the BRRRR Calculator on Luminary Ventures and would like a full deal analysis.%0A%0AMy email: ' + encodeURIComponent(email);
+    document.getElementById('successMsg').style.display = 'block';
+  }
+  return false;
+}
+
+// Auto-calculate on load with defaults
+window.addEventListener('DOMContentLoaded', () => {
+  // Don't auto-calc — let user click the button for engagement
+});
+</script>
+</body>
+</html>
