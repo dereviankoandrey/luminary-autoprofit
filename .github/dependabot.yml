@@ -1,0 +1,13 @@
+# Dependabot version updates: monthly, one grouped PR per ecosystem (founder, 31 Oct 2026).
+version: 2
+updates:
+  - package-ecosystem: pip
+    directories:
+      - "/"
+      - "/underwriting_deploy"
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 2
+    groups:
+      all-updates:
+        patterns: ["*"]
